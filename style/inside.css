@@ -1,0 +1,29 @@
+
+#col1 {
+	clear: both;
+	height: 600px;
+	background: url('../images/inner_logo.png') no-repeat top center;
+	background-size: 350px;
+	width: 0px;
+	height: 600px;
+	padding-left: 350px;
+}
+
+#nav {
+	position: relative;
+	left: 280px;
+	width: 600px;
+}
+
+#nav_links {
+	padding-left: 80px;
+}
+
+#content {
+	text-align: left;
+	width: 600px;
+	min-height: 460px;
+	position: relative;
+	left: 280px;
+	overflow: hidden;
+}

@@ -1,0 +1,33 @@
+
+#nav_links {
+	padding: 50px 0 0 0;
+	list-style-type: none;
+}
+
+#nav_links li {
+	float: left;
+	font-weight: -100;
+	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 1.4em;
+	color: #CFCFE8;
+	padding: 0 15px;
+	text-align: center;
+}
+
+#nav_links li a {
+	color: #CFCFE8;
+}
+
+#nav_links li a:hover {
+	cursor: pointer;
+	text-decoration: none;
+	border: thick solid #CFCFE8;;
+	border-left: 0;
+	border-right: 0;
+}
+
+.active_tab {
+	border: thick solid #CFCFE8;
+	border-left: 0;
+	border-right: 0;
+}
