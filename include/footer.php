@@ -1,7 +1,6 @@
-
-		
 		<div id="footer">
-			<img src="images/footer_bg.png" height="50"/>
+			Copyright 2012 1393 Designs&nbsp;|
+			<a href="admin.php">Login</a>
 		</div><!-- end #footer -->
 		
 

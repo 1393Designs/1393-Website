@@ -24,13 +24,17 @@ body {
 
 #footer {
 	clear: both;
-	padding: 30px 0 0 0;
+	padding: 50px 0 0 0;
 	width: 900px;
 	height: 70px;
 	overflow: hidden;
 	text-align: center;
 	margin-bottom: 0;
 	background: url('../images/trim.png') no-repeat top center;
+	color: #CFCFE8;
+}
+
+#footer img {
 }
 
 #col1 {
@@ -109,7 +113,7 @@ a:visited {
 	text-align: right;
 }
 
-.date, .bio_img {
+.date, .bio_img, .op {
 	margin: 0px auto;
 	line-height: 1.5em;
 	display: inline;
@@ -123,7 +127,7 @@ a:visited {
 	color: #CFCFE8;
 }
 
-.bio_img {
+.bio_img, .op {
 	padding-top: 20px;
 }
 
@@ -148,4 +152,14 @@ a:visited {
 
 .heavy_grey {
 	font-weight: bold;
+}
+
+input[type="password"], input[type="search"], input[type="text"], input[type="textbox"], input[type="textarea"], textarea {
+	border: 1px #C7C7C7 solid;
+	color: #333;
+	cursor: pointer;
+	padding: 0.1em 0.4em 0.1em 0.4em;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	cursor: text;
 }

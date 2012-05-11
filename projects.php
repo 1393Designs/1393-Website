@@ -21,7 +21,7 @@ $(function() {
 
 <style>
 #image {
-	border:4px #666 solid;
+	border: 4px solid #ccc;
 	height:250px;
 	width:500px;
 }

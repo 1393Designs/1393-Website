@@ -1,6 +1,6 @@
 
 #nav_links {
-	padding: 50px 0 0 0;
+	padding: 50px 0 0 20px;
 	list-style-type: none;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .menu {
-	position: relative;
+	position: absolute;
 	z-index: 4;
 	font-size: .6em;
 	list-style-type: none;

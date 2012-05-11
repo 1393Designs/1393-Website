@@ -4,7 +4,7 @@
 <html>
 <head>
 
-<title>1393 Designs | Home</title>
+<title>1393 Designs | Admin</title>
 
 <meta charset="utf-8"/>
 <!--[if lt IE 9]>
@@ -18,53 +18,36 @@
 <link type="text/css" rel="stylesheet" href="style/base.css"/>
 <link type="text/css" rel="stylesheet" href="style/nav.css"/>
 <link type="text/css" rel="stylesheet" href="style/inside.css"/>
-
-
 <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-
 <script type="text/javascript">
 
 $(function() {
 
-	$('.nav_link').hover(function() {
-		$(this).siblings('.menu').toggle();
-	});
-	
-	$('.menu').hover(function() {
-		$(this).toggle();
-		$(this).siblings('.nav_link').toggleClass('hover_tab');
-	});
-
 });
 
-$.fn.activate = function() {
-	$(this).siblings().removeClass('active_tab');
-	$(this).addClass('active_tab');
-	
-	var name = $(this).attr('id').split('_tab');
-	var new_title = capitalize(name[0]);
-	document.title = '1393 Designs | ' +new_title;
-};
-
-function capitalize(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-};
-
 </script>
+
+<style>
+
+
+
+</style>
+
 </head>
 <body>
 
 <div id="container">
-
+	
+<!--
 		<div class="big_col" id="col1">
 			<div id="search_box">
 				<input type="search" placeholder="Search"/>
 				<a href="search.php" id="search"></a>
 			</div>
 			
-		</div><!-- end #col1 -->
+		</div> end #col1 
 		
 			<div id="nav">
 				<ul id="nav_links">
@@ -88,4 +71,4 @@ function capitalize(string) {
 					</li>
 					<li><a id="contact_tab" href="contact.php">Contact</a></li>
 				</ul>
-			</div>
+			</div>-->
