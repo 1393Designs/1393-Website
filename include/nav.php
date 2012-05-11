@@ -21,11 +21,19 @@
 <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
 <script type="text/javascript">
 
 $(function() {
 
-
+	$('.nav_link').hover(function() {
+		$(this).siblings('.menu').toggle();
+	});
+	
+	$('.menu').hover(function() {
+		$(this).toggle();
+		$(this).siblings('.nav_link').toggleClass('hover_tab');
+	});
 
 });
 
@@ -49,15 +57,33 @@ function capitalize(string) {
 <div id="container">
 
 		<div class="big_col" id="col1">
+			<div id="search_box">
+				<input type="search" placeholder="Search"/>
+				<a href="search.php" id="search"></a>
+			</div>
 			
 		</div><!-- end #col1 -->
 		
 			<div id="nav">
 				<ul id="nav_links">
-					<li><a id="home_tab" href="index.php">Home</a></li>
-					<li><a id="blog_tab" href="blog.php">Blog</a></li>
-					<li><a id="team_tab" href="team.php">Team</a></li>
-					<li><a id="projects_tab" href="projects.php">Projects</a></li>
+					<li><a class="nav_link" id="home_tab" href="index.php">Home</a></li>
+					<li><a class="nav_link" id="blog_tab" href="blog.php">Blog</a></li>
+					<li><a class="nav_link" id="team_tab" href="team.php">Team</a><ul id="projects_menu" class="menu" style="display:none">
+							<li><a href="">Vince</a></li>
+							<li><a href="">Sean</a></li>
+							<li><a href="">Kim</a></li>
+							<li><a href="">Rob</a></li>
+							<li><a href="">Joel</a></li>
+						</ul>	
+					</li>
+					<li>
+						<a class="nav_link" id="projects_tab" href="projects.php">Projects</a>
+						<ul id="projects_menu" class="menu" style="display:none">
+							<li><a href="">Textpansion</a></li>
+							<li><a href="">PunchTracker</a></li>
+							<li><a href="">TxtEncrypt</a></li>
+						</ul>						
+					</li>
 					<li><a id="contact_tab" href="contact.php">Contact</a></li>
 				</ul>
 			</div>

@@ -4,9 +4,33 @@
 	height: 600px;
 	background: url('../images/inner_logo.png') no-repeat top center;
 	background-size: 350px;
-	width: 0px;
+	width: 350px;
 	height: 600px;
-	padding-left: 350px;
+}
+
+#search_box {
+	margin-top: 315px;
+	padding: 0 0 0 3px;
+	width: 280px;
+	float: left;
+}
+
+#search_box input {
+	width: 255px;
+	float: left;
+}
+
+#search {
+	margin-left: -15px;
+	width: 17px;
+	height: 17px;
+	float: left;
+	cursor: pointer;
+	background: url('../images/search_img.png') no-repeat top center;
+}
+
+#search:active {
+	background: url('../images/search_img_pressed.png') no-repeat top center;
 }
 
 #nav {
@@ -20,10 +44,12 @@
 }
 
 #content {
+	clear:both;
 	text-align: left;
 	width: 600px;
 	min-height: 460px;
 	position: relative;
+	z-index: 3;
 	left: 280px;
 	overflow: hidden;
 }

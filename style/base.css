@@ -25,12 +25,11 @@ body {
 #footer {
 	clear: both;
 	padding: 30px 0 0 0;
-	position: relative;
-	top: 40px;
 	width: 900px;
 	height: 70px;
 	overflow: hidden;
 	text-align: center;
+	margin-bottom: 0;
 	background: url('../images/trim.png') no-repeat top center;
 }
 
@@ -58,10 +57,14 @@ body {
 	width: 460px;
 }
 
-h2 {
+h2, h4 {
 	font-weight: normal;
 	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
-	color: #D1D1EC;
+	color: #CFCFE8;
+}
+
+h4 {
+	font-size: 1.4em;
 }
 
 h3 {
@@ -86,7 +89,7 @@ a:visited {
 	clear: both;
 }
 
-.article {
+.article, .bio {
 	float: left;
 	text-align: justify;
 	line-height: 1.3em;
@@ -106,7 +109,7 @@ a:visited {
 	text-align: right;
 }
 
-.date {
+.date, .bio_img {
 	margin: 0px auto;
 	line-height: 1.5em;
 	display: inline;
@@ -118,6 +121,10 @@ a:visited {
 	background: url('../images/bubble.png') no-repeat top center;
 	background-size: 65px;
 	color: #CFCFE8;
+}
+
+.bio_img {
+	padding-top: 20px;
 }
 
 .date_month {
