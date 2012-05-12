@@ -1,9 +1,8 @@
 <?
 
 	include('data/config.php');
-	include('data/sql.php');
-	include('data/user.php');
-	include('data/article.php');
+	
+	$projects = getProjects();
 ?>
 
 <!DOCTYPE html>
@@ -24,12 +23,9 @@
 <link type="text/css" rel="stylesheet" href="style/base.css"/>
 <link type="text/css" rel="stylesheet" href="style/nav.css"/>
 <link type="text/css" rel="stylesheet" href="style/inside.css"/>
-
-
 <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-
 <script type="text/javascript">
 
 $(function() {
@@ -87,9 +83,19 @@ function capitalize(string) {
 					<li>
 						<a class="nav_link" id="projects_tab" href="projects.php">Projects</a>
 						<ul id="projects_menu" class="menu" style="display:none">
-							<li><a href="">Textpansion</a></li>
-							<li><a href="">PunchTracker</a></li>
-							<li><a href="">TxtEncrypt</a></li>
+							<?
+							
+							foreach ($projects as $p) {
+								$name = $p['name'];
+							?>
+							
+							<li><a href=""><? echo $name ?></a></li>
+							
+							<?
+							
+							}
+							
+							?>
 						</ul>						
 					</li>
 					<li><a id="contact_tab" href="contact.php">Contact</a></li>

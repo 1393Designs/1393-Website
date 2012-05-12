@@ -1,9 +1,8 @@
 <?
 
 	include('data/config.php');
-	include('data/sql.php');
-	include('data/article.php');
-
+	
+	$projects = getProjects();
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +31,14 @@
 
 $(function() {
 
-
+	$('.nav_link').hover(function() {
+		$(this).siblings('.menu').toggle();
+	});
+	
+	$('.menu').hover(function() {
+		$(this).toggle();
+		$(this).siblings('.nav_link').toggleClass('hover_tab');
+	});
 
 });
 
@@ -63,10 +69,34 @@ $.fn.activate = function() {
 		
 			<div id="nav">
 				<ul id="nav_links">
-					<li><a id="home_tab" href="index.php">Home</a></li>
-					<li><a id="blog_tab" href="blog.php">Blog</a></li>
-					<li><a id="team_tab" href="team.php">Team</a></li>
-					<li><a id="projects_tab" href="projects.php">Projects</a></li>
+					<li><a class="nav_link" id="home_tab" href="index.php">Home</a></li>
+					<li><a class="nav_link" id="blog_tab" href="blog.php">Blog</a></li>
+					<li><a class="nav_link" id="team_tab" href="team.php">Team</a><ul id="projects_menu" class="menu" style="display:none">
+							<li><a href="">Vince</a></li>
+							<li><a href="">Sean</a></li>
+							<li><a href="">Kim</a></li>
+							<li><a href="">Rob</a></li>
+							<li><a href="">Joel</a></li>
+						</ul>	
+					</li>
+					<li>
+						<a class="nav_link" id="projects_tab" href="projects.php">Projects</a>
+						<ul id="projects_menu" class="menu" style="display:none">
+							<?
+							
+							foreach ($projects as $p) {
+								$name = $p['name'];
+							?>
+							
+							<li><a href=""><? echo $name ?></a></li>
+							
+							<?
+							
+							}
+							
+							?>
+						</ul>						
+					</li>
 					<li><a id="contact_tab" href="contact.php">Contact</a></li>
 				</ul>
 			</div>

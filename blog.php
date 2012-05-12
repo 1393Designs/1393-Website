@@ -34,6 +34,7 @@ $(function() {
 					<div class="date">
 						<span class="date_month"><? echo $month ?></span><span class="date_day"><? echo $day ?></span>
 					</div>
+					<div class="heavy_purple"><? echo $title ?></div>
 					<? echo $text ?>
 					<p class="details">Posted by <? echo $author ?> @ 11:07am</p>
 					
