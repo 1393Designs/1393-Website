@@ -3,13 +3,10 @@
 	define("DB_HOST", "localhost");
 	define("DB_USER", "root");
 	define("DB_PASS", "");
-	define("DB_DATABASE", "1393");
+	define("DB_DATABASE", "1393_site");
 	
 	define("TABLE_USER", "user");
-	define("TABLE_ITEM", "item");
-	define("TABLE_LIST", "list");
-	define("TABLE_LIST_USER", "map_list_user");
-	define("TABLE_DEVICE", "device");
+	define("TABLE_ARTICLE", "article");
 	
 function dbConn() { // connect with MySQLI (OOP)
 

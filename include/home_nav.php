@@ -1,3 +1,11 @@
+<?
+
+	include('data/config.php');
+	include('data/sql.php');
+	include('data/article.php');
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

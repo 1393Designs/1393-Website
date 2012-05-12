@@ -1,0 +1,50 @@
+
+#container {
+	min-height: 580px;
+}
+
+#content {
+	left: 0px;
+	top: 10px;
+	width: 95%;
+	margin: 0px auto;
+}
+
+.section {
+	min-height: 50px;
+	border: 2px solid #57527E;
+	background: #CFCFE8;
+	padding: 5px;
+	overflow: hidden;
+	padding-right: 0;
+	margin-right: 0;
+}
+
+h3 {
+	margin: 30px 0 0 0;
+	font-size: 1.2em;
+	color: #57527E;
+}
+
+#blog, #profile {
+	float: left;
+	width: 90%;
+	overflow-y: scroll;
+}
+
+#blog_title {
+	width: 90%;
+}
+
+.op {
+	height: 55px;
+	width: 58px;
+	margin: 5px;
+	float: left;
+	cursor: pointer;
+}
+
+.op:hover {
+	color: #ccc;
+	text-decoration: underline;
+}

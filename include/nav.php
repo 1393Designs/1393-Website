@@ -1,4 +1,10 @@
+<?
 
+	include('data/config.php');
+	include('data/sql.php');
+	include('data/user.php');
+	include('data/article.php');
+?>
 
 <!DOCTYPE html>
 <html>

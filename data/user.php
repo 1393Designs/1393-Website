@@ -1,30 +1,13 @@
 <?
 
-
-
 function getBio($id) {
 	
-	$str = "Shank speck pork loin hamburger turkey tri-tip. Hamburger meatball salami frankfurter. Hamburger beef ribs capicola frankfurter. Beef shankle shank turducken, spare ribs rump frankfurter pancetta pork loin kielbasa."
+	$str = "Shank speck pork loin hamburger turkey tri-tip. Hamburger meatball salami frankfurter. Hamburger beef ribs capicola frankfurter. Beef shankle shank turducken, spare ribs rump frankfurter pancetta pork loin kielbasa.";
+	$where = 'id='.$id;
+	$str = query_select_one('*', TABLE_USER, $where);
 	return $str;
 	
-}
-
-function getProjects($id) {
-	
-	return "Texpansion, PunchTracker";
-	
-}
-
-	
-	function getUsername($id, $option=null) {
-		$query = "SELECT fname,lname FROM user WHERE id = '$id'";
-		$result = mysql_query($query) or die(mysql_error());
-		$row = mysql_fetch_array($result);
-		if ($option == 'full') return $row['fname'].' '.$row['lname'];
-		else if ($option == 'short') return $row['fname'].' '.$row['lname'][0].'.';
-		
-		else return $row[0];
-	} // end getusername
+} // getBio
 	
 	function login() {
 		$email= grab('email');

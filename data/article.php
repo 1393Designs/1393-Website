@@ -28,48 +28,23 @@ function createArticle() {
 	}
 } // end createArticle
 
-function formatArticles($articles) {
-	$str = "";
-	foreach ($articles as $a) {
-		$str .= "<div class='article'>";
-		$str .= "<input type='hidden' class='article_id' value='".$a['id']."'>";
+
+	function getRecentArticles() {
 		
-		$str .= "<h3>".$a['title']."</h3>";
-		$str .= "<span class='author'>by ".getUsername($a['user_id'])."</span>";
-		$str .= "<span class='memberTimestamp'>".toDateWithAgo($a['post_date'])."</span><br>";
-		$str .= "<span class='article_content'>".$a['content']."</span>";
-		$str .= "<div class='tags'>";
-		//$str .= formatUserTagsForArticle($a['id']);		
-		//$str .= formatTagsForArticle($a['id']);
-		$str .= "</div>"; // end div.tags
-		//$str .= formatCommentsForArticle($a['id']);
+		$str = query_select('*', TABLE_ARTICLE, '1 LIMIT 2');
+		return $str;
 		
-		$str .= "</div>";
-	}//end foreach
-	return $str;
-} // end formatArticles
-
-
-function getAllArticles() {
-	$str = "";
-	$articles = queryArticles();
-	$str .= formatArticles($articles);
-	return $str;
-} // end getAllArticles
-
-
-
-function queryArticles() {
-	$query = "SELECT * FROM article WHERE article.active='1' ORDER BY post_date DESC";
-	$result = mysql_query($query) or die(mysql_error());
-	$articles = array();
-	while($row = mysql_fetch_array($result)){
-			$articles[] = $row;
-		}
-	return $articles;
-} // end queryArticles
-
-
+	} // end getRecentArticles
+	
+	
+	function getArticles() {
+		
+		$str = query_select('*', TABLE_ARTICLE);
+		return $str;
+		
+	} // end getArticles
+	
+	
 	
 	function toDate($date){
 		$r = strtotime($date);
@@ -91,6 +66,18 @@ function queryArticles() {
 		
 		return ago($r)." on $d";
 	} // end toDateWithAgo
+	
+
+function getAllArticles() {
+	$str = "";
+	$articles = queryArticles();
+	$str .= formatArticles($articles);
+	return $str;
+} // end getAllArticles
+
+
+
+
 
 
 ?>
