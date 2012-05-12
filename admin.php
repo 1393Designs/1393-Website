@@ -2,19 +2,7 @@
 <? include('include/admin_nav.php'); 
 
 session_start(); // start the admin session
-
-$do = $_GET['do'];
-if ($do == 'logout') {
-	session_destroy(); 						//end admin session (effectively log out)
-	header('location:index.php'); // and return to index/main
-} 
-
-if (!session_is_registered('admin')) { //If session not registered as admin
-	header('location:index.php'); 			// then redirect to homepage.
-} else { 															//else continue to admin page
-	header('Content-Type: text/html; charset=utf-8');
-}
-
+$_SESSION['username'] = 'Kim';
 	
 	$profile = getBio(1);
 	$bio = $profile['bio'];
@@ -30,9 +18,25 @@ $(function() {
 	
 	$('#post').click(function() {
 		text = $('#blog').val().trim();
+		title = $('#blog_title').val().trim();
 		
-		if (text != '') {
-			alert('posting: '+text);
+		if (text != '' && title != '') {
+			
+			dataString = 'action=createArticle&content='+text;
+			dataString += '&title='+title;
+			
+			$.ajax({ 
+						 type: 'post',
+						 dataType: 'json',
+						 url: 'data/article.php',
+						 data: dataString,
+						 success: function(data) {
+							alert(data.response);
+						}, // end success
+						error: function(xhr, textStatus, errorThrown){
+							 alert('request failed' +textStatus + '->' + errorThrown);
+						}
+				}); // end ajax
 		} else {
 			alert('blank');
 		}
@@ -63,7 +67,7 @@ $(function() {
 		
 		<h3>New Blog Post</h3>
 		<div class="section">
-			<input id="blog_title" type="text"placeholder="Title foo" required/><br>
+			<input class="long" id="blog_title" type="text"placeholder="Title foo" required/><br>
 			<textarea id="blog" placeholder="Foo bar" rows="5" cols="60" required></textarea>
 			<div id="post" class="op">Post</div>
 		</div>	
@@ -74,6 +78,15 @@ $(function() {
 			<? echo $bio; ?>
 			</textarea>
 			<div id="save" class="op">Save</div>
+		</div>
+		
+		<h3>Add an App</h3>
+		<div class="section">
+			<input class="long" id="app_name" type="text"placeholder="App name foo" required/><br>
+			<input class="long" id="app_purpose" type="text"placeholder="Purpose" required/><br>
+			<input class="long" id="app_blurb" type="text"placeholder="Blurb" required/><br>
+			<textarea id="app" placeholder="More app details" rows="5" cols="60" required></textarea>
+			<div id="create_app" class="op">Create</div>
 		</div>
 		
 		</div><!-- end #content -->

@@ -26,13 +26,13 @@ h3 {
 	color: #57527E;
 }
 
-#blog, #profile {
+#blog, #profile, #app {
 	float: left;
 	width: 90%;
 	overflow-y: scroll;
 }
 
-#blog_title {
+.long {
 	width: 90%;
 }
 

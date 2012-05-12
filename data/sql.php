@@ -1,6 +1,7 @@
 <?
 
-
+	include_once('config.php');
+	
 	function query_select($fields, $table, $where='1') {
 	
 		db();
@@ -27,29 +28,15 @@
 		return $output;
 	} // end query_select_one
 
-
+	function query_insert($table, $values) {
+		db();
+		$query = "INSERT INTO $table VALUES($values)";	
+		$result = mysql_query($query) or die(mysql_error());
 	
-	function ago($time) {
-   $periods = array("second", "minute", "hour", "day", "week", "month", "year", "decade");
-   $lengths = array("60","60","24","7","4.35","12","10");
-
-   $now = time();
-
-       $difference     = $now - $time;
-       $tense         = "ago";
-
-   for($j = 0; $difference >= $lengths[$j] && $j < count($lengths)-1; $j++) {
-       $difference /= $lengths[$j];
-   }
-
-   $difference = round($difference);
-
-   if($difference != 1) {
-       $periods[$j].= "s";
-   }
-
-   return "$difference $periods[$j] ago";
- }
+		mysql_close();
+		return $query;
+	}
+	
  
  
  
