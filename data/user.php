@@ -13,12 +13,11 @@
 	
 function saveProfile($bio) {
 
-	//$id = $_SESSION['user_id']; 
-	$id = 1;
+	$id = $_SESSION['user_id']; 
 	$result = query_update(TABLE_USER, 'bio', $bio, $id);
 	echo json_encode(array('response'=>$result));
 
-} // end saveProfile
+} // saveProfile
 
 
 function getUsers() {
@@ -26,9 +25,9 @@ function getUsers() {
 	return $str;
 } // getUsers
 
-function getBio($id) {
+function getBio($email) {
 	
-	$where = 'id='.$id;
+	$where = "email='$email'";
 	$str = query_select_one('*', TABLE_USER, $where);
 	return $str;
 	

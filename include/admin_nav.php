@@ -23,7 +23,6 @@
 <link type="text/css" rel="stylesheet" href="style/nav.css"/>
 <link type="text/css" rel="stylesheet" href="style/inside.css"/>
 <link type="text/css" rel="stylesheet" href="style/admin.css"/>
-
 <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -48,12 +47,6 @@ $(function() {
 });
 
 </script>
-
-<style>
-
-
-
-</style>
 
 </head>
 <body>

@@ -1,20 +1,25 @@
 
 <? include('include/admin_nav.php'); 
 
-session_start(); // start the admin session
-$_SESSION['username'] = 'Kim';
+	session_start(); // start the admin session
 	
-	$profile = getBio(1);
-	$bio = $profile['bio'];
+	if (!session_is_registered('admin')) {
+		header('Location: index.php');
+	}
+	
+	$profile = getBio($_SESSION['email']);
+	$user_id = $profile['id'];
 	$name = $profile['name'];
-	$email = $profile['email'];
-	//$profile = getBio($_SESSION['id']);
+	$bio = $profile['bio'];
+	$_SESSION['user_id'] = $user_id;
+	$_SESSION['username'] = $name;
 
 ?>
 
 <script type="text/javascript">
 
 $(function() {
+
 	notification = $('#notification');
 	
 	$('#posts').bind('change', function() {
@@ -46,7 +51,7 @@ $(function() {
 			text = $('#edit_post_content').val().trim();
 			articleOp('saveArticle', id, title, text);
 		}					
-	}); // end #edit_post_button.click()
+	}); // end #edit_post_button.click
 
 	$('#projects').bind('change', function() {
 		id = $(this).attr('value');
@@ -202,7 +207,7 @@ function articleOp(action, id, title, content) {
 	<div id="content">
 	
 		<div class="op">&laquo;&nbsp;<a href="index.php">Back</a></div>
-		<h4 style="margin-top:20px">Admin<span style="float:right">Welcome, $name</span></h4>
+		<h4 style="margin-top:20px">Admin<span style="float:right">Welcome, <? $_SESSION['username'] ?></span></h4>
 		<div class="clearfix"></div>
 	
 		<div id="notification">adsf</div>

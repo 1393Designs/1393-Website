@@ -9,6 +9,7 @@
 			if (md5($_POST['password']) == '803c14aec7a828e3e1c08ef981da76c9') {
 				session_start();
 				session_register('admin');
+				$_SESSION['email'] = $_POST['email'];
 				header('location: admin.php');
 			} else {
 				echo "<h3>Invalid password.</h3>";

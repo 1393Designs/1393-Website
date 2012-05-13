@@ -6,10 +6,18 @@
 		
 	if (isset($_POST['login'])) {
 				
-			if (md5($_POST['password']) == '098f6bcd4621d373cade4e832627b4f6') {
+			if (isset($_POST['email']) && md5($_POST['password']) == '098f6bcd4621d373cade4e832627b4f6') {
 				session_start();
 				session_register('admin');
-				header('Location: admin.php');
+				$_SESSION['email'] = $_POST['email'];
+				?>
+				
+				<script>
+					window.location = "admin.php";
+				</script>
+				
+				<?
+				
 			} else {
 				echo "<h3>Invalid password.</h3>";
 			}
