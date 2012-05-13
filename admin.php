@@ -112,11 +112,11 @@ function finish(data, op) {
 	}
 	
 	$('#notification').text(msg)
-							.removeClass('error').removeClass('success')
-							.addClass(type)
-							.fadeTo('slow', 1, function() {
-								$(this).delay(1400).fadeTo('slow', 0);
-							});
+		.removeClass('error').removeClass('success')
+		.addClass(type)
+		.fadeTo('slow', 1, function() {
+			$(this).delay(2000).fadeTo('slow', 0);
+		});
 } // finish
 
 function appOp(action, name, purpose, blurb, details) {
@@ -263,12 +263,12 @@ function articleOp(action, id, title, content) {
 		<div>
 		
 				<div class="tabs">
-					<h3 id="editprofile_tab" class="active_tab">Profile</h3>
+					<h3 id="editprofile_tab" class="active_tab">Edit Profile</h3>
 				</div>
 				
 				<div id="editprofile" class="section">
 					<textarea id="profile" placeholder="Profile stuffs" rows="5" cols="60">
-					<? echo $bio; ?>
+					<? echo $bio ?>
 					</textarea>
 					<div id="save_profile_bubble" class="op">Save</div>
 				</div>

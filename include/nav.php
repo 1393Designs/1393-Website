@@ -3,6 +3,20 @@
 	include('data/config.php');
 	
 	$projects = getProjects();
+		
+	if (isset($_POST['login'])) {
+				
+			if (md5($_POST['password']) == '098f6bcd4621d373cade4e832627b4f6') {
+				session_start();
+				session_register('admin');
+				header('Location: admin.php');
+			} else {
+				echo "<h3>Invalid password.</h3>";
+			}
+				
+			unset($_POST);
+	}
+
 ?>
 
 <!DOCTYPE html>

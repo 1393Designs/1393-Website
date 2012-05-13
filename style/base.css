@@ -188,23 +188,3 @@ input[type="password"], input[type="search"], input[type="text"], input[type="te
 	cursor: text;
 }
 
-#notification {
-	text-align: center;
-	padding: 10px 5px;
-	position: absolute; 
-	top: 15px; 
-	opacity: 0;
-	border: 2px solid #333;
-	background: #efefef;
-}
-
-.success {
-	border: 2px solid #00CC66;
-	background: #CCF5E0;
-}
-
-.error {
-	border: 2px solid #FF9494;
-	background: #FFF4F4;
-}
-

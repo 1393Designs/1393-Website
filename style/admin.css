@@ -26,7 +26,7 @@ h3 {
 	color: #57527E;
 }
 
-.section textarea{
+.section textarea {
 	float: left;
 	width: 90%;
 	overflow-y: scroll;
@@ -87,4 +87,27 @@ h3.active_tab {
 
 select {
 	max-width: 200px;
+}
+
+
+#notification {
+	text-align: center;
+	padding: 10px 35px;
+	position: absolute; 
+	top: 35px; 
+	opacity: 0;
+	border: 2px solid #333;
+	background: #efefef;
+}
+
+#notification.success {
+	border: 2px solid #00CC66;
+	color: #00CC66;
+	background: #CCF5E0;
+}
+
+#notification.error {
+	border: 2px solid #FF9494;
+	color: #FF9494;
+	background: #FFF4F4;
 }

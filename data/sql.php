@@ -30,7 +30,8 @@
 
 	function query_insert($table, $values) {
 		db();
-		$query = "INSERT INTO $table VALUES($values)";	
+		$clean = addslashes(mysql_real_escape_string($values));
+		$query = "INSERT INTO $table VALUES($clean)";	
 		$result = mysql_query($query) or die(mysql_error());
 	
 		mysql_close();
@@ -39,7 +40,9 @@
 	
 	function query_update($table, $field, $content, $id) {
 		db();
-		$query = "UPDATE $table SET $field = '$content' WHERE id='$id'";	
+		$clean_field = $field;
+		$clean_content = $content;
+		$query = "UPDATE $table SET $clean_field = '$clean_content' WHERE id='$id'";	
 		$result = mysql_query($query) or die(mysql_error());
 	
 		mysql_close();
@@ -48,7 +51,8 @@
 	
 	function query_update_specific($table, $changes, $id) {
 		db();
-		$query = "UPDATE $table $changes WHERE id='$id'";	
+		$clean_changes = $changes;
+		$query = "UPDATE $table $clean_changes WHERE id='$id'";	
 		$result = mysql_query($query) or die(mysql_error());
 	
 		mysql_close();
