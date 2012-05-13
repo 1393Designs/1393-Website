@@ -15,36 +15,50 @@ $_SESSION['username'] = 'Kim';
 <script type="text/javascript">
 
 $(function() {
-
+	notification = $('#notification');
+	
+	$('#posts').bind('change', function() {
+		id = $(this).attr('value');
+		
+		dataString = 'action=getArticle&id='+id;
+			
+		$.ajax({
+					 type: 'post',
+					 dataType: 'json',
+					 url: 'data/article.php',
+					 data: dataString,
+					 success: function(post) {
+						$('#edit_post_title').attr('value', post.title);
+						$('#edit_post_content').attr('value', post.content);
+					}, // end success
+					error: function(xhr, textStatus, errorThrown){
+						 alert('request failed' +textStatus + '->' + errorThrown);
+					}
+			}); // end ajax
+		
+	}); // #posts.bind(change...)
+	
+	$('#edit_post_bubble').click(function() {
+		
+		id = $('#posts').attr('value');
+		title = $('#edit_post_title').val().trim();
+		text = $('#edit_post_content').val().trim();
+		articleOperation('saveArticle', id, title, text);
+		
+		notification.text('Post updated.').fadeTo('slow', 1);
+					
+	}); // end #edit_post_button.click()
 
 	$('#projects').bind('change', function() {
 		alert('changed to ' + $(this).attr('value'));
 	});
 	
 	$('#post').click(function() {
+		id = '0'; // articleOperation requires this parameter, but we don't have it yet
 		text = $('#blog').val().trim();
 		title = $('#blog_title').val().trim();
+		articleOperation('createArticle', id, title, text);
 		
-		if (text != '' && title != '') {
-			
-			dataString = 'action=createArticle&content='+text;
-			dataString += '&title='+title;
-			
-			$.ajax({ 
-						 type: 'post',
-						 dataType: 'json',
-						 url: 'data/article.php',
-						 data: dataString,
-						 success: function(data) {
-							alert(data.response);
-						}, // end success
-						error: function(xhr, textStatus, errorThrown){
-							 alert('request failed' +textStatus + '->' + errorThrown);
-						}
-				}); // end ajax
-		} else {
-			alert('blank');
-		}
 	}); // post article
 	
 	$('#save').click(function() {
@@ -103,13 +117,45 @@ $(function() {
 
 });
 
+function articleOperation(action, id, title, content) {
+		if (action=='createArticle') success = 'Post created';
+		else if (action=='saveArticle') success = 'Post updated';
+
+		if (text != '' && title != '') {
+					
+					dataString = 'action='+action+'&content='+text;
+					dataString += '&title='+title;
+					dataString += '&id='+id;
+					
+					$.ajax({ 
+								 type: 'post',
+								 dataType: 'json',
+								 url: 'data/article.php',
+								 data: dataString,
+								 success: function(data) {
+								 	alert(data.response);
+									notification.fadeTo('slow', 1, function() {
+										$(this).text(success);
+									});
+								}, // end success
+								error: function(xhr, textStatus, errorThrown){
+									 alert('request failed' +textStatus + '->' + errorThrown);
+								}
+						}); // end ajax
+				} else {
+					alert('blank');
+				}
+};
+
 </script>
 
-	
 	<div id="content">
+	
 		<div class="op">&laquo;&nbsp;<a href="index.php">Back</a></div>
 		<h4 style="margin-top:20px">Admin<span style="float:right">Welcome, $name</span></h4>
 		<div class="clearfix"></div>
+	
+		<div id="notification" style="opacity:0">adsf</div>
 		
 		<div>
 		
@@ -125,9 +171,29 @@ $(function() {
 				</div>	
 				
 				<div id="editpost" class="tabbed section" style="display:none">
-					<input class="fill_parent" id="edit_blog_title" type="text"placeholder="Title foo" required/><br>
-					<textarea id="" placeholder="Foo bar" rows="5" cols="60" required></textarea>
-					<div id="editpost_bubble" class="op">Save</div>
+				
+					<select name="posts" id="posts">
+					<?
+						$articles = getArticles();
+						
+						foreach ($articles as $a) {
+							$name = $a['title'];
+							$id = $a['id'];
+							
+						?>
+						
+							<option value="<? echo $id ?>"><? echo $name ?></option>
+						
+						<?							
+							
+						}
+					
+					?>
+					</select>				
+				
+					<input class="fill_parent" id="edit_post_title" type="text"placeholder="Title foo" required/><br>
+					<textarea id="edit_post_content" placeholder="Foo bar" rows="5" cols="60" required></textarea>
+					<div id="edit_post_bubble" class="op">Save</div>
 				</div>
 				
 		</div>
@@ -191,25 +257,23 @@ $(function() {
 					
 					?>
 					</select>	
-				
-					<div id="edit_app_space" style="display:none">				
-							<table>
-								<tr>
-									<td>Name</td>
-									<td class="fill_parent"><input class="fill_parent" id="app_name" type="text" placeholder="Name foo" required/></td>
-								</tr>
-								<tr>
-									<td>Purpose</td>
-									<td class="fill_parent"><input class="fill_parent" id="app_purpose" type="text" placeholder="To help people do stuff better." required/></td>
-								</tr>
-								<tr>
-									<td>Blurb</td>
-									<td class="fill_parent"><input class="fill_parent" id="app_blurb" type="text" placeholder="This app is useful for people who enjoy herping the derp. The app does X, Y, Z and allows the user to click foo in order to bar." required/></td>
-								</tr>
-							</table>
-							<textarea id="app_details" placeholder="More app details" rows="5" cols="60" required></textarea>
-							<div id="create_app" class="op">Save</div>
-					</div> <!-- end #edit_app_space -->
+								
+						<table>
+							<tr>
+								<td>Name</td>
+								<td class="fill_parent"><input class="fill_parent" id="app_name" type="text" placeholder="Name foo" required/></td>
+							</tr>
+							<tr>
+								<td>Purpose</td>
+								<td class="fill_parent"><input class="fill_parent" id="app_purpose" type="text" placeholder="To help people do stuff better." required/></td>
+							</tr>
+							<tr>
+								<td>Blurb</td>
+								<td class="fill_parent"><input class="fill_parent" id="app_blurb" type="text" placeholder="This app is useful for people who enjoy herping the derp. The app does X, Y, Z and allows the user to click foo in order to bar." required/></td>
+							</tr>
+						</table>
+						<textarea id="app_details" placeholder="More app details" rows="5" cols="60" required></textarea>
+						<div id="save_app" class="op">Save</div>
 					
 				</div>
 		

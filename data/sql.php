@@ -45,6 +45,16 @@
 		mysql_close();
 		return $result;
 	}
+	
+	function query_update_specific($table, $changes, $id) {
+		db();
+		$query = "UPDATE $table $changes WHERE id='$id'";	
+		$result = mysql_query($query) or die(mysql_error());
+	
+		mysql_close();
+//		return $result;
+return $query;
+	}
  
  
  

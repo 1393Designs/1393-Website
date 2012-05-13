@@ -85,3 +85,6 @@ h3.active_tab {
 	border-bottom: 2px solid #CFCFE8;
 }
 
+select {
+	max-width: 200px;
+}
