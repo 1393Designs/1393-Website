@@ -26,7 +26,7 @@ h3 {
 	color: #57527E;
 }
 
-#blog, #profile, #app {
+#blog, #profile, #app_details {
 	float: left;
 	width: 90%;
 	overflow-y: scroll;
@@ -34,6 +34,14 @@ h3 {
 
 .long {
 	width: 90%;
+}
+
+.fill_parent {
+	width: 90%;
+}
+
+td.fill_parent {
+	width: 100%;
 }
 
 .op {
@@ -47,4 +55,10 @@ h3 {
 .op:hover {
 	color: #ccc;
 	text-decoration: underline;
+}
+
+.label {
+	display: inline;
+	width: 180px;
+	padding: 0 4px 0 0;
 }

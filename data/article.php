@@ -1,16 +1,15 @@
 <?
 
-	//session_start();
+	session_start();
 	include_once('sql.php');
-	//include_once('config.php');
 
 	switch($_POST['action']) {
 	
 		case 'createArticle':
 			createArticle($_POST['title'], $_POST['content'], 'Kim');
 			break;
-	
 	}
+
 
 function createArticle($title, $content, $author) {
 
@@ -24,7 +23,7 @@ function createArticle($title, $content, $author) {
 
 	function getRecentArticles() {
 		
-		$str = query_select('*', TABLE_ARTICLE, '1 LIMIT 2');
+		$str = query_select('*', TABLE_ARTICLE, '1 ORDER BY POST_DATE DESC LIMIT 2');
 		return $str;
 		
 	} // end getRecentArticles

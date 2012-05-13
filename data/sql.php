@@ -37,7 +37,23 @@
 		return $query;
 	}
 	
+	function query_update($table, $field, $content, $id) {
+		db();
+		$query = "UPDATE $table SET $field = '$content' WHERE id='$id'";	
+		$result = mysql_query($query) or die(mysql_error());
+	
+		mysql_close();
+		return $result;
+	}
  
  
  
  ?>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

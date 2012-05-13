@@ -95,17 +95,19 @@ a:visited {
 
 .article, .bio {
 	float: left;
+	word-wrap: break-word;
 	text-align: justify;
 	line-height: 1.3em;
+	min-width: 590px;
 	padding: 15px 4px 10px 4px;
 }
 
 .article_preview {
 	float: left;
-	text-align: justify;
-	line-height: 1.3em;
+	min-width: 460px;
+	text-align: left;
 	padding: 15px 4px 10px 4px;
-	line-height: 1em;
+	line-height: 1.1em;
 }
 
 .details {
@@ -127,16 +129,38 @@ a:visited {
 	color: #CFCFE8;
 }
 
+.date {
+	height: 75px;
+}
+
 .bio_img, .op {
 	padding-top: 20px;
 }
 
+.date_weekday {
+	position: relative;
+	z-index: 4;
+	left: -22px;
+	top: 10px;
+	transform:rotate(-90deg);
+	-ms-transform:rotate(-15deg); /* IE 9 */
+	-moz-transform:rotate(-15deg); /* Firefox */
+	-webkit-transform:rotate(-90deg); /* Safari and Chrome */
+	-o-transform:rotate(-15deg); /* Opera */
+}
+
 .date_month {
+	position: relative;
+	top: -25px;
+	left: 5px;
 	width: 50px;
 	text-align: center;
 }
 
 .date_day {
+	position: relative;
+	top: -20px;
+	left: 5px;
 	margin: 0px auto;
 	width: 40px;
 	display: block;

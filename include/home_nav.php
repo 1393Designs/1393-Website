@@ -88,7 +88,7 @@ $.fn.activate = function() {
 								$name = $p['name'];
 							?>
 							
-							<li><a href=""><? echo $name ?></a></li>
+							<li><a href="projects/<? echo strtolower($name) ?>.php"><? echo $name ?></a></li>
 							
 							<?
 							

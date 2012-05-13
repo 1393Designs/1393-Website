@@ -1,5 +1,27 @@
 <?
 
+	session_start();
+	include_once('sql.php');
+
+	switch($_POST['action']) {
+	
+		case 'saveProfile':
+			saveProfile($_POST['bio']);
+			break;
+	
+	}
+	
+function saveProfile($bio) {
+
+	//$id = $_SESSION['user_id']; 
+	$id = 1;
+	$result = query_update(TABLE_USER, 'bio', $bio, $id);
+	
+	echo json_encode(array('response'=>$result));
+
+} // end saveProfile
+
+
 function getUsers() {
 	$str = query_select('*', TABLE_USER);
 	return $str;

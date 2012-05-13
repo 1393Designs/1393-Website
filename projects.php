@@ -72,7 +72,7 @@ h4 {
 				$blurb = $p['blurb'];
 			?>
 			<div class="proj">
-				<a href=""><h4><? echo $name ?></h4></a>
+				<a href="projects/<? echo strtolower($name) ?>.php"><h4><? echo $name ?></h4></a>
 				<? echo $blurb ?>
 			</div>
 			<?
