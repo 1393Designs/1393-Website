@@ -31,6 +31,18 @@
 
 $(function() {
 
+	$('.tab').click(function() {
+	
+		var el = $(this);
+		sect = el.attr('id').split('_');
+		sect = $('#'+sect[0]);
+		sect.show();
+		sect.siblings('.section.tabbed').hide();
+		$(el).siblings('.active_tab').removeClass('active_tab');
+		$(el).addClass('active_tab');		
+	
+	});
+
 });
 
 </script>
