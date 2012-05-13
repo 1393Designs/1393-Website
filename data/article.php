@@ -50,7 +50,7 @@ function createArticle($title, $content, $author) {
 	
 	function getArticles() {
 		
-		$str = query_select('*', TABLE_ARTICLE);
+		$str = query_select('*', TABLE_ARTICLE, '1 ORDER BY POST_DATE DESC');
 		return $str;
 		
 	} // end getArticles

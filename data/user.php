@@ -16,7 +16,6 @@ function saveProfile($bio) {
 	//$id = $_SESSION['user_id']; 
 	$id = 1;
 	$result = query_update(TABLE_USER, 'bio', $bio, $id);
-	
 	echo json_encode(array('response'=>$result));
 
 } // end saveProfile

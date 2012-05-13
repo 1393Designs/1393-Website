@@ -20,8 +20,6 @@ $(function() {
 			<?
 				
 				foreach ($articles as $a) {
-					$month = 'April';
-					$day = '40';
 					$title = $a['title'];
 					$text = $a['content'];
 					$author = $a['author'];
@@ -29,7 +27,7 @@ $(function() {
 					$weekday = date('D', strtotime($date));
 					$month = date('M', strtotime($date));
 					$day = date('d', strtotime($date));
-					
+					$timestamp = date('h:i a', strtotime($date));				
 				
 				?>
 					<div class="article">
@@ -40,7 +38,7 @@ $(function() {
 					</div>
 					<div class="heavy_purple"><? echo $title ?></div>
 					<? echo $text ?>
-					<p class="details">Posted by <? echo $author ?> @ 11:07am</p>
+					<p class="details">Posted by <? echo $author ?> @ <? echo $timestamp ?></p>
 					
 				</div>
 				

@@ -26,10 +26,6 @@ $(function() {
 				<?
 				
 				foreach ($articles as $a) {
-				//	$month = $a['month'];
-				//	$day = $a['day'];
-					$month = 'April';
-					$day = '40';
 					$title = $a['title'];
 					$text = $a['content'];
 					$author = $a['author'];
@@ -37,6 +33,7 @@ $(function() {
 					$weekday = date('D', strtotime($date));
 					$month = date('M', strtotime($date));
 					$day = date('d', strtotime($date));
+					$timestamp = date('h:i a', strtotime($date));			
 				
 				?>
 					<div class="article_preview">
@@ -47,7 +44,7 @@ $(function() {
 						
 					</div>
 					<? echo $text ?>
-					<p class="details">Posted by <? echo $author ?> @ 11:07am</p>
+					<p class="details">Posted by <? echo $author ?> @ <? echo $timestamp ?></p>
 					
 				</div>
 				
