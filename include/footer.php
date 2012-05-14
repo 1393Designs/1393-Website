@@ -1,4 +1,3 @@
-
 <script type="text/javascript">
 
 $(function() {
@@ -16,30 +15,6 @@ $(function() {
 		$('#login_box').fadeOut();
 		$('#modal').fadeOut();
 	});
-
-	$('#go').click(function() { 
-		email = $('#email').attr('value');
-		pass = $('#pass').attr('value');
-
-		dataString = 'action=login&pass='+pass+'&email='+email;
-		alert(dataString);
-		$.ajax({ 
-				 type: 'post',
-				 dataType: 'json',
-				 url: '../data/user.php',
-				 data: dataString,
-				 success: function(data) {
-					if (data.response != 'true') {		
-						alert('Incorrect password.');
-					} else {
-						window.location='admin.php';	// for true (correct pass), redirect to admin
-					}						 	
-				 }, // end success
-						error: function(xhr, textStatus, errorThrown){
-							 alert('request failed' +textStatus + '->' + errorThrown);
-						}
-		}); //end ajax
-	}); //end click
 
 });
 
@@ -102,13 +77,12 @@ $(function() {
 		<div id="footer">
 			Copyright 2012 1393 Designs&nbsp;|
 			
-			<? if (!isset($_SESSION['admin'])) { ?>
-			
+			<? if (empty($_SESSION['email'])) { ?>
 				<a id="login_link" href="">Admin</a>
 			
 			<? } else  { ?>
 			
-				<a href="admin.php">Logged in as <?= $_SESSION['username'] ?></a>	
+				<a href="admin.php"><?= $_SESSION['email'] ?></a>	
 			
 			<? } ?>			
 			
@@ -117,12 +91,12 @@ $(function() {
 
 <div id="modal"></div>
 <div id="login_box">
-	<form method="post" action="">
+	<form method="post" action="admin.php">
 		<span id="close">[x]</span>
 		<h3>Admin Login</h3>
 		<table>
 			<tr><td>Email:</td><td><input id="email" type="email" name="email" required autofocus/></td></tr>
-			<tr><td>Password:</td><td><input id="pass" type="password" name="password" required/></td></tr>
+			<tr><td>Password:</td><td><input id="pass" type="password" name="pass" required/></td></tr>
 			<tr><td class="center" colspan="2"><input id="go" type="submit" name="login" value="Go"/></td></tr>
 		</table>
 	</form>					

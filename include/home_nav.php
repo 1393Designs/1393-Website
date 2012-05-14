@@ -1,11 +1,9 @@
 <?
 
 	session_start();
-
-	include('data/config.php');
-	include('data/login.php');
+	include('data/config.php');	
+	$projects = getProjects();
 	
-	$projects = getProjects();	
 ?>
 
 <!DOCTYPE html>

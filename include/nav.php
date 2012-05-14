@@ -1,10 +1,7 @@
 <?
 
 	session_start();
-
 	include('data/config.php');
-	include('data/login.php');
-	
 	$projects = getProjects();
 
 ?>

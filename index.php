@@ -1,7 +1,7 @@
 <?
 
 include('include/home_nav.php');
-
+session_start();
 $articles = getRecentArticles();
 
 ?>

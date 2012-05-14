@@ -7,11 +7,7 @@
 	
 		case 'saveProfile':
 			saveProfile($_POST['bio'], $_POST['email']);
-			break;
-		case 'login':
-			login($_POST['email'], $_POST['pass']);
-			break;
-	
+			break;	
 	}
 	
 function saveProfile($bio, $email) {
@@ -29,17 +25,22 @@ function getUsers() {
 function getBio($email) {
 	$where = "email='$email'";
 	$str = query_select_one('*', TABLE_USER, $where);
-	$exists = !empty($str);
-	echo json_encode(array('response'=>$exists));
+	return $str;
 } // getBio
 
-function login($email, $pass) {
-
+function valid_login($email, $pass) {
+	if (!getBio($email)) {
+		return false;
+	}
+	
 	$where = "email='$email' AND password='$pass'";
-	$str = query_select_one('*', TABLE_USER, $where);
-	return !empty($str);
+	if (!query_select_one('*', TABLE_USER, $where)) {
+		return false;
+	}
+	
+	return true;
 
-} // login
+} // valid_login
 
 function ago($time) {
    $periods = array("second", "minute", "hour", "day", "week", "month", "year", "decade");

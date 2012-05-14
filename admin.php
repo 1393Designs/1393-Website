@@ -1,15 +1,25 @@
 <? 
-	include('include/admin_nav.php');
 
-	session_start(); // start the admin session	
+	include('include/admin_nav.php');
 	$email = $_SESSION['email'];
+	
+	if (empty($email)) {
+		session_destroy();
+		
+		?>
+			<script>
+					window.location = 'index.php';
+			</script>
+		<?		
+		
+	}
+	
 	$profile = getBio($email);	
 	$user_id = $profile['id'];
 	$name = $profile['name'];
 	$bio = $profile['bio'];
 	$_SESSION['user_id'] = $user_id;
 	$_SESSION['username'] = $name;
-
 ?>
 
 <script type="text/javascript">

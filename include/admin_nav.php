@@ -1,13 +1,29 @@
 <?
 
+	include('data/config.php');	
 	session_start();
-	include('data/config.php');
-	include('data/login.php');
+	$email = $_SESSION['email'];
+	if (!isset($email)) {
+		$email = $_POST['email'];
+		$_SESSION['email'] = $email;
+	}
 	
-	if (!session_is_registered('admin')) { //If session not registered as admin
-		header('location:index.php'); 			// then redirect to homepage.
-	} else { 															//else continue to admin page
-		header('Content-Type: text/html; charset=utf-8');
+	if (isset($_POST['pass'])) $pass = $_POST['pass'];
+		
+	if (empty($email) || empty($pass)) {
+		session_destroy();
+		header("location:index.php");
+	} 
+	
+	if (!valid_login($email, $pass)) {
+		session_destroy();
+		header("location:index.php");
+	}	
+	
+	$do = $_GET['do'];
+	if ($do == 'logout') {
+			session_destroy(); 						//end admin session (effectively log out)
+			header('Location:index.php'); // and return to index/main
 	}
 
 ?>
