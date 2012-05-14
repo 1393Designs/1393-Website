@@ -1,13 +1,9 @@
+<? 
+	include('include/admin_nav.php');
 
-<? include('include/admin_nav.php'); 
-
-	session_start(); // start the admin session
-	
-	if (!session_is_registered('admin')) {
-		header('Location: index.php');
-	}
-	
-	$profile = getBio($_SESSION['email']);
+	session_start(); // start the admin session	
+	$email = $_SESSION['email'];
+	$profile = getBio($email);	
 	$user_id = $profile['id'];
 	$name = $profile['name'];
 	$bio = $profile['bio'];
@@ -85,7 +81,8 @@ $(function() {
 	
 	$('#save_profile_bubble').click(function() {
 		text = $('#profile').val().trim();
-		profileOp(text);
+		email = $('#profile_email').val().trim();
+		profileOp(text, email);
 	}); // edit profile
 	
 	$('#save_proj_bubble').click(function() {
@@ -116,12 +113,17 @@ function finish(data, op) {
 		type = 'success';
 	}
 	
-	$('#notification').text(msg)
-		.removeClass('error').removeClass('success')
-		.addClass(type)
-		.fadeTo('slow', 1, function() {
-			$(this).delay(2000).fadeTo('slow', 0);
-		});
+	box = $('#notification');
+	t = ($(window).height() + $(window).scrollTop()) /5;
+	box.css({	
+		'left': '10px',
+		'top': t });
+	box.text(msg)
+	.removeClass('error').removeClass('success')
+	.addClass(type)
+	.fadeTo('slow', 1, function() {
+		$(this).delay(2000).fadeTo('slow', 0);
+	});
 } // finish
 
 function appOp(action, name, purpose, blurb, details) {
@@ -153,10 +155,10 @@ function appOp(action, name, purpose, blurb, details) {
 		}
 }; // appOp
 
-function profileOp(text) {
+function profileOp(text, email) {
 	if (text != '') {
 				
-				dataString = 'action=saveProfile&bio='+text;
+				dataString = 'action=saveProfile&bio='+text+'&email='+email;
 				
 				$.ajax({ 
 							 type: 'post',
@@ -206,11 +208,16 @@ function articleOp(action, id, title, content) {
 
 	<div id="content">
 	
-		<div class="op">&laquo;&nbsp;<a href="index.php">Back</a></div>
-		<h4 style="margin-top:20px">Admin<span style="float:right">Welcome, <? $_SESSION['username'] ?></span></h4>
+		<div class="op">&laquo;<a href="index.php">&nbsp;Back</a></div>
+		<h4 style="margin-top:20px">
+			Admin
+			<span style="float:right;margin-left;-140px">Welcome, <?= $name ?>
+			<a href="index.php?do=logout">[Logout]</a>
+			</span>
+		</h4>
 		<div class="clearfix"></div>
 	
-		<div id="notification">adsf</div>
+		<div id="notification"></div>
 		
 		<div>
 		
@@ -244,7 +251,7 @@ function articleOp(action, id, title, content) {
 							$id = $a['id'];
 							
 						?>
-							<option value="<? echo $id ?>"><? echo $name ?></option>
+							<option value="<? echo $id ?>"><?= $name ?></option>
 						
 						<?							
 							
@@ -256,11 +263,11 @@ function articleOp(action, id, title, content) {
 							<tr>
 								<td>Title</td>
 								<td class="fill_parent">
-									<input class="fill_parent" id="edit_post_title" type="text"placeholder="Title foo" required/>
+									<input class="fill_parent" id="edit_post_title" type="text"placeholder="Title foo"/>
 								</td>
 							</tr>
 					</table>
-					<textarea id="edit_post_content" placeholder="Content foo" rows="5" cols="60" required></textarea>
+					<textarea id="edit_post_content" placeholder="Content foo" rows="5" cols="60"></textarea>
 					<div id="edit_post_bubble" class="op">Save</div>
 				</div>
 				
@@ -272,8 +279,16 @@ function articleOp(action, id, title, content) {
 				</div>
 				
 				<div id="editprofile" class="section">
+					<table>
+							<tr>
+								<td>Email</td>
+								<td class="fill_parent">
+									<input value="<? echo $email ?>" class="fill_parent" id="profile_email" type="email" placeholder="Email foo"/>
+								</td>
+							</tr>
+					</table>
 					<textarea id="profile" placeholder="Profile stuffs" rows="5" cols="60">
-					<? echo $bio ?>
+					<?= $bio ?>
 					</textarea>
 					<div id="save_profile_bubble" class="op">Save</div>
 				</div>
@@ -318,7 +333,7 @@ function articleOp(action, id, title, content) {
 							
 						?>
 						
-							<option value="<? echo $id ?>"><? echo $name ?></option>
+							<option value="<?= $id ?>"><?= $name ?></option>
 						
 						<?							
 							

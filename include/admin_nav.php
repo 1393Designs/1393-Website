@@ -1,6 +1,14 @@
 <?
 
+	session_start();
 	include('data/config.php');
+	include('data/login.php');
+	
+	if (!session_is_registered('admin')) { //If session not registered as admin
+		header('location:index.php'); 			// then redirect to homepage.
+	} else { 															//else continue to admin page
+		header('Content-Type: text/html; charset=utf-8');
+	}
 
 ?>
 

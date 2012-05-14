@@ -1,5 +1,6 @@
 body {
-	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family:"Maven Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	letter-spacing: -.1em;
 	color: #333;
 	font-size: 11pt;
 	width: 100%;
@@ -62,8 +63,6 @@ body {
 }
 
 h2, h4 {
-	font-weight: normal;
-	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 	color: #CFCFE8;
 }
 
@@ -76,7 +75,7 @@ h3 {
 	font-weight: normal;
 }
 
-a:link {
+a, a:link {
 	text-decoration: none;
 }
 
@@ -95,19 +94,20 @@ a:visited {
 
 .article, .bio {
 	float: left;
+	font-size: 12pt;
 	word-wrap: break-word;
 	text-align: justify;
-	line-height: 1.3em;
+	line-height: 1.1em;
 	min-width: 590px;
 	padding: 15px 4px 10px 4px;
 }
 
 .article_preview {
 	float: left;
+	font-size: 12pt;
 	min-width: 460px;
 	text-align: left;
 	padding: 15px 4px 10px 4px;
-	line-height: 1.1em;
 }
 
 .details {
@@ -151,16 +151,16 @@ a:visited {
 
 .date_month {
 	position: relative;
-	top: -25px;
-	left: 5px;
+	top: -30px;
+	left: 2px;
 	width: 50px;
 	text-align: center;
 }
 
 .date_day {
 	position: relative;
-	top: -20px;
-	left: 5px;
+	top: -28px;
+	left: 3px;
 	margin: 0px auto;
 	width: 40px;
 	display: block;

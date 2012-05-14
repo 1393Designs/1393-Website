@@ -14,11 +14,9 @@ $(function() {
 			
 <div id="content" style="left: 380px">
 
-	<h3>We're easy to reach.</h3>
-	1393designs@gmail.com<br>
-	Facebook link<br>
-	Twitter link<br>
-
+	Find us at:
+	<h3>1393designs@gmail.com</h3>
+	
 </div><!-- end #content -->
 		
 			

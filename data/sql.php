@@ -56,9 +56,10 @@
 		$result = mysql_query($query) or die(mysql_error());
 	
 		mysql_close();
-//		return $result;
-return $query;
-	}
+		return $result;
+	} // query_update_specific
+	
+	
  
  
  

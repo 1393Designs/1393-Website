@@ -1,29 +1,11 @@
 <?
 
+	session_start();
+
 	include('data/config.php');
+	include('data/login.php');
 	
 	$projects = getProjects();
-		
-	if (isset($_POST['login'])) {
-				
-			if (isset($_POST['email']) && md5($_POST['password']) == '098f6bcd4621d373cade4e832627b4f6') {
-				session_start();
-				session_register('admin');
-				$_SESSION['email'] = $_POST['email'];
-				?>
-				
-				<script>
-					window.location = "admin.php";
-				</script>
-				
-				<?
-				
-			} else {
-				echo "<h3>Invalid password.</h3>";
-			}
-				
-			unset($_POST);
-	}
 
 ?>
 
@@ -112,7 +94,7 @@ function capitalize(string) {
 								$name = $p['name'];
 							?>
 							
-							<li><a href="projects/<? echo strtolower($name) ?>.php"><? echo $name ?></a></li>
+							<li><a href="projects.php"><? echo $name ?></a></li>
 							
 							<?
 							

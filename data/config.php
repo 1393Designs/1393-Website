@@ -1,9 +1,9 @@
 <?
-	
-include_once('sql.php');
-include_once('article.php');
-include_once('project.php');
-include_once('user.php');
+		
+	include_once('sql.php');
+	include_once('article.php');
+	include_once('project.php');
+	include_once('user.php');
 
 	define("DB_HOST", "localhost");
 	define("DB_USER", "root");
