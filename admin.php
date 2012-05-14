@@ -18,7 +18,6 @@
 	$user_id = $profile['id'];
 	$name = $profile['name'];
 	$bio = $profile['bio'];
-	$bio = str_replace(' ','_',$bio);
 	
 	$_SESSION['user_id'] = $user_id;
 	$_SESSION['username'] = $name;
@@ -86,7 +85,7 @@ $(function() {
 	}); // #projects onchange
 	
 	$('#post').click(function() {
-		id = '0'; // articleOp requires this parameter, but we don't have it yet
+		id = $('#user_id').attr('value'); // author
 		text = $('#blog').val().trim();
 		title = $('#blog_title').val().trim();
 		articleOp('createArticle', id, title, text);
@@ -130,7 +129,7 @@ function finish(data, op) {
 	}
 	
 	box = $('#notification');
-	t = ($(window).height() + $(window).scrollTop())/2;
+	t = ($(window).height() + $(window).scrollTop())/2 - 50;
 	box.css({	
 		'left': '10px',
 		'top': t });
@@ -195,15 +194,13 @@ function profileOp(text) {
 			}
 }; // profileOp
 
-function articleOp(action, id, title, content) {
+function articleOp(action, id, title, text) {
 		if (action=='createArticle') op = 'post creation';
 		else if (action=='saveArticle') op = 'post update';
 
 		if (text != '' && title != '') {
 					
-					dataString = 'action='+action+'&content='+text;
-					dataString += '&title='+title;
-					dataString += '&id='+id;
+					dataString = 'action='+action+'&content='+text+'&title='+title+'&id='+id;
 					
 					$.ajax({ 
 								 type: 'post',
@@ -225,6 +222,8 @@ function articleOp(action, id, title, content) {
 </script>
 
 	<div id="content">
+	
+		<input id="user_id" type="hidden" value="<?= $_SESSION[user_id] ?>"/>
 	
 		<div class="op">&laquo;<a href="index.php">&nbsp;Back</a></div>
 		<h4 style="margin-top:20px">

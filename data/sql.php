@@ -39,7 +39,7 @@
 
 	function query_insert($table, $values) {
 		db();
-		$clean = mysql_real_escape_string(stripslashes($values));
+		$clean = $values;
 		$query = "INSERT INTO $table VALUES($clean)";	
 		$result = mysql_query($query) or die(mysql_error());
 	

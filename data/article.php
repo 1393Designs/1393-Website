@@ -3,18 +3,22 @@
 	session_start();
 	include_once('sql.php');
 
-	switch($_POST['action']) {
+	if (isset($_POST['action'])) {
 	
-		case 'createArticle':
-			createArticle($_POST['title'], $_POST['content'], 'Kim');
-			break;
-		case 'getArticle':
-			getArticle($_POST['id']);
-			break;
-		case 'saveArticle':
-			saveArticle($_POST['id'], $_POST['title'], $_POST['content']);
-			break;
-	}
+		switch($_POST['action']) {
+		
+			case 'createArticle':
+				createArticle($_POST['id'], $_POST['title'], $_POST['content']);
+				break;
+			case 'getArticle':
+				getArticle($_POST['id']);
+				break;
+			case 'saveArticle':
+				saveArticle($_POST['id'], $_POST['title'], $_POST['content']);
+				break;
+		}
+		
+}
 	
 function saveArticle($id, $title, $content) {
 	$query = "SET title='$title', content='$content'";
@@ -27,8 +31,12 @@ function getArticle($id) {
 		echo json_encode(array('title'=>$result['title'], 'content'=>$result['content']));	
 } // getArticle
 
-function createArticle($title, $content, $author) {
-		$vals = "'', '$title', '$content', '$author', now()";
+function createArticle($id, $title, $content) {
+		$author_array = query_select_one('*', TABLE_USER, "id='$id'");
+		$author = $author_array['name'];
+		$clean_title = mysql_real_escape_string(stripslashes($title));
+		$clean_content = mysql_real_escape_string(stripslashes($content));
+		$vals = "'', '$clean_title', '$clean_content', '$author', now()";
 		$result = query_insert(TABLE_ARTICLE, $vals);
 		echo json_encode(array('response'=>$result));
 } // end createArticle

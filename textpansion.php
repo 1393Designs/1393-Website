@@ -52,7 +52,7 @@ h4 {
 	<h4>Purpose</h4>
 	<div id="proj_purpose"></div>
 	
-	<h4>In Brief</h4>
+	<h4>How it Works</h4>
 	<div id="proj_blurb"></div>
 	
 	<h4>Details</h4>
