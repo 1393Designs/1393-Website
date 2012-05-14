@@ -51,9 +51,14 @@ function capitalize(string) {
 							
 							foreach ($projects as $p) {
 								$name = $p['name'];
+								$slug = $p['slug'];
+								
+								$url = 'projects.php';
+								if (!empty($slug)) $url = $slug;
+								
 							?>
 							
-							<li><a href="projects.php"><? echo $name ?></a></li>
+							<li><a href="<?= $url ?>"><?= $name ?></a></li>
 							
 							<?
 							

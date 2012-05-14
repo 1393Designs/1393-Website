@@ -35,10 +35,11 @@
 <div id="container">
 
 		<div class="big_col" id="col1">
+		<!--
 			<div id="search_box">
 				<input type="search" placeholder="Search"/>
 				<a href="search.php" id="search"></a>
 			</div>
-			
+		-->	
 		</div><!-- end #col1 -->
 		<? include('nav.php'); ?>

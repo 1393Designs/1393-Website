@@ -105,7 +105,6 @@ $(function() {
 	<form method="post" action="admin.php">
 		<span id="close">[x]</span>
 		<h3>Admin Login</h3>
-		<?= $email . ' is email'?>
 		<table>
 			<tr>
 				<td>Email:</td>

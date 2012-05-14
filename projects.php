@@ -43,8 +43,6 @@ $(function() {
 }
 
 h4 {
-	font-size: 1em;
-	font-weight: bold;
 	color: #57527E;
 }
 
@@ -69,11 +67,16 @@ h4 {
 			<?
 							
 			foreach ($projects as $p) {
-				$name = $p['name'];
-				$blurb = $p['blurb'];
+				$name = stripslashes($p['name']);
+				$blurb = stripslashes($p['blurb']);
+				$slug = $p['slug'];
+				
+				$url = 'projects.php';
+				if (!empty($slug)) $url = $slug;
+				
 			?>
 			<div class="proj">
-				<a href="projects.php"><h4><? echo $name ?></h4></a>
+				<a href="<?= $url ?>"><h4><?= $name ?></h4></a>
 				<? echo $blurb ?>
 			</div>
 			<?

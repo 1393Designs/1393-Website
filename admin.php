@@ -76,6 +76,7 @@ $(function() {
 							$('#edit_proj_purpose').attr('value', proj.purpose);
 							$('#edit_proj_blurb').attr('value', proj.blurb);
 							$('#edit_proj_details').attr('value', proj.details);
+							$('#edit_proj_slug').attr('value', proj.slug);
 						}, // end success
 						error: function(xhr, textStatus, errorThrown){
 							 alert('request failed' +textStatus + '->' + errorThrown);
@@ -98,11 +99,12 @@ $(function() {
 	
 	$('#save_proj_bubble').click(function() {
 			id = $('#projects').attr('value');
-			name = $('#edit_proj_name').val().trim();
-			purpose = $('#edit_proj_purpose').val().trim();
-			blurb = $('#edit_proj_blurb').val().trim();
-			details = $('#edit_proj_details').val().trim();
-			projectOp('saveProject', id, name, purpose, blurb, details);	
+			name = $('#edit_proj_name').attr('value').trim();
+			purpose = $('#edit_proj_purpose').attr('value').trim();
+			blurb = $('#edit_proj_blurb').attr('value').trim();
+			details = $('#edit_proj_details').attr('value').trim();
+			slug = $('#edit_proj_slug').attr('value').trim();
+			projectOp('saveProject', id, name, purpose, blurb, details, slug);	
 	});
 	
 	$('#create_proj_bubble').click(function() {
@@ -111,7 +113,8 @@ $(function() {
 			purpose = $('#app_purpose').val().trim();
 			blurb = $('#app_blurb').val().trim();
 			details = $('#app_details').val().trim();
-			projectOp('createProject', id, name, purpose, blurb, details);	
+			slug = $('#app_slug').val().trim();
+			projectOp('createProject', id, name, purpose, blurb, details, slug);	
 	}); // create app
 
 }); // $(function
@@ -139,7 +142,7 @@ function finish(data, op) {
 	});
 } // finish
 
-function projectOp(action, id, name, purpose, blurb, details) {
+function projectOp(action, id, name, purpose, blurb, details, slug) {
 	
 		if (name != '' && purpose != '' && blurb != '' && details != '') {
 			
@@ -148,6 +151,7 @@ function projectOp(action, id, name, purpose, blurb, details) {
 			dataString += '&purpose='+purpose;
 			dataString += '&blurb='+blurb;
 			dataString += '&details='+details;
+			dataString += '&slug='+slug;
 			
 			msg = 'project creation';
 			if (action == 'saveProject') msg = 'project update';
@@ -312,11 +316,15 @@ function articleOp(action, id, title, content) {
 						</tr>
 						<tr>
 							<td>Purpose</td>
-							<td class="fill_parent"><input class="fill_parent" id="app_purpose" type="text" placeholder="To help people do... (1 - 2 sentences)" required/></td>
+							<td class="fill_parent"><input class="fill_parent" id="app_purpose" type="text" placeholder="To help people do... (1 - 2 sentences)"/></td>
 						</tr>
 						<tr>
 							<td>Blurb</td>
-							<td class="fill_parent"><input class="fill_parent" id="app_blurb" type="text" placeholder="Useful for people who ... Does X, Y, Z and allows the user to ... (1-2 sentences)" required/></td>
+							<td class="fill_parent"><input class="fill_parent" id="app_blurb" type="text" placeholder="Useful for people who ... Does X, Y, Z and allows the user to ... (1-2 sentences)"/></td>
+						</tr>
+						<tr>
+							<td>Slug</td>
+							<td class="fill_parent"><input class="fill_parent" id="app_slug" type="text" placeholder="If page exists, like proj_name.php (no spaces)"/></td>
 						</tr>
 					</table>
 					<textarea id="app_details" placeholder="More app details" rows="5" cols="60" required></textarea>
@@ -354,6 +362,10 @@ function articleOp(action, id, title, content) {
 							<tr>
 								<td>Blurb</td>
 								<td class="fill_parent"><input class="fill_parent" id="edit_proj_blurb" type="text" placeholder="Blurb foo" required/></td>
+							</tr>
+							<tr>
+								<td>Slug</td>
+								<td class="fill_parent"><input class="fill_parent" id="edit_proj_slug" type="text" placeholder="If page exists, like proj_name.php (no spaces)"/></td>
 							</tr>
 						</table>
 						<textarea id="edit_proj_details" placeholder="More app details" rows="5" cols="60" required></textarea>
