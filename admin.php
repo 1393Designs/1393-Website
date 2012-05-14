@@ -292,7 +292,6 @@ function articleOp(action, id, title, content) {
 				</div>
 				
 				<div id="editprofile" class="section">
-					<?= $email ?>
 					<textarea id="profile" placeholder="Profile stuffs" class="text"><?= $bio ?></textarea>					
 					<div id="save_profile_bubble" class="op">Save</div>
 				</div>

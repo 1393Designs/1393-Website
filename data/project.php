@@ -30,10 +30,10 @@
 	} // getUsers
 
 	function createProject($name, $purpose, $blurb, $details) {
-		$clean_name = mysql_real_escape_string($name);
-		$clean_purpose = mysql_real_escape_string($purpose);
-		$clean_blurb = mysql_real_escape_string($blurb);
-		$clean_details = mysql_real_escape_string($details);
+		$clean_name = mysql_real_escape_string(stripslashes($name));
+		$clean_purpose = mysql_real_escape_string(stripslashes($purpose));
+		$clean_blurb = mysql_real_escape_string(stripslashes($blurb));
+		$clean_details = mysql_real_escape_string(stripslashes($details));
 	
 		$vals = "'', '$clean_name', '$clean_purpose', '$clean_blurb', '$clean_details'";
 		$result = query_insert(TABLE_PROJECT, $vals);
@@ -42,10 +42,10 @@
 	} // createProject
 
 	function saveProject($id, $name, $purpose, $blurb, $details) {
-		$clean_name = mysql_real_escape_string($name);
-		$clean_purpose = mysql_real_escape_string($purpose);
-		$clean_blurb = mysql_real_escape_string($blurb);
-		$clean_details = mysql_real_escape_string($details);
+		$clean_name = mysql_real_escape_string(stripslashes($name));
+		$clean_purpose = mysql_real_escape_string(stripslashes($purpose));
+		$clean_blurb = mysql_real_escape_string(stripslashes($blurb));
+		$clean_details = mysql_real_escape_string(stripslashes($details));
 		
 		$query = "SET name='$clean_name', purpose='$clean_purpose', ";
 		$query .= "blurb = '$clean_blurb', details='$clean_details'";

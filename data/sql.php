@@ -39,7 +39,7 @@
 
 	function query_insert($table, $values) {
 		db();
-		$clean = mysql_real_escape_string($values);
+		$clean = mysql_real_escape_string(stripslashes($values));
 		$query = "INSERT INTO $table VALUES($clean)";	
 		$result = mysql_query($query) or die(mysql_error());
 	
@@ -50,7 +50,7 @@
 	function query_update($table, $field, $content, $id) {
 		db();
 		$clean_field = $field;
-		$clean_content = mysql_real_escape_string($content);
+		$clean_content = mysql_real_escape_string(stripslashes($content));
 		$query = "UPDATE $table SET $clean_field = '$clean_content' WHERE id='$id'";	
 		$result = mysql_query($query) or die(mysql_error());
 	

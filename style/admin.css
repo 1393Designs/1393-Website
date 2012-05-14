@@ -94,8 +94,8 @@ select {
 #notification {
 	text-align: center;
 	padding: 15px 5px;
-	position: absolute; 
-	z-index: 50;
+	position: absolute;
+	z-index: 0;
 	top: 35px; 
 	width: 95%;
 	margin: 0px auto;
@@ -105,12 +105,14 @@ select {
 }
 
 #notification.success {
+	z-index: 50;
 	border: thick solid #00CC66;
 	color: #00CC66;
 	background: #CCF5E0;
 }
 
 #notification.error {
+	z-index: 50;
 	border: thick solid #FF9494;
 	color: #FF9494;
 	background: #FFF4F4;
