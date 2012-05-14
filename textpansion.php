@@ -34,12 +34,20 @@ h4 {
 	margin: 20px 0 0 0;
 	color: #57527E;
 }
+
+#content img {
+	float: right;
+	padding: 0 20px 0 0;
+}
+
 </style>
 			
 <div id="content">
 	<input id="project_id" type="hidden" value="<?= 1 ?>"/>
 
-	<h3>Textpansion</h3>
+	<h3>Textpansion</h3>			
+	
+	<img src="images/projects/<?= $name ?>.png" height="90"/>	
 	
 	<h4>Purpose</h4>
 	<div id="proj_purpose"></div>

@@ -10,19 +10,11 @@ $(function() {
 
 	$('#projects_tab').activate();
 	
-	$(".image").click(function() {
-		var image = $(this).attr("rel");
-		$('#image').hide();
-		$('#image').fadeIn('slow');
-		$('#image').html('<img src="' + image + '"/>');
-	
-		return false;
-	});
-	
 	$('.fadein img:gt(0)').hide();
     setInterval(function(){
       $('.fadein :first-child').fadeOut()
-         .next('img').fadeIn()
+         .next('img')
+         .fadeIn()
          .end().appendTo('.fadein');}, 
       5000);
 
@@ -32,46 +24,52 @@ $(function() {
 
 <style>
 
-.thumb {
-	float: left;
-	margin-right: 10px;
-	margin-top: 10px;
-}
-
-#thumbs_container {
-	margin-top: -60px;
-	margin-bottom: 40px;
-}
-
 .proj {
-	margin: 10px 0 0 0;
+	clear: both;
+	margin: 10px 20px 10px 0;
 }
 
 h4 {
 	color: #57527E;
+	margin: 10px 0 0 0;
 }
 
-.fadein { position:relative; width:500px; height:332px; }
-.fadein img { position:absolute; left:0; top:0; border: thick solid #efefef; }
+.fadein { 
+	position: relative; 
+	width: 500px;
+	min-height: 230px;
+	margin: -10px auto;
+}
+
+.fadein img { 
+	position: absolute;
+	left: 100px; 
+	padding: 10px 0;
+}
+
+.proj img {
+	float: right;
+}
+
+.text {
+	float: left;
+	width: 70%;
+	padding: 0 0 10px 0;
+}
+
+#content {
+	margin-top: -15px;
+}
 
 </style>
 			
 	<div id="content">
 	
 			<div class="fadein">
-				<img src="images/1.jpg">
-				<img src="images/2.jpg">
-				<img src="images/3.jpg">
+				<img width="300" src="images/projects/textspansion.png">
+				<img width="300" src="images/projects/punchtracker.png">
+				<img width="300" src="images/projects/txtencrypt.png">
 			</div>
-			
-			<div id="thumbs_container">
-			
-				<a href="#" rel="images/1.jpg" class="image"><img height="40" src="images/1.jpg" class="thumb" border="0"/></a>
-				<a href="#" rel="images/2.jpg" class="image"><img height="40" src="images/2.jpg" class="thumb" border="0"/></a>
-				<a href="#" rel="images/3.jpg" class="image"><img height="40" src="images/3.jpg" class="thumb" border="0"/></a>			
-			</div>
-			
-			<div class="clearfix"><br></div>
 			
 			<?
 							
@@ -86,7 +84,8 @@ h4 {
 			?>
 			<div class="proj">
 				<a href="<?= $url ?>"><h4><?= $name ?></h4></a>
-				<? echo $blurb ?>
+				<div class="text"><?= $blurb ?></div>				
+				<img src="images/projects/<?= $name ?>.png" height="60"/>				
 			</div>
 			<?
 			
