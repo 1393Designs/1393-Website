@@ -1,7 +1,8 @@
+<? 
 
-<? include('include/nav.php'); 
-
+	include('include/header.php');
 	$articles = getArticles();
+	
 ?>
 
 <script type="text/javascript">

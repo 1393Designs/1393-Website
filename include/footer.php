@@ -74,15 +74,26 @@ $(function() {
 
 </style>
 
+<?
+
+	$email = $_SESSION['email'];
+	
+	if (empty($email) && isset($_COOKIE['email'])) {
+		$email = $_COOKIE['email'];
+		$pass = $_COOKIE['pass'];
+	}
+
+?>
+
 		<div id="footer">
 			Copyright 2012 1393 Designs&nbsp;|
 			
-			<? if (empty($_SESSION['email'])) { ?>
+			<? if (empty($email)) { ?>
 				<a id="login_link" href="">Admin</a>
 			
 			<? } else  { ?>
 			
-				<a href="admin.php"><?= $_SESSION['email'] ?></a>	
+				<a href="admin.php"><?= $email ?></a>	
 			
 			<? } ?>			
 			
@@ -94,9 +105,13 @@ $(function() {
 	<form method="post" action="admin.php">
 		<span id="close">[x]</span>
 		<h3>Admin Login</h3>
+		<?= $email . ' is email'?>
 		<table>
-			<tr><td>Email:</td><td><input id="email" type="email" name="email" required autofocus/></td></tr>
-			<tr><td>Password:</td><td><input id="pass" type="password" name="pass" required/></td></tr>
+			<tr>
+				<td>Email:</td>
+				<td><input id="email" value="<?= $email ?>" type="email" name="email" required autofocus/></td>
+			</tr>
+			<tr><td>Password:</td><td><input id="pass" value="<?= $pass ?>" type="password" name="pass" required/></td></tr>
 			<tr><td class="center" colspan="2"><input id="go" type="submit" name="login" value="Go"/></td></tr>
 		</table>
 	</form>					

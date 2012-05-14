@@ -1,8 +1,7 @@
 <?
 
-include('include/home_nav.php');
-session_start();
-$articles = getRecentArticles();
+	include('include/home_header.php');
+	$articles = getRecentArticles();
 
 ?>
 

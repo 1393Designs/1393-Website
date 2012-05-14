@@ -1,6 +1,6 @@
 <? 
 
-	include('include/admin_nav.php');
+	include('include/admin_header.php');
 	$email = $_SESSION['email'];
 	
 	if (empty($email)) {
@@ -18,6 +18,8 @@
 	$user_id = $profile['id'];
 	$name = $profile['name'];
 	$bio = $profile['bio'];
+	$bio = str_replace(' ','_',$bio);
+	
 	$_SESSION['user_id'] = $user_id;
 	$_SESSION['username'] = $name;
 ?>
@@ -91,24 +93,25 @@ $(function() {
 	
 	$('#save_profile_bubble').click(function() {
 		text = $('#profile').val().trim();
-		email = $('#profile_email').val().trim();
-		profileOp(text, email);
+		profileOp(text);
 	}); // edit profile
 	
 	$('#save_proj_bubble').click(function() {
+			id = $('#projects').attr('value');
 			name = $('#edit_proj_name').val().trim();
 			purpose = $('#edit_proj_purpose').val().trim();
 			blurb = $('#edit_proj_blurb').val().trim();
 			details = $('#edit_proj_details').val().trim();
-			appOp('saveProject', name, purpose, blurb, details);	
+			projectOp('saveProject', id, name, purpose, blurb, details);	
 	});
 	
-	$('#create_app_bubble').click(function() {
+	$('#create_proj_bubble').click(function() {
+			id = '0'; // projectOp requires this
 			name = $('#app_name').val().trim();
 			purpose = $('#app_purpose').val().trim();
 			blurb = $('#app_blurb').val().trim();
 			details = $('#app_details').val().trim();
-			appOp('createProject', name, purpose, blurb, details);	
+			projectOp('createProject', id, name, purpose, blurb, details);	
 	}); // create app
 
 }); // $(function
@@ -124,7 +127,7 @@ function finish(data, op) {
 	}
 	
 	box = $('#notification');
-	t = ($(window).height() + $(window).scrollTop()) /5;
+	t = ($(window).height() + $(window).scrollTop())/2;
 	box.css({	
 		'left': '10px',
 		'top': t });
@@ -136,11 +139,12 @@ function finish(data, op) {
 	});
 } // finish
 
-function appOp(action, name, purpose, blurb, details) {
+function projectOp(action, id, name, purpose, blurb, details) {
 	
 		if (name != '' && purpose != '' && blurb != '' && details != '') {
 			
-			dataString = 'action='+action+'&name='+name;
+			dataString = 'action='+action+'&id='+id;
+			dataString += '&name='+name;
 			dataString += '&purpose='+purpose;
 			dataString += '&blurb='+blurb;
 			dataString += '&details='+details;
@@ -163,12 +167,12 @@ function appOp(action, name, purpose, blurb, details) {
 		} else {
 			alert('Project missing fields.');
 		}
-}; // appOp
+}; // projectOp
 
-function profileOp(text, email) {
+function profileOp(text) {
 	if (text != '') {
-				
-				dataString = 'action=saveProfile&bio='+text+'&email='+email;
+				id = $('#user_id').attr('value');
+				dataString = 'action=saveProfile&id='+id+'&bio='+text;
 				
 				$.ajax({ 
 							 type: 'post',
@@ -226,7 +230,6 @@ function articleOp(action, id, title, content) {
 			</span>
 		</h4>
 		<div class="clearfix"></div>
-	
 		<div id="notification"></div>
 		
 		<div>
@@ -261,7 +264,7 @@ function articleOp(action, id, title, content) {
 							$id = $a['id'];
 							
 						?>
-							<option value="<? echo $id ?>"><?= $name ?></option>
+							<option value="<?= $id ?>"><?= $name ?></option>
 						
 						<?							
 							
@@ -289,17 +292,8 @@ function articleOp(action, id, title, content) {
 				</div>
 				
 				<div id="editprofile" class="section">
-					<table>
-							<tr>
-								<td>Email</td>
-								<td class="fill_parent">
-									<input value="<? echo $email ?>" class="fill_parent" id="profile_email" type="email" placeholder="Email foo"/>
-								</td>
-							</tr>
-					</table>
-					<textarea id="profile" placeholder="Profile stuffs" rows="5" cols="60">
-					<?= $bio ?>
-					</textarea>
+					<?= $email ?>
+					<textarea id="profile" placeholder="Profile stuffs" class="text"><?= $bio ?></textarea>					
 					<div id="save_profile_bubble" class="op">Save</div>
 				</div>
 		
@@ -327,7 +321,7 @@ function articleOp(action, id, title, content) {
 						</tr>
 					</table>
 					<textarea id="app_details" placeholder="More app details" rows="5" cols="60" required></textarea>
-					<div id="create_app_bubble" class="op">Create</div>
+					<div id="create_proj_bubble" class="op">Create</div>
 				</div><!-- end .section -->
 				
 				<div id="editapp" class="tabbed section" style="display:none">
@@ -340,11 +334,8 @@ function articleOp(action, id, title, content) {
 						foreach ($projects as $p) {
 							$name = $p['name'];
 							$id = $p['id'];
-							
 						?>
-						
 							<option value="<?= $id ?>"><?= $name ?></option>
-						
 						<?							
 							
 						}

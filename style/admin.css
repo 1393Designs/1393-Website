@@ -26,10 +26,11 @@ h3 {
 	color: #57527E;
 }
 
-.section textarea {
+.section textarea, .text {
 	float: left;
 	width: 90%;
-	overflow-y: scroll;
+	height: 80px;
+	overflow-y: auto;
 }
 
 .long {
@@ -92,24 +93,25 @@ select {
 
 #notification {
 	text-align: center;
-	padding: 20px 5px;
+	padding: 15px 5px;
 	position: absolute; 
+	z-index: 50;
 	top: 35px; 
 	width: 95%;
 	margin: 0px auto;
 	opacity: 0;
-	border: 2px solid #333;
+	border: thick solid #333;
 	background: #efefef;
 }
 
 #notification.success {
-	border: 2px solid #00CC66;
+	border: thick solid #00CC66;
 	color: #00CC66;
 	background: #CCF5E0;
 }
 
 #notification.error {
-	border: 2px solid #FF9494;
+	border: thick solid #FF9494;
 	color: #FF9494;
 	background: #FFF4F4;
 }

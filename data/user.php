@@ -6,14 +6,12 @@
 	switch($_POST['action']) {
 	
 		case 'saveProfile':
-			saveProfile($_POST['bio'], $_POST['email']);
+			saveProfile($_POST['id'], $_POST['bio']);
 			break;	
 	}
 	
-function saveProfile($bio, $email) {
-	$id = $_SESSION['user_id']; 
+function saveProfile($id, $bio) {
 	$result = query_update(TABLE_USER, 'bio', $bio, $id);
-	$result = query_update(TABLE_USER, 'email', $email, $id);
 	echo json_encode(array('response'=>$result));
 } // saveProfile
 
@@ -34,7 +32,7 @@ function valid_login($email, $pass) {
 	}
 	
 	$where = "email='$email' AND password='$pass'";
-	if (!query_select_one('*', TABLE_USER, $where)) {
+	if (!exists('*', TABLE_USER, $where)) {
 		return false;
 	}
 	

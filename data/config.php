@@ -1,5 +1,5 @@
 <?
-		
+
 	include_once('sql.php');
 	include_once('article.php');
 	include_once('project.php');

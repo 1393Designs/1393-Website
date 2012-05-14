@@ -9,14 +9,14 @@
 	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 1.4em;
 	text-align: center;
-	color: #CFCFE8;
 	text-align: center;
 	width: 85px;
+	color: #CFCFE8;
 }
 
 #nav_links li a {
-	color: #CFCFE8;
 	padding: 4px 5px;
+	color: #CFCFE8;
 }
 
 #nav_links li a:hover {

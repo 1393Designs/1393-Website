@@ -4,6 +4,8 @@
 	height: 600px;
 	background: url('../images/inner_logo.png') no-repeat top center;
 	background-size: 350px;
+	-moz-background-size: 350px;
+	-o-background-size: 350px;
 	width: 350px;
 	height: 600px;
 }

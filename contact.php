@@ -1,5 +1,8 @@
+<? 
 
-<? include('include/nav.php'); ?>
+	include('include/header.php');
+	
+?>
 
 <script type="text/javascript">
 

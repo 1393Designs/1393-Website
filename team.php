@@ -1,7 +1,7 @@
+<? 
 
-<? include('include/nav.php'); 
-
-$users = getUsers();
+	include('include/header.php'); 
+	$users = getUsers();
 
 ?>
 

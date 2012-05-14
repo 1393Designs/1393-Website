@@ -1,5 +1,6 @@
+<?
 
-<? include('include/nav.php'); 
+	include('include/header.php'); 
 	$projects = getProjects();
 ?>
 

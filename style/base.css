@@ -43,6 +43,8 @@ body {
 	width: 500px;
 	background: url('../images/logo.png') no-repeat top center;
 	background-size: 600px;
+	-moz-background-size: 600px;
+	-o-background-size: 600px;
 	position: fixed;
 }
 
@@ -59,6 +61,8 @@ body {
 	padding: 20px 0;
 	background: url('../images/header_bg.png') no-repeat center;
 	background-size: 460px;
+	-moz-background-size: 460px;
+	-o-background-size: 460px;
 	width: 460px;
 }
 
@@ -126,6 +130,8 @@ a:visited {
 	width: 75px;
 	background: url('../images/bubble.png') no-repeat top center;
 	background-size: 65px;
+	-moz-background-size: 65px;
+	-o-background-size: 65px;
 	color: #CFCFE8;
 }
 
@@ -143,10 +149,10 @@ a:visited {
 	left: -22px;
 	top: 10px;
 	transform:rotate(-90deg);
-	-ms-transform:rotate(-15deg); /* IE 9 */
-	-moz-transform:rotate(-15deg); /* Firefox */
+	-ms-transform:rotate(-90deg); /* IE 9 */
+	-moz-transform:rotate(-90deg); /* Firefox */
 	-webkit-transform:rotate(-90deg); /* Safari and Chrome */
-	-o-transform:rotate(-15deg); /* Opera */
+	-o-transform:rotate(-90deg); /* Opera */
 }
 
 .date_month {
