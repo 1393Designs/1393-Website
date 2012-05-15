@@ -49,11 +49,12 @@ h4 {
 
 .proj img {
 	float: right;
+	padding: 0 0 0 20px;
 }
 
 .text {
 	float: left;
-	width: 70%;
+	text-align: justify;
 	padding: 0 0 10px 0;
 }
 
@@ -76,6 +77,7 @@ h4 {
 			foreach ($projects as $p) {
 				$name = stripslashes($p['name']);
 				$blurb = stripslashes($p['blurb']);
+				$img_path = stripslashes($p['img_path']);
 				$slug = $p['slug'];
 				
 				$url = 'projects.php';
@@ -83,9 +85,12 @@ h4 {
 				
 			?>
 			<div class="proj">
-				<a href="<?= $url ?>"><h4><?= $name ?></h4></a>
-				<div class="text"><?= $blurb ?></div>				
-				<img src="images/projects/<?= $name ?>.png" height="60"/>				
+				<a href="<?= $url ?>"><h4><?= $name ?></h4></a>	
+					<div class="text">		
+				<? if (!empty($img_path)) { ?>			
+					<img src="<?= $img_path ?>" height="60"/>
+				<? } ?>
+					<?= $blurb ?></div>		
 			</div>
 			<?
 			

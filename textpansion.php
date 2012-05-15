@@ -15,9 +15,10 @@ $(function() {
 					 data: dataString,
 					 success: function(proj) {
 						$('#proj_name').text(proj.name);
-						$('#proj_purpose').text(proj.purpose);
-						$('#proj_blurb').text(proj.blurb);
-						$('#proj_details').text(proj.details);
+						$('#proj_purpose').html(proj.purpose);
+						$('#proj_blurb').html(proj.blurb);
+						$('#proj_details').html(proj.details);
+						$('#proj_img').attr('src', proj.img_path).show();
 					}, // end success
 					error: function(xhr, textStatus, errorThrown){
 						 alert('request failed' +textStatus + '->' + errorThrown);
@@ -40,6 +41,10 @@ h4 {
 	padding: 0 20px 0 0;
 }
 
+#container {
+	min-height: 550px;
+}
+
 </style>
 			
 <div id="content">
@@ -47,7 +52,7 @@ h4 {
 
 	<h3>Textpansion</h3>			
 	
-	<img src="images/projects/<?= $name ?>.png" height="90"/>	
+	<img id='proj_img' height="90" style="display: none" />
 	
 	<h4>Purpose</h4>
 	<div id="proj_purpose"></div>

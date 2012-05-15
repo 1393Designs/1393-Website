@@ -22,7 +22,8 @@
 			'purpose'=>stripslashes($result['purpose']),
 			'blurb'=>stripslashes($result['blurb']),
 			'details'=>stripslashes($result['details']),
-			'slug'=>stripslashes($result['slug'])));
+			'slug'=>stripslashes($result['slug']),
+			'img_path'=>stripslashes($result['img_path'])));
 	} // getProject
 
 	function getProjects() {
@@ -37,7 +38,7 @@
 		$clean_details = mysql_real_escape_string(stripslashes($details));
 		$clean_slug = mysql_real_escape_string(stripslashes($slug));
 	
-		$vals = "'', '$clean_name', '$clean_purpose', '$clean_blurb', '$clean_details', '$slug'";
+		$vals = "'', '$clean_name', '$clean_purpose', '$clean_blurb', '$clean_details', '$slug', ''"; // note no img by default
 		$result = query_insert(TABLE_PROJECT, $vals);
 	
 		echo json_encode(array('response'=>$result));	

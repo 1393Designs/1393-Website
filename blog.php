@@ -22,7 +22,7 @@ $(function() {
 				
 				foreach ($articles as $a) {
 					$title = $a['title'];
-					$text = $a['content'];
+					$text = htmlentities($a['content']);
 					$author = $a['author'];
 					$date = $a['post_date'];
 					$weekday = date('D', strtotime($date));
