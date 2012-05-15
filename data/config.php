@@ -1,5 +1,7 @@
 <?
 
+	//define("URL", "localhost:8888");
+	
 	include_once('sql.php');
 	include_once('article.php');
 	include_once('project.php');

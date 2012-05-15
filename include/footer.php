@@ -115,7 +115,7 @@ $(function() {
 			
 			<? } else  { ?>
 			
-				<a href="admin.php"><?= $email ?></a>	
+				<a href="<?= URL ?>/admin.php"><?= $email ?></a>	
 			
 			<? } ?>			
 			

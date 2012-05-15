@@ -1,4 +1,6 @@
-<? include('../include/inside_header.php'); ?>
+<? 
+
+	include('../include/inside_header.php'); ?>
 
 <script type="text/javascript">
 
@@ -66,4 +68,4 @@ h4 {
 </div><!-- end #content -->
 		
 			
-<? include('../include/inside_footer.php'); ?>
+<? include('../include/footer.php'); ?>

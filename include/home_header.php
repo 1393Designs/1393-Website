@@ -13,7 +13,8 @@
 	}
 	
 	$_SESSION['sessid'] = $_COOKIE['PHPSESSID'];	
-	include('data/config.php');	
+	include_once('data/base_config.php');
+	include_once('data/config.php');
 	$projects = getProjects();
 	
 ?>

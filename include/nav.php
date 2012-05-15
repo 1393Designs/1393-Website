@@ -1,7 +1,3 @@
-<?
-
-?>
-
 <script type="text/javascript">
 
 $(function() {
@@ -34,9 +30,9 @@ function capitalize(string) {
 		
 			<div id="nav">
 				<ul id="nav_links">
-					<li><a class="nav_link" id="home_tab" href="index.php">Home</a></li>
-					<li><a class="nav_link" id="blog_tab" href="blog.php">Blog</a></li>
-					<li><a class="nav_link" id="team_tab" href="team.php">Team</a><ul id="projects_menu" class="menu" style="display:none">
+					<li><a class="nav_link" id="home_tab" href="<?= URL ?>/index.php">Home</a></li>
+					<li><a class="nav_link" id="blog_tab" href="<?= URL ?>/blog.php">Blog</a></li>
+					<li><a class="nav_link" id="team_tab" href="<?= URL ?>/team.php">Team</a><ul id="projects_menu" class="menu" style="display:none">
 							<li><a href="">Vince</a></li>
 							<li><a href="">Sean</a></li>
 							<li><a href="">Kim</a></li>
@@ -45,7 +41,7 @@ function capitalize(string) {
 						</ul>	
 					</li>
 					<li>
-						<a class="nav_link" id="projects_tab" href="projects.php">Projects</a>
+						<a class="nav_link" id="projects_tab" href="<?= URL ?>/projects.php">Projects</a>
 						<ul id="projects_menu" class="menu" style="display:none">
 							<?
 							
@@ -67,6 +63,6 @@ function capitalize(string) {
 							?>
 						</ul>						
 					</li>
-					<li><a id="contact_tab" href="contact.php">Contact</a></li>
+					<li><a id="contact_tab" href="<?= URL ?>/contact.php">Contact</a></li>
 				</ul>
 			</div>

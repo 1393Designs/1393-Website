@@ -12,6 +12,7 @@
 		
 	}
 
+	include('data/base_config.php');
 	include('data/config.php');	
 ?>
 

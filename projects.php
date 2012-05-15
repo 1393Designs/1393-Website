@@ -56,6 +56,7 @@ h4 {
 	float: left;
 	text-align: justify;
 	padding: 0 0 10px 0;
+	min-width: 600px;
 }
 
 #content {
@@ -67,10 +68,17 @@ h4 {
 	<div id="content">
 	
 			<div class="fadein">
-				<img width="300" src="images/projects/textspansion.png">
-				<img width="300" src="images/projects/punchtracker.png">
-				<img width="300" src="images/projects/txtencrypt.png">
-			</div>
+				<?
+					foreach ($projects as $p) {
+						$img_path = stripslashes($p['img_path']);
+				?>
+				
+				<? if (!empty($img_path)) { ?>			
+					<img src="<?= $img_path ?>" width="300"/>
+				<? }
+					}?>
+				
+		</div>
 			
 			<?
 							
