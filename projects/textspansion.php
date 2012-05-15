@@ -1,4 +1,4 @@
-<? include('include/header.php'); ?>
+<? include('../include/inside_header.php'); ?>
 
 <script type="text/javascript">
 
@@ -11,14 +11,14 @@ $(function() {
 		$.ajax({
 					 type: 'post',
 					 dataType: 'json',
-					 url: 'data/project.php',
+					 url: '../data/project.php',
 					 data: dataString,
 					 success: function(proj) {
 						$('#proj_name').text(proj.name);
 						$('#proj_purpose').html(proj.purpose);
 						$('#proj_blurb').html(proj.blurb);
 						$('#proj_details').html(proj.details);
-						$('#proj_img').attr('src', proj.img_path).show();
+						$('#proj_img').attr('src', '../'+proj.img_path).show();
 					}, // end success
 					error: function(xhr, textStatus, errorThrown){
 						 alert('request failed' +textStatus + '->' + errorThrown);
@@ -66,4 +66,4 @@ h4 {
 </div><!-- end #content -->
 		
 			
-<? include('include/footer.php'); ?>
+<? include('../include/inside_footer.php'); ?>
