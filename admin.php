@@ -30,8 +30,8 @@ $(function() {
 							$('#edit_post_title').attr('value', post.title);
 							$('#edit_post_content').attr('value', post.content);
 						}, // end success
-						error: function(xhr, textStatus, errorThrown){
-							 alert('request failed' +textStatus + '->' + errorThrown);
+						error: function(xhr, textStatus, errorThrown) {
+								error('Request failed. ' +textStatus+ ': ' + errorThrown);
 						}
 				}); // end ajax
 			}
@@ -64,8 +64,8 @@ $(function() {
 							$('#edit_proj_details').attr('value', proj.details);
 							$('#edit_proj_slug').attr('value', proj.slug);
 						}, // end success
-						error: function(xhr, textStatus, errorThrown){
-							 alert('request failed' +textStatus + '->' + errorThrown);
+						error: function(xhr, textStatus, errorThrown) {
+								error('Failed to get project. ' +textStatus+ ': ' + errorThrown);
 						}
 				}); // end ajax
 			}
@@ -104,6 +104,19 @@ $(function() {
 	}); // create app
 
 }); // $(function
+
+function error(msg) {
+	box = $('#notification');
+	t = ($(window).height() + $(window).scrollTop())/2 - 50;
+	box.css({	
+		'left': '10px',
+		'top': t });
+	box.text(msg)
+	.removeClass('success').addClass('error')
+	.fadeTo('slow', 1, function() {
+		$(this).delay(2000).fadeTo('slow', 0);
+	});
+}; // error
 
 function finish(data, op) {
 
@@ -150,8 +163,8 @@ function projectOp(action, id, name, purpose, blurb, details, slug) {
 						 success: function(data) {
 						 	finish(data, msg);
 						}, // end success
-						error: function(xhr, textStatus, errorThrown){
-							 alert('request failed' +textStatus + '->' + errorThrown);
+						error: function(xhr, textStatus, errorThrown) {
+								error('Failed '+msg+'. ' +textStatus+ ': ' + errorThrown);
 						}
 				}); // end ajax
 		} else {
@@ -172,8 +185,8 @@ function profileOp(text) {
 							 success: function(data) {
 								 	finish(data, 'profile update');
 							}, // end success
-							error: function(xhr, textStatus, errorThrown){
-								 alert('request failed' +textStatus + '->' + errorThrown);
+							error: function(xhr, textStatus, errorThrown) {
+								error('Failed to save profile. ' +textStatus+ ': ' + errorThrown);
 							}
 					}); // end ajax
 			} else {
@@ -197,8 +210,8 @@ function articleOp(action, id, title, text) {
 								 success: function(data) {
 								 	finish(data, op);
 								}, // end success
-								error: function(xhr, textStatus, errorThrown){
-									 alert('request failed' +textStatus + '->' + errorThrown);
+								error: function(xhr, textStatus, errorThrown) {
+									error('Failed '+op+ '. ' +textStatus+ ': ' + errorThrown);
 								}
 						}); // end ajax
 				} else {

@@ -34,8 +34,10 @@ function getArticle($id) {
 function createArticle($id, $title, $content) {
 		$author_array = query_select_one('*', TABLE_USER, "id='$id'");
 		$author = $author_array['name'];
-		$clean_title = mysql_real_escape_string(stripslashes($title));
-		$clean_content = mysql_real_escape_string(stripslashes($content));
+		//$clean_title = mysql_real_escape_string($title);
+		//$clean_content = mysql_real_escape_string($content);
+		$clean_title = $title;
+		$clean_content = $content;
 		$vals = "'', '$clean_title', '$clean_content', '$author', now()";
 		$result = query_insert(TABLE_ARTICLE, $vals);
 		echo json_encode(array('response'=>$result));
