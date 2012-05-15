@@ -2,25 +2,12 @@
 
 	include('include/admin_header.php');
 	$email = $_SESSION['email'];
+	$name = $_SESSION['username'];
+	$id = $_SESSION['user_id'];
 	
-	if (empty($email)) {
-		session_destroy();
-		
-		?>
-			<script>
-					window.location = 'index.php';
-			</script>
-		<?		
-		
-	}
-	
-	$profile = getBio($email);	
-	$user_id = $profile['id'];
-	$name = $profile['name'];
+	$profile = getBio($email);
 	$bio = $profile['bio'];
 	
-	$_SESSION['user_id'] = $user_id;
-	$_SESSION['username'] = $name;
 ?>
 
 <script type="text/javascript">

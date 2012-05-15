@@ -15,6 +15,28 @@ $(function() {
 		$('#login_box').fadeOut();
 		$('#modal').fadeOut();
 	});
+	
+	$('#go').click(function(e) {
+	
+		e.preventDefault();
+		email = $('#email').attr('value').trim();
+		pass = $('#pass').attr('value').trim();
+		dataString = 'action=login&email='+email+'&pass='+pass;
+		
+		$.ajax({ 
+						 type: 'post',
+						 dataType: 'json',
+						 url: 'data/user.php',
+						 data: dataString,
+						 success: function(data) { 
+						 	if (data.result_code) { // will be '1' if valid credentials
+								window.location='admin.php';	// for true (correct pass), redirect to admin
+						 	} else {
+						 		alert('Invalid login');
+						 	}
+						 }
+				}); //end ajax	
+	}); // end #go click
 
 });
 
@@ -102,7 +124,7 @@ $(function() {
 
 <div id="modal"></div>
 <div id="login_box">
-	<form method="post" action="admin.php">
+	<form method="post" action="">
 		<span id="close">[x]</span>
 		<h3>Admin Login</h3>
 		<table>

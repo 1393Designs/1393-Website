@@ -1,29 +1,18 @@
 <?
 
 	session_start();
-	$_SESSION['sessid'] = $_COOKIE['PHPSESSID'];
-	include('data/config.php');	
-	
-	$email = $_SESSION['email'];
-	if (!isset($email) && $_POST['login']) {
-		$email = $_POST['email'];
-		$pass = $_POST['pass'];
-		$_SESSION['email'] = $email;
-		setcookie('email', $email);
-		setcookie('pass', $pass);
-	}
 		
-	if (empty($email) || empty($pass) || !valid_login($email, $pass)) {
+	if (!session_is_registered('admin') || empty($_SESSION)) {
 		session_destroy();
 		header("location:index.php");
-	}
-	
-	$do = $_GET['do'];
-	if ($do == 'logout') {
-			session_destroy(); 						//end admin session (effectively log out)
-			header('Location:index.php'); // and return to index/main
+		
+		?>
+		<script>window.location = 'index.php';</script>
+		<?
+		
 	}
 
+	include('data/config.php');	
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +37,7 @@
 <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="../../jquery.min.js"></script>
+<!-- <script type="text/javascript" src="../../jquery.min.js"></script> -->
 
 <script type="text/javascript">
 

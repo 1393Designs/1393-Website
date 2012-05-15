@@ -95,7 +95,7 @@ select {
 	text-align: center;
 	padding: 15px 5px;
 	position: absolute;
-	z-index: 0;
+	z-index: -1;
 	top: 35px; 
 	width: 95%;
 	margin: 0px auto;

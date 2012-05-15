@@ -1,6 +1,17 @@
 <?
 
 	session_start();
+	
+	$do = $_GET['do'];
+	if ($do == 'logout') {
+			session_destroy(); 						//end admin session (effectively log out)
+			header('Location:index.php'); // and return to index/main
+			
+			?>
+				<script>window.location='index.php';</script>
+			<?
+	}
+	
 	$_SESSION['sessid'] = $_COOKIE['PHPSESSID'];	
 	include('data/config.php');	
 	$projects = getProjects();
@@ -27,11 +38,10 @@
 <link type="text/css" rel="stylesheet" href="style/base.css"/>
 <link type="text/css" rel="stylesheet" href="style/home.css"/>
 <link type="text/css" rel="stylesheet" href="style/nav.css"/>
-
 <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="../../jquery.min.js"></script>
+<!-- <script type="text/javascript" src="../../jquery.min.js"></script> -->
 </head>
 <body>
 
