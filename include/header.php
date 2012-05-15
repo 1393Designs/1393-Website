@@ -13,6 +13,9 @@
 
 <title>1393 Designs | Home</title>
 
+<META name="description" content="Developers solving problems through mobile software solutions.">
+<META name="keywords" content="mobile, Android, Textspansion, development, programming, app">
+
 <meta charset="utf-8"/>
 <!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

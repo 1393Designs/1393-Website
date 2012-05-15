@@ -35,9 +35,6 @@ body {
 	color: #CFCFE8;
 }
 
-#footer img {
-}
-
 #col1 {
 	height: 600px;
 	width: 500px;
@@ -90,7 +87,7 @@ a:hover {
 }
 
 a:visited {
-	color: #ccc;
+	color: #777;
 }
 
 .clearfix {
