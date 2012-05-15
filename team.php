@@ -26,7 +26,7 @@ $(function() {
 				?>
 					<div class="bio">
 					<div class="bio_img"><? echo $name ?></div>
-					<p><? echo $bio ?></p>					
+					<p><? echo htmlentities($bio) ?></p>					
 				</div>
 				
 				<?

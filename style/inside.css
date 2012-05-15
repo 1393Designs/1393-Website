@@ -1,13 +1,16 @@
 
+#container {
+	min-height: 350px;
+}
+
 #col1 {
 	clear: both;
-	height: 600px;
 	background: url('../images/inner_logo.png') no-repeat top center;
 	background-size: 350px;
 	-moz-background-size: 350px;
 	-o-background-size: 350px;
 	width: 350px;
-	height: 600px;
+	min-height: 350px;
 }
 
 #search_box {
@@ -49,7 +52,7 @@
 	clear:both;
 	text-align: left;
 	width: 600px;
-	min-height: 460px;
+	min-height: 350px;
 	position: relative;
 	z-index: 3;
 	left: 280px;

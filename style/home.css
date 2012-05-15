@@ -19,6 +19,5 @@
 }
 
 #footer {
-	position: relative;
-	top: 40px;
+	margin-top: -150px;
 }
