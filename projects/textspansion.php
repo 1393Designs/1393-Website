@@ -43,8 +43,13 @@ h4 {
 	padding: 0 20px 0 0;
 }
 
-#container {
-	min-height: 550px;
+#content {
+	width: 600px;
+	left: 130px;
+}
+
+#nav {
+	left: 120px;
 }
 
 </style>

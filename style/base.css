@@ -160,3 +160,11 @@ input[type="textarea"], textarea, input[type="email"] {
 	cursor: text;
 }
 
+
+
+#admin_bubble {
+	position: fixed; 
+	top: -30px; 
+	padding: 30px;
+	left: 12%;
+}

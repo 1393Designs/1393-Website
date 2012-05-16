@@ -70,8 +70,8 @@ function capitalize(string) {
 								$name = $p['name'];
 								$slug = $p['slug'];
 								
-								$url = 'projects.php';
-								if (!empty($slug)) $url = $slug;
+								$url = URL.'/projects.php';
+								if (!empty($slug)) $url = URL .'/'. $slug;
 								
 							?>							
 							<li><a href="<?= $url ?>"><?= $name ?></a></li>							
