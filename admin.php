@@ -227,16 +227,14 @@ function articleOp(action, id, title, text) {
 	
 		<input id="user_id" type="hidden" value="<?= $_SESSION[user_id] ?>"/>
 	
-		<div class="op"><a href="index.php">Home</a></div>
+		<div class="op"><a href="index.php">&laquo;&nbsp;Home</a></div>
 		<div class="op"><a href="blog.php">Blog</a></div>
 		<div class="op"><a href="team.php">Team</a></div>
 		<div class="op"><a href="projects.php">Projects</a></div>
 		<div class="op"><a href="contact.php">Contact</a></div>
-		<h4 style="margin-top:20px">
-			Admin
-			<span style="float:right;margin-left;-140px">Welcome, <?= $name ?>
+		<h4 style="margin-top:20px;float:right;margin-left;-140px">
+			Welcome, <?= $name ?>
 			<a href="index.php?do=logout">[Logout]</a>
-			</span>
 		</h4>
 		<div class="clearfix"></div>
 		<div id="notification"></div>

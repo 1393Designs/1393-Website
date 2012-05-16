@@ -2,6 +2,12 @@
 
 $(function() {
 
+	$('#admin_bubble').hover(function() {
+		$(this).css('top', '-25px');
+	}).mouseout(function() {
+		$(this).css('top', '-30px');
+	});
+
 	$('.nav_link').hover(function() {
 		$(this).siblings('.menu').toggle();
 	});
@@ -27,6 +33,11 @@ function capitalize(string) {
 };
 
 </script>
+	
+		<? if (session_is_registered('admin')) { ?>
+			<div id="admin_bubble" class="op"><a href="admin.php">Admin</a></div>
+		<? } ?>
+					
 		
 			<div id="nav">
 				<ul id="nav_links">
@@ -67,5 +78,10 @@ function capitalize(string) {
 						</ul>						
 					</li>
 					<li><a id="contact_tab" href="<?= URL ?>/contact.php">Contact</a></li>
+			
 				</ul>
+				
+				
 			</div>
+			
+			

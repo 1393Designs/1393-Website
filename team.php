@@ -36,7 +36,16 @@ $(function() {
 								echo "$name";
 							} ?>
 					</div>
-					<p><? echo $blurb ?></p>					
+					<p><? 
+					
+						if (!empty($blurb)) {
+							echo $blurb;
+						} else {
+							$str = 'Oops! This section needs to be filled out by '.$name.' :s ';
+							echo $str;
+						}
+						
+						?></p>					
 				</div>
 				
 				<?

@@ -37,13 +37,12 @@ $(function() {
 				?>
 					<div class="article_preview">
 					<div class="date">
-						<div class="date_weekday"><? echo $weekday ?></div>
 						<span class="date_month"><? echo $month ?></span>
 						<span class="date_day"><? echo $day ?></span>
 						
 					</div>
 					<? echo $text ?>
-					<p class="details">Posted by <? echo $author ?> @ <? echo $timestamp ?></p>
+					<p class="details">Posted by <?= $author ?> on <?= $weekday ?> @ <?= $timestamp ?></p>
 					
 				</div>
 				

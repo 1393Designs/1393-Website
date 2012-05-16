@@ -32,9 +32,6 @@ body {
 	background: url('../images/footer_bg.png') no-repeat top center;
 }
 
-#col1 {
-}
-
 #col2 {
 	width: 400px;
 	position: relative;
@@ -49,7 +46,8 @@ body {
 }
 
 h2, h4 {
-	color: #CFCFE8;
+	color: #CFCFE8;    
+	text-shadow: 0 1px 0 #f3f3f3;
 }
 
 h4 {
@@ -58,7 +56,8 @@ h4 {
 
 h3 {
 	text-align: left;
-	font-weight: normal;
+	font-weight: normal;    
+	text-shadow: 0 1px 0 #f3f3f3;
 }
 
 a, a:link {
@@ -126,30 +125,16 @@ a:visited {
 	padding-top: 20px;
 }
 
-.date_weekday {
-	position: relative;
-	z-index: 4;
-	left: -22px;
-	top: 10px;
-	transform:rotate(-90deg);
-	-ms-transform:rotate(-90deg); /* IE 9 */
-	-moz-transform:rotate(-90deg); /* Firefox */
-	-webkit-transform:rotate(-90deg); /* Safari and Chrome */
-	-o-transform:rotate(-90deg); /* Opera */
-}
-
 .date_month {
 	position: relative;
-	top: -30px;
-	left: 2px;
+	top: -5px;
 	width: 50px;
 	text-align: center;
 }
 
 .date_day {
 	position: relative;
-	top: -28px;
-	left: 3px;
+	top: -3px;
 	margin: 0px auto;
 	width: 40px;
 	display: block;
