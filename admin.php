@@ -103,7 +103,12 @@ $(function() {
 			details = $('#app_details').val().trim();
 			slug = $('#app_slug').val().trim();
 			projectOp('createProject', id, name, purpose, blurb, details, slug);	
-	}); // create app
+	}); // create project
+	
+	$('#delete_post_bubble').click(function() {
+		id = $('#delete_posts_select').attr('value');
+		articleOp('deleteArticle', id, null, null, null, null, null);
+	}); // delete
 
 }); // $(function
 
@@ -199,6 +204,7 @@ function profileOp(text, blurb) {
 function articleOp(action, id, title, text) {
 		if (action=='createArticle') op = 'post creation';
 		else if (action=='saveArticle') op = 'post update';
+		else if (action=='deleteArticle') op = 'post deletion';
 
 		if (text != '' && title != '') {
 					
@@ -244,6 +250,7 @@ function articleOp(action, id, title, text) {
 				<div class="tabs">
 					<h3 id="newpost_tab" class="tab active_tab">New Blog Post</h3>
 					<h3 id="editpost_tab" class="tab">Edit a Post</h3>
+					<h3 id="deletepost_tab" class="tab">Delete a Post</h3>
 				</div>
 		
 				<div id="newpost" class="tabbed section">
@@ -272,12 +279,7 @@ function articleOp(action, id, title, text) {
 							
 						?>
 							<option value="<?= $id ?>"><?= $name ?></option>
-						
-						<?							
-							
-						}
-					
-					?>
+						<?	}  ?>
 					</select>				
 					<table>
 							<tr>
@@ -291,8 +293,27 @@ function articleOp(action, id, title, text) {
 					<div id="edit_post_bubble" class="op">Save</div>
 				</div>
 				
+		
+			<div id="deletepost" class="tabbed section" style="display:none">
+				
+					<select id="delete_posts_select" name="posts" class="float_select">
+						<option value="-1" disabled selected>Select post</option>
+					<?
+						$articles = getArticles();
+						
+						foreach ($articles as $a) {
+							$name = $a['title'];
+							$id = $a['id'];
+							
+						?> <option value="<?= $id ?>"><?= $name ?></option>
+						
+						<?	}  ?>
+					</select>
+					<div id="delete_post_bubble" class="op">Delete</div>
+				</div>
+				
 		</div>
-		<div>
+		<div>		
 		
 				<div class="tabs">
 					<h3 id="editprofile_tab" class="active_tab">Edit Profile</h3>
@@ -302,10 +323,10 @@ function articleOp(action, id, title, text) {
 					<table>
 						<tr>
 							<td>Blurb&nbsp;</td>
-							<td class="fill_parent"><input class="fill_parent" id="user_blurb" type="text" placeholder="Education/current position, interesting personal fact :)" required/></td>
+							<td class="fill_parent"><input id="user_blurb" value="<?= $user_blurb ?>" class="fill_parent" type="text" placeholder="Education/current position, interesting personal fact :)" /></td>
 						</tr>
 					</table>
-					<textarea id="profile" placeholder="Profile stuffs" class="text"><?= $bio ?></textarea>					
+					<textarea id="profile" placeholder="More detailed profile (HTML chars allowed)" class="text"><?= $bio ?></textarea>					
 					<div id="save_profile_bubble" class="op">Save</div>
 				</div>
 		

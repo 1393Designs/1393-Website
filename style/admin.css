@@ -121,3 +121,13 @@ select {
 	color: #FF9494;
 	background: #FFF4F4;
 }
+
+.float_select {
+	width: 200px;
+	margin: 20px 0px 0 30%;
+	float: left;
+}
+
+#delete_post_bubble {
+	float: left;
+}

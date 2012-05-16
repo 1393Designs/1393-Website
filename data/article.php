@@ -16,15 +16,23 @@
 			case 'saveArticle':
 				saveArticle($_POST['id'], $_POST['title'], $_POST['content']);
 				break;
-		}
-		
-}
+			case 'deleteArticle':
+				deleteArticle($_POST['id']);
+				break;
+		}	
+} // switch
+
+
+function deleteArticle($id) {
+	$result = query_delete(TABLE_ARTICLE, $id);
+	echo json_encode(array('response'=>$result));	
+} // deleteArticle
 	
 function saveArticle($id, $title, $content) {
 	$query = "SET title='$title', content='$content'";
 	$result = query_update_specific(TABLE_ARTICLE, $query, $id);
 	echo json_encode(array('response'=>$result));
-}
+} // saveArticle
 	
 function getArticle($id) {
 		$result = query_select_one('*', TABLE_ARTICLE, "id='$id'");

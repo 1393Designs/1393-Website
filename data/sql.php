@@ -42,7 +42,6 @@
 		$clean = $values;
 		$query = "INSERT INTO $table VALUES($clean)";	
 		$result = mysql_query($query) or die(mysql_error());
-	
 		mysql_close();
 		return $query;
 	}
@@ -53,7 +52,6 @@
 		$clean_content = mysql_real_escape_string(stripslashes($content));
 		$query = "UPDATE $table SET $clean_field = '$clean_content' WHERE id='$id'";	
 		$result = mysql_query($query) or die(mysql_error());
-	
 		mysql_close();
 		return $result;
 	}
@@ -62,20 +60,17 @@
 		db();
 		$query = "UPDATE $table $changes WHERE id='$id'";	
 		$result = mysql_query($query) or die(mysql_error());
-	
 		mysql_close();
 		return $result;
 	} // query_update_specific
 	
-	function query_search($table, $field, $term) {
-	
-		db();
-		
-		mysql_close();
-		return $result;
-	
-	} // query_search
- 
+	function query_delete($table, $id) {
+			db();
+			$query = "DELETE FROM $table WHERE id='$id'";
+			$result = mysql_query($query) or die(mysql_error());
+			mysql_close();
+			return $result;
+	} // query_delete
  
  
  ?>
