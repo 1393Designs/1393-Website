@@ -4,7 +4,6 @@ body {
 	color: #333;
 	font-size: 11pt;
 	width: 100%;
-	background: #fff;
 }
 
 #container {
@@ -12,7 +11,7 @@ body {
 	overflow: hidden;
 	min-height: 550px;
 	margin: 10px auto;
-	background: url('../images/bg.png') no-repeat top center;
+	background: url('../images/bg_v2.png') no-repeat top center;
 }
 
 #bg_img {
@@ -38,7 +37,7 @@ body {
 	height: 70px;
 	text-align: center;
 	color: #CFCFE8;
-	background: url('../images/footer_bg.png') no-repeat top center;
+	background: transparent url('../images/footer_bg.png') no-repeat top center;
 }
 
 h2, h4 {
