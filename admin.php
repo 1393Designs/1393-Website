@@ -106,8 +106,11 @@ $(function() {
 	}); // create project
 	
 	$('#delete_post_bubble').click(function() {
-		id = $('#delete_posts_select').attr('value');
-		articleOp('deleteArticle', id, null, null, null, null, null);
+		var c = confirm('Are you sure?');
+		if (c) {	
+			id = $('#delete_posts_select').attr('value');
+			articleOp('deleteArticle', id, null, null, null, null, null);
+		}
 	}); // delete
 
 }); // $(function
