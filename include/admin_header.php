@@ -14,6 +14,7 @@
 
 	include('data/base_config.php');
 	include('data/config.php');	
+	include('js/admin.js');
 ?>
 
 <!DOCTYPE html>
