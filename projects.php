@@ -64,9 +64,6 @@ h4 {
 }
 
 </style>
-			
-	<div id="content">
-	
 			<div class="fadein">
 				<?
 					foreach ($projects as $p) {
@@ -100,14 +97,7 @@ h4 {
 				<? } ?>
 					<?= $blurb ?></div>		
 			</div>
-			<?
-			
-			}
-			
-			?>
-			
-				
-	</div><!-- end #content -->
+			<?	}  ?>
 		
 			
 <? include('include/footer.php'); ?>

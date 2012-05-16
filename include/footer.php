@@ -106,6 +106,8 @@ $(function() {
 	}
 
 ?>
+				
+	</div><!-- end #content -->
 </div><!-- end #container -->
 
 		<div id="footer">

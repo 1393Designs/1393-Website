@@ -8,8 +8,9 @@
 #tagline {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	width: 400px;
-	position: fixed;
+	position: relative;
 	top: 450px;
+	left: 190px;
 	padding: 0 0 20px 0;
 	font-size: 1.5em;
 	background: url('../images/tagline_bg.png') no-repeat bottom center;    
@@ -22,6 +23,6 @@
 	height: 400px;
 }
 
-#col2 {
-	left: 440px;
+#content {
+	top: -80px;
 }

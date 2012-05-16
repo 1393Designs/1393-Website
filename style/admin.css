@@ -1,16 +1,13 @@
 
-body {
-	background: #fff;
-}
-
 #container {
 	min-height: 580px;
+	background: #fff;
 }
 
 #content {
 	left: 0px;
 	top: 10px;
-	width: 95%;
+	width: 1000px;
 	margin: 0px auto;
 }
 

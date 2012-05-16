@@ -47,8 +47,6 @@
 <body>
 
 <div id="container">
-
-		<div class="big_col" id="col1">
 			
 			<div id="tagline">
 				A small group of software developers making
@@ -57,7 +55,5 @@
 				<span class="heavy_purple">realities.</span>
 			</div><!-- end #tagline -->
 			
-		</div><!-- end #col1 -->
-		
-		<div class="big_col" id="col2">		
+			
 			<? include('nav.php'); ?>

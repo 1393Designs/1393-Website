@@ -4,21 +4,29 @@ body {
 	color: #333;
 	font-size: 11pt;
 	width: 100%;
-	background: url('../images/bg.png') no-repeat top left;
-	background-attachment: fixed;
+	background: #fff;
 }
 
 #container {
-	width: 1100px;
+	min-width: 1200px;
 	min-height: 550px;
-	margin: 0px auto;
+	margin: 10px auto;
+	background: url('../images/bg.png') no-repeat top center;
 }
 
-.big_col {
-	min-height: 550px;
-	text-align: left;
-	float: left;
+#bg_img {
+	display: none;
 }
+
+#content {
+	position: relative;
+	z-index: 5;
+	text-align: left;
+	width: 500px;
+	margin: 0px auto;
+	left: 220px;
+}
+
 
 #footer {
 	clear: both;
@@ -30,19 +38,6 @@ body {
 	text-align: center;
 	color: #CFCFE8;
 	background: url('../images/footer_bg.png') no-repeat top center;
-}
-
-#col2 {
-	width: 400px;
-	position: relative;
-	text-align: center;
-}
-
-#nav {
-	width: 460px;
-	height: 120px;
-	padding: 20px 0;
-	background: url('../images/header_bg.png') no-repeat center;
 }
 
 h2, h4 {

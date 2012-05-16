@@ -52,9 +52,6 @@ $(function() {
 				
 				?>
 				
-			</div>
-			
-		</div><!-- end #col2 -->
-		
+			</div><!-- end #articles -->
 			
 <? include('include/footer.php'); ?>

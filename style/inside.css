@@ -1,47 +1,5 @@
 body {
-	background: #fff;
-	background: url('../images/inside_bg.png') no-repeat top left;
-	background-attachment: fixed;
-	background-size: 650px;
-	-moz-background-size: 650px;
-	-o-background-size: 650px;
 }
-
-#container {
-	min-height: 350px;
-}
-
-#col1 {
-	display: none;
-}
-
-#nav {
-	position: relative;
-	left: 280px;
-	width: 600px;
-}
-
-#nav_links { 
-	list-style-type: none;
-	width: 900px;
-	position: relative;
-	left: 70px;
-}
-
-#content {
-	clear: both;
-	text-align: left;
-	width: 600px;
-	min-height: 350px;
-	position: relative;
-	z-index: 3;
-	left: 330px;
-	overflow: hidden;
-}
-
-
-
-
 
 
 

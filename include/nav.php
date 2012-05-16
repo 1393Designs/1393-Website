@@ -37,7 +37,8 @@ function capitalize(string) {
 		<? if (session_is_registered('admin')) { ?>
 			<div id="admin_bubble" class="op"><a href="admin.php">Admin</a></div>
 		<? } ?>
-					
+			
+			<div id="content">
 		
 			<div id="nav">
 				<ul id="nav_links">
@@ -81,7 +82,5 @@ function capitalize(string) {
 			
 				</ul>
 				
-				
-			</div>
-			
+			</div><!-- end #nav -->
 			

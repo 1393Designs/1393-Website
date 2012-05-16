@@ -1,7 +1,19 @@
+#nav {
+	width: 460px;
+	height: 120px;
+	padding: 20px 0;
+	background: url('../images/header_bg.png') no-repeat center;
+	position: relative;
+	width: 600px;
+	margin-left: -80px;
+}
 
 #nav_links {
 	padding: 50px 0 0 20px;
 	list-style-type: none;
+	width: 900px;
+	position: relative;
+	left: 70px;
 }
 
 #nav_links li {

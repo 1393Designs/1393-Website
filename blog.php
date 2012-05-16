@@ -15,9 +15,6 @@ $(function() {
 
 </script>
 			
-			
-			<div id="content">
-			
 			<?
 				
 				foreach ($articles as $a) {
@@ -46,9 +43,7 @@ $(function() {
 				
 				} // end foreach
 				
-				?>	
-				
-				</div><!-- end #content -->
+				?>
 		
 			
 <? include('include/footer.php'); ?>

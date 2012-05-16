@@ -14,9 +14,7 @@ $(function() {
 });
 
 </script>
-			
-			
-	<div id="content">		
+					
 			<?
 				
 				foreach ($users as $u) {
@@ -29,13 +27,13 @@ $(function() {
 				
 				?>
 					<div class="bio">
-					<div class="bio_img">
-						<? if (!empty($slug)) {
-							 echo "<a href='$slug'>$name</a>";
-							} else {
-								echo "$name";
-							} ?>
-					</div>
+						<div class="bio_img">
+							<? if (!empty($slug)) {
+								 echo "<a href='$slug'>$name</a>";
+								} else {
+									echo "$name";
+								} ?>
+						</div>
 					<p><? 
 					
 						if (!empty($blurb)) {
@@ -53,8 +51,6 @@ $(function() {
 				} // end foreach
 				
 				?>
-
-	</div><!-- end #content -->
 		
 			
 <? include('include/footer.php'); ?>
