@@ -1,4 +1,8 @@
 
+body {
+	background: #fff;
+}
+
 #container {
 	min-height: 580px;
 }

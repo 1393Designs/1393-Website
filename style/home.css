@@ -6,10 +6,13 @@
 }
 
 #tagline {
-	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	width: 400px;
-	padding: 460px 0 0 5px;
+	position: fixed;
+	top: 450px;
+	padding: 0 0 20px 0;
 	font-size: 1.5em;
+	background: url('../images/tagline_bg.png') no-repeat bottom center;
 }
 
 #articles {
@@ -18,6 +21,6 @@
 	height: 400px;
 }
 
-#footer {
-	margin-top: -150px;
+#col2 {
+	left: 440px;
 }

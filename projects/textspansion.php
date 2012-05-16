@@ -52,7 +52,7 @@ h4 {
 <div id="content">
 	<input id="project_id" type="hidden" value="<?= 1 ?>"/>
 
-	<h3>Textpansion</h3>			
+	<h3 id="proj_name"></h3>			
 	
 	<img id='proj_img' height="90" style="display: none" />
 	

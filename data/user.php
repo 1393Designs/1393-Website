@@ -11,7 +11,19 @@
 		case 'login':
 			login($_POST['email'], md5($_POST['pass']));
 			break;
+		case 'getProfile':
+			getProfile($_POST['id']);
+			break;
 	}
+	
+function getProfile($id) {
+	$where = "id='$id'";
+	$result = query_select_one('*', TABLE_USER, $where);
+	echo json_encode(array(
+			'bio'=>stripslashes($result['bio']),
+			'slug'=>stripslashes($result['slug']),
+			'img_path'=>stripslashes($result['img_path'])));
+} // getProfile
 	
 function login($email, $pass) {
 	

@@ -4,62 +4,48 @@ body {
 	color: #333;
 	font-size: 11pt;
 	width: 100%;
-	background: #efefef;
+	background: url('../images/bg.png') no-repeat top left;
+	background-attachment: fixed;
 }
 
 #container {
-	width: 900px;
+	width: 1100px;
 	min-height: 550px;
-	background: #fff;
 	margin: 0px auto;
-	overflow: hidden;
-	border: thin solid #fff;
 }
 
 .big_col {
 	min-height: 550px;
 	text-align: left;
 	float: left;
-	margin: 0 0 0 0;
 }
 
 #footer {
 	clear: both;
-	padding: 50px 0 0 0;
-	width: 900px;
+	padding: 20px 0 0 0;
+	width: 100%;
+	margin-top: 50px;
+	margin: 50px auto;
 	height: 70px;
-	overflow: hidden;
 	text-align: center;
-	margin-bottom: 0;
-	background: url('../images/trim.png') no-repeat top center;
 	color: #CFCFE8;
+	background: url('../images/footer_bg.png') no-repeat top center;
 }
 
 #col1 {
-	width: 500px;
-	height: 660px;
-	background: url('../images/logo.png') no-repeat top center;
-	background-size: 600px;
-	-moz-background-size: 600px;
-	-o-background-size: 600px;
-	position: fixed;
 }
 
 #col2 {
 	width: 400px;
 	position: relative;
-	left: 410px;
 	text-align: center;
 }
 
 #nav {
+	width: 460px;
 	height: 120px;
 	padding: 20px 0;
 	background: url('../images/header_bg.png') no-repeat center;
-	background-size: 460px;
-	-moz-background-size: 460px;
-	-o-background-size: 460px;
-	width: 460px;
 }
 
 h2, h4 {

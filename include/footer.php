@@ -106,6 +106,7 @@ $(function() {
 	}
 
 ?>
+</div><!-- end #container -->
 
 		<div id="footer">
 			Copyright 2012 1393 Designs&nbsp;|
@@ -120,7 +121,7 @@ $(function() {
 			<? } ?>			
 			
 		</div><!-- end #footer -->
-</div><!-- end #container -->
+		
 
 <div id="modal"></div>
 <div id="login_box">
