@@ -7,6 +7,7 @@
 	
 	$profile = getBio($email);
 	$bio = $profile['bio'];
+	$user_blurb = $profile['blurb'];
 	
 ?>
 
@@ -80,7 +81,8 @@ $(function() {
 	
 	$('#save_profile_bubble').click(function() {
 		text = $('#profile').val().trim();
-		profileOp(text);
+		user_blurb = $('#user_blurb').val().trim();
+		profileOp(text, user_blurb);
 	}); // edit profile
 	
 	$('#save_proj_bubble').click(function() {
@@ -172,10 +174,10 @@ function projectOp(action, id, name, purpose, blurb, details, slug) {
 		}
 }; // projectOp
 
-function profileOp(text) {
+function profileOp(text, blurb) {
 	if (text != '') {
 				id = $('#user_id').attr('value');
-				dataString = 'action=saveProfile&id='+id+'&bio='+text;
+				dataString = 'action=saveProfile&id='+id+'&bio='+text+'&blurb='+blurb;
 				
 				$.ajax({ 
 							 type: 'post',
@@ -225,7 +227,11 @@ function articleOp(action, id, title, text) {
 	
 		<input id="user_id" type="hidden" value="<?= $_SESSION[user_id] ?>"/>
 	
-		<div class="op">&laquo;<a href="index.php">&nbsp;Back</a></div>
+		<div class="op"><a href="index.php">Home</a></div>
+		<div class="op"><a href="blog.php">Blog</a></div>
+		<div class="op"><a href="team.php">Team</a></div>
+		<div class="op"><a href="projects.php">Projects</a></div>
+		<div class="op"><a href="contact.php">Contact</a></div>
 		<h4 style="margin-top:20px">
 			Admin
 			<span style="float:right;margin-left;-140px">Welcome, <?= $name ?>
@@ -295,6 +301,12 @@ function articleOp(action, id, title, text) {
 				</div>
 				
 				<div id="editprofile" class="section">
+					<table>
+						<tr>
+							<td>Blurb&nbsp;</td>
+							<td class="fill_parent"><input class="fill_parent" id="user_blurb" type="text" placeholder="Education/current position, interesting personal fact :)" required/></td>
+						</tr>
+					</table>
 					<textarea id="profile" placeholder="Profile stuffs" class="text"><?= $bio ?></textarea>					
 					<div id="save_profile_bubble" class="op">Save</div>
 				</div>

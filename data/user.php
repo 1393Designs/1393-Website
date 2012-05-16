@@ -6,7 +6,7 @@
 	switch($_POST['action']) {
 	
 		case 'saveProfile':
-			saveProfile($_POST['id'], $_POST['bio']);
+			saveProfile($_POST['id'], $_POST['bio'], $_POST['blurb']);
 			break;	
 		case 'login':
 			login($_POST['email'], md5($_POST['pass']));
@@ -21,6 +21,7 @@ function getProfile($id) {
 	$result = query_select_one('*', TABLE_USER, $where);
 	echo json_encode(array(
 			'bio'=>stripslashes($result['bio']),
+			'blurb'=>stripslashes($result['blurb']),
 			'slug'=>stripslashes($result['slug']),
 			'img_path'=>stripslashes($result['img_path'])));
 } // getProfile
@@ -49,8 +50,9 @@ function login($email, $pass) {
 	
 } // login
 	
-function saveProfile($id, $bio) {
+function saveProfile($id, $bio, $blurb) {
 	$result = query_update(TABLE_USER, 'bio', $bio, $id);
+	$result = query_update(TABLE_USER, 'blurb', $blurb, $id);
 	echo json_encode(array('response'=>$result));
 } // saveProfile
 

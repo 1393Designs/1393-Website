@@ -16,12 +16,14 @@ $(function() {
 </script>
 			
 			
-	<div id="content">		<?
+	<div id="content">		
+			<?
 				
 				foreach ($users as $u) {
 					$name = $u['name'];
-					$bio = $u['bio'];
+					$bio = htmlspecialchars($u['bio']);
 					$email = $u['email'];
+					$blurb = $u['blurb'];
 					$slug = $u['slug'];
 					$img_path = $u['img_path'];
 				
@@ -34,7 +36,7 @@ $(function() {
 								echo "$name";
 							} ?>
 					</div>
-					<p><? echo htmlentities($bio) ?></p>					
+					<p><? echo $blurb ?></p>					
 				</div>
 				
 				<?
