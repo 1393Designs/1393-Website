@@ -15,6 +15,7 @@
 	define("TABLE_USER", "user");
 	define("TABLE_ARTICLE", "article");
 	define("TABLE_PROJECT", "project");
+	define("TABLE_MAP_PROJECT_USER", "map_project_user");
 
 	function db() { // connect with MySQL
 		mysql_connect(DB_HOST, DB_USER, DB_PASS) or die('Error connecting to mysql'.mysql_error());

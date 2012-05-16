@@ -5,7 +5,7 @@
 	background: url('../images/header_bg.png') no-repeat center;
 	position: relative;
 	width: 600px;
-	margin-left: -80px;
+	margin-left: -50px;
 	z-index: 99;
 }
 
@@ -14,7 +14,7 @@
 	list-style-type: none;
 	width: 900px;
 	position: relative;
-	left: 70px;
+	left: 50px;
 }
 
 #nav_links li {

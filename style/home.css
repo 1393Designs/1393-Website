@@ -1,11 +1,5 @@
-
-
 #content {
 	top: -80px;
-}
-
-#container {
-	background-attachment: fixed;
 }
 
 #view_more {
@@ -25,10 +19,15 @@
 	font-size: 1.5em;
 	background: url('../images/tagline_bg.png') no-repeat bottom center;    
 	text-shadow: 0 1px 0 #f3f3f3;
+	visibility: hidden;
 }
 
 #articles {
 	padding: 60px 0 0 0;
 	width: 460px;				
 	height: 400px;
+}
+
+#footer {
+	margin-top: -120px;
 }

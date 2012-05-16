@@ -43,18 +43,9 @@ h4 {
 	padding: 0 20px 0 0;
 }
 
-#content {
-	width: 600px;
-	left: 130px;
-}
-
-#nav {
-	left: 120px;
-}
-
 </style>
 			
-<div id="content">
+			
 	<input id="user_id" type="hidden" value="<?= 1 ?>"/>
 
 	<h3>Vince</h3>			
@@ -66,8 +57,6 @@ h4 {
 	
 	<h4>Bio</h4>
 	<div id="user_bio"></div>
-
-</div><!-- end #content -->
 		
 			
 <? include('../include/footer.php'); ?>

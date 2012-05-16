@@ -14,7 +14,23 @@
 		case 'getProfile':
 			getProfile($_POST['id']);
 			break;
+		case 'getRoles':
+			getRoles($_POST['id']);
+			break;
 	}
+	
+function getRoles($id) {
+
+	$fields = TABLE_MAP_PROJECT_USER.".id, ".TABLE_PROJECT.".name, ".TABLE_PROJECT.".id";
+	$where = TABLE_MAP_PROJECT_USER.".user_id='$id' AND ".TABLE_PROJECT;
+	$where.= ".id = ".TABLE_MAP_PROJECT_USER.".project_id";
+	$from = TABLE_USER.", ".TABLE_MAP_PROJECT_USER.", ".TABLE_PROJECT;
+	$result = query_select($fields, $from, $where);	
+	
+	echo "<p>".$where."</p>";
+	
+	return $result;
+} // getRoles
 	
 function getProfile($id) {
 	$where = "id='$id'";

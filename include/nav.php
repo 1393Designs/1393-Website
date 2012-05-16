@@ -35,7 +35,7 @@ function capitalize(string) {
 </script>
 	
 		<? if (session_is_registered('admin')) { ?>
-			<div id="admin_bubble" class="op"><a href="admin.php">Admin</a></div>
+			<div id="admin_bubble" class="op"><a href="<?= URL ?>/admin.php">Admin</a></div>
 		<? } ?>
 			
 			<div id="content">

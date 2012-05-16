@@ -66,5 +66,3 @@
 						</table>
 						<textarea id="edit_proj_details" placeholder="More app details" rows="5" cols="60" required></textarea>
 						<div id="save_proj_bubble" class="op">Save</div>
-					
-				</div>

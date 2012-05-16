@@ -152,7 +152,5 @@ $(function() {
 			<? include('admin_partials/_project.php'); ?>
 		
 		</div>
-		
-	</div><!-- end #content -->
 			
 <? include('include/footer.php'); ?>
