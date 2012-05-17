@@ -20,7 +20,18 @@
 		case 'newRole':
 			newRole($_POST['user_id'], $_POST['proj_id'], $_POST['role']);
 			break;
+		case 'roleUpdate':
+			roleUpdate($_POST['map_id'], $_POST['role']);
+			break;
 	}
+	
+function roleUpdate($map_id, $role) {
+	//$result = query_update(TABLE_MAP_PROJECT_USER, 'role', '$role', '$map_id');	
+	$query = "SET role='$role'";
+	$result = query_update_specific(TABLE_MAP_PROJECT_USER, $query, $map_id);
+	
+	echo json_encode(array('response'=>$result));
+} // roleUpdate
 	
 function newRole($user_id, $proj_id, $role) {
 	$vals = "'', '$proj_id', '$user_id', '$role'";
@@ -30,11 +41,12 @@ function newRole($user_id, $proj_id, $role) {
 	
 function getRoles($id) {
 
-	$fields = TABLE_MAP_PROJECT_USER.".id, ".TABLE_PROJECT.".name, ".TABLE_PROJECT.".id, ";
-	$fields .= TABLE_MAP_PROJECT_USER.".role";
-	$where = TABLE_MAP_PROJECT_USER.".user_id='$id' AND ".TABLE_PROJECT;
-	$where.= ".id = ".TABLE_MAP_PROJECT_USER.".project_id";
-	$from = TABLE_MAP_PROJECT_USER.", ".TABLE_PROJECT;
+	$map = TABLE_MAP_PROJECT_USER;
+	$project = TABLE_PROJECT;
+
+	$fields = "$map.id, $map.role, $project.name, $map.project_id";
+	$where = "$map.user_id='$id' AND $project.id = $map.project_id";
+	$from = $map.", ".$project;
 	$result = query_select($fields, $from, $where);
 	
 	return $result;

@@ -49,7 +49,7 @@
 	function query_update($table, $field, $content, $id) {
 		db();
 		$clean_field = $field;
-		$clean_content = mysql_real_escape_string(stripslashes($content));
+		$clean_content = $content;
 		$query = "UPDATE $table SET $clean_field = '$clean_content' WHERE id='$id'";	
 		$result = mysql_query($query) or die(mysql_error());
 		mysql_close();

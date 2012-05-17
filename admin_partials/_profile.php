@@ -2,7 +2,7 @@
 
 $(function() {
 
-	$('#save_roles_bubble').click(function() {
+	$('#new_role_bubble').click(function() {
 		id = $('#roles_select').attr('value');
 		if (id != -1) { // user has selected a project
 				role = $('#new_proj_role').attr('value').trim();
@@ -10,46 +10,37 @@ $(function() {
 		} else {
 			// user has not selected a project
 		}
-	});
+	}); // #new_role_bubble
+	
+	$('#save_roles_bubble').click(function() {
+	
+	}); // #save_roles_bubble
+	
+	$('.role').bind('change', function() {
+		map_id = $(this).siblings('.map_id').attr('value');
+		role = $(this).attr('value').trim();
+		dataString = 'action=updateRole'+'&map_id='+map_id+'&role='+role;
+		alert(dataString);
+		$.ajax({
+						 type: 'post',
+						 dataType: 'json',
+						 url: 'data/user.php',
+						 data: dataString,
+						 success: function(data) {
+								 finish(data, 'project role update');
+						}, // end success
+						error: function(xhr, textStatus, errorThrown) {
+								error('Request failed. ' +textStatus+ ': ' + errorThrown);
+						}
+			}); // end ajax
+		
+		
+		
+	}); // $(.role).bind
 	
 });
 
 </script>
-
-<style>
-	h5 {
-		margin: 2px 0;
-	}
-	
-	.section.op {
-		float: right;
-	}
-	
-	#save_roles_bubble {
-		margin-top: 0;
-		float: right;
-	}
-	
-	.text {
-		min-height: 10px;
-		height: auto;
-	}
-	
-	#existing_roles {
-		padding-right: 15px;
-		border-right: 2px solid #57527E;
-	}
-	
-	#new_role {
-		padding: 0 30px 0 15px;
-	}
-	
-	.roles_projects {
-		width: 390px;
-		min-height: 70px;
-		float: left;
-	}
-</style>
 
 
 				<div class="tabs">
@@ -71,8 +62,9 @@ $(function() {
 				
 				<div id="userproject" class="tabbed section">
 					<div id="existing_roles" class="roles_projects">
+					<div id="save_roles_bubble" class="op">Save</div>
+					
 					<h5>Projects you've worked on</h5>
-				
 					<?
 						$roles = getRoles($_SESSION['user_id']);
 						
@@ -83,16 +75,15 @@ $(function() {
 							<?
 							$counter = 0;
 							foreach ($roles as $r) {
-								$map_id = 0;
+								$map_id = $r['id'];
 								$proj_name = $r['name'];
-								$proj_id = $r['id'];
 								$proj_role = $r['role'];
 								
 								?>
 									<tr>
 										<td><?= $proj_name ?></td>
-										<td><input id="role_<?= $counter ?>" value="role_<?= $counter ?>" type="hidden"/>
-												<input id="" class="role" value="<?= $proj_role ?>" type="text"/>
+										<td><input class="map_id" value="<?= $map_id ?>" type="hidden"/>
+												<input class="role" value="<?= $proj_role ?>" type="text"/>
 										</td>
 										<td>
 											<div id="delete_<?= $map_id ?>" class="delete">[x]</div>
@@ -100,29 +91,21 @@ $(function() {
 									</tr>
 								<?
 								$counter++;	
-							} // foreach
+								} // foreach
 							?>
 							</table>
-							<?
-						}
+							<?	}  ?>
+					</div> <!-- end #existing_roles -->
 					
-					?>
-					</div> <!-- end .curr_projects -->
 					
-					<div id="new_role" class="roles_projects">
 					
-						<h5>Add yourself to a project</h5>
-						<div class="text">
-					
-							<select name="projects" id="roles_select">
-							<? include('util/_project_select.php');	?>
-							</select>
-						
-							<input id="new_proj_role" type="text" placeholder="What was your role?"/>
-					</div><!-- end .text -->
-						
-				</div><!-- end #new_role -->
-				
-			<div id="save_roles_bubble" class="op">Save</div>
+				<div id="new_role" class="roles_projects">
+					<div id="new_role_bubble" class="op">Add Role</div>
+					<h5>Add yourself to a project</h5>			
+					<select name="projects" id="roles_select">
+						<? include('util/_project_select.php');	?>
+					</select>
+					<input id="new_proj_role" type="text" placeholder="What was your role?"/>	
+				</div><!-- end #new_role -->		
 				
 		</div><!-- end #userproject -->

@@ -111,6 +111,7 @@ select {
 }
 
 #notification.success {
+	position: absolute;
 	z-index: 50;
 	border: thick solid #00CC66;
 	color: #00CC66;
@@ -118,6 +119,7 @@ select {
 }
 
 #notification.error {
+	position: absolute;
 	z-index: 50;
 	border: thick solid #FF9494;
 	color: #FF9494;
@@ -132,4 +134,37 @@ select {
 
 #delete_post_bubble {
 	float: left;
+}
+
+h5 {
+	margin: 2px 0;
+}
+
+.section.op {
+	float: right;
+}
+
+#save_roles_bubble {
+	float: right;
+}
+
+#new_role_bubble {
+	float: right;
+}
+
+.roles_projects {
+	min-height: 50px;
+	float: left;
+	width: 46%;
+}
+
+#existing_roles {
+	border-right: 2px solid #57527E;
+	padding: 0 10px 0 0;
+}
+
+#new_role {
+	padding: 0 0px 0 15px;
+	margin: 0px auto;
+	width: 50%;
 }

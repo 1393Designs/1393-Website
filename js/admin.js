@@ -10,11 +10,14 @@ function error(msg) {
 	t = ($(window).height() + $(window).scrollTop())/2 - 50;
 	box.css({	
 		'left': '10px',
-		'top': t });
+		'top': t,
+		'z-index': '50'});
 	box.text(msg)
 	.removeClass('success').addClass('error')
 	.fadeTo('slow', 1, function() {
-		$(this).delay(2000).fadeTo('slow', 0);
+		$(this).delay(2000).fadeTo('slow', 0, function() {
+			$(this).css('z-index', '-1');
+		});
 	});
 }; // error
 
@@ -39,18 +42,21 @@ function finish(data, op) {
 	t = ($(window).height() + $(window).scrollTop())/2 - 50;
 	box.css({	
 		'left': '10px',
-		'top': t });
+		'top': t,
+		'-zindex': '50'});
 	box.text(msg)
 	.removeClass('error').removeClass('success')
 	.addClass(type)
 	.fadeTo('slow', 1, function() {
-		$(this).delay(2000).fadeTo('slow', 0);
+		$(this).delay(2000).fadeTo('slow', 0, function() {
+			$(this).css('z-index', '-1');
+		});
 	});
 } // finish
 
 
 /*
-* The next few methods (projectOp, profileOp, articleOp)
+* The next few methods
 * format a dataString properly based on the args passed in,
 * and then pass it to in an .ajax call to the relevant PHP file
 * for processing.
@@ -105,7 +111,7 @@ function profileOp(action, text, blurb) {
 							}
 					}); // end ajax
 			} else {
-				alert('Can\'t save blank profile.');
+				error('Can\'t save blank profile.');
 			}
 }; // profileOp
 
@@ -131,7 +137,7 @@ function articleOp(action, id, title, text) {
 								}
 						}); // end ajax
 				} else {
-					alert('Missing blog post fields.');
+					error('Missing blog post fields.');
 				}
 }; // articleOp
 
