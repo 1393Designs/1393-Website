@@ -18,12 +18,27 @@ $(function() {
 			<?
 				
 				foreach ($users as $u) {
+					$id = $u['id'];
 					$name = $u['name'];
 					$bio = htmlspecialchars($u['bio']);
 					$email = $u['email'];
 					$blurb = $u['blurb'];
 					$slug = $u['slug'];
 					$img_path = $u['img_path'];
+					
+					$user_roles = getRoles($id);
+					$roles = '';
+					if (!empty($user_roles)) {
+						$counter = 1;
+						foreach ($user_roles as $r) {
+							$roles .= $r['name'];
+							$roles .= ' ('.$r['role'].')';
+							if ($counter != (count($user_roles))) {
+								$roles .= ', ';
+							} // endif
+							$counter++;
+						} // end foreach
+					}
 				
 				?>
 					<div class="bio">
@@ -43,7 +58,16 @@ $(function() {
 							echo $str;
 						}
 						
-						?></p>					
+						?></p>
+						
+					<p><?
+						
+						if (!empty($roles)) {
+							echo "<br><h5>Projects worked on:</h5>";
+							echo $roles;
+						}						
+						
+					?></p>
 				</div>
 				
 				<?
