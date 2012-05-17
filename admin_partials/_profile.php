@@ -48,11 +48,11 @@ $(function() {
 
 
 				<div class="tabs">
-					<h3 id="editprofile_tab" class="tab">Edit Profile</h3>
-					<h3 id="userproject_tab" class="tab active_tab">Projects Worked On</h3>
+					<h3 id="editprofile_tab" class="tab active_tab">Edit Profile</h3>
+					<h3 id="userproject_tab" class="tab">Projects Worked On</h3>
 				</div>
 				
-				<div id="editprofile" class="tabbed section" style="display:none">
+				<div id="editprofile" class="tabbed section">
 					<table>
 						<tr>
 							<td>Blurb&nbsp;</td>
@@ -64,7 +64,7 @@ $(function() {
 				</div><!-- end #editprofile -->
 				
 				
-				<div id="userproject" class="tabbed section">
+				<div id="userproject" class="tabbed section" style="display:none">
 					<div id="existing_roles" class="roles_projects">
 					
 					<h5>Past/current projects</h5>

@@ -51,10 +51,15 @@ $(function() {
 	}); // post article
 	
 	$('#delete_post_bubble').click(function() {
-		var c = confirm('Are you sure?');
-		if (c) {	
-			id = $('#delete_posts_select').attr('value');
-			articleOp('deleteArticle', id, null, null, null, null, null);
+		id = $('#delete_posts_select').attr('value');
+		if (id != -1) {
+			var c = confirm('Are you sure?');
+			if (c) {	
+				dataString = 'action=deleteArticle&id='+id;
+				action('article', dataString, 'blog post deletion');
+			}
+		} else {
+			error('Please select a blog post for deletion');
 		}
 	}); // delete
 

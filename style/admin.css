@@ -93,6 +93,7 @@ h3.active_tab {
 }
 
 select {
+	min-width: 160px;
 	max-width: 200px;
 }
 
@@ -106,6 +107,7 @@ select {
 	width: 95%;
 	margin: 0px auto;
 	opacity: 0;
+	font-size: 1.5em;
 	border: thick solid #333;
 	background: #efefef;
 }
