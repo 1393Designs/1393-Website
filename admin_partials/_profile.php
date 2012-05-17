@@ -13,12 +13,15 @@ $(function() {
 	}); // add role
 
 	$('#new_role_bubble').click(function() {
-		id = $('#roles_select').attr('value');
-		if (id != -1) { // user has selected a project
+		proj_id = $('#roles_select').attr('value');
+		user_id = $('#user_id').attr('value');
+		if (proj_id != -1) { // user has selected a project
 				role = $('#new_proj_role').attr('value').trim();
-				mapOp('newRole', role, id);
+				dataString = 'action=newRole&role='+role+'&proj_id='+proj_id+'&user_id='+user_id;
+				successMsg = 'role creation';
+				mapOp(dataString, successMsg);
 		} else {
-			// user has not selected a project
+			error('No project selected');
 		}
 	}); // #new_role_bubble
 	
@@ -27,38 +30,16 @@ $(function() {
 		role = $(this).attr('value').trim();
 		proj = $(this).siblings('.proj_name').attr('value');
 		dataString = 'action=updateRole'+'&map_id='+map_id+'&role='+role;
-		
-		$.ajax({
-						 type: 'post',
-						 dataType: 'json',
-						 url: 'data/user.php',
-						 data: dataString,
-						 success: function(data) {
-								 finish(data, 'project role update ('+proj+')');
-						}, // end success
-						error: function(xhr, textStatus, errorThrown) {
-								error('Request failed. ' +textStatus+ ': ' + errorThrown);
-						}
-			}); // end ajax
-		
+		successMsg = 'project role update ('+proj+')';
+		mapOp(dataString, successMsg);		
 	}); // $(.role).bind
 	
 	$('.delete').click(function() {
 		map_id_arr = $(this).attr('id').split('_');
 		map_id = map_id_arr[1];
 		dataString = 'action=deleteRole'+'&map_id='+map_id;
-		$.ajax({
-						 type: 'post',
-						 dataType: 'json',
-						 url: 'data/user.php',
-						 data: dataString,
-						 success: function(data) {
-								 finish(data, 'project role deletion');
-						}, // end success
-						error: function(xhr, textStatus, errorThrown) {
-								error('Request failed. ' +textStatus+ ': ' + errorThrown);
-						}
-			}); // end ajax
+		successMsg = 'project role deletion';
+		mapOp(dataString, successMsg);
 	}); // $('.delete').click
 	
 });

@@ -34,7 +34,7 @@ function deleteRole($map_id) {
 } // deleteRole
 	
 function updateRole($map_id, $role) {
-	$result = query_update(TABLE_MAP_PROJECT_USER, 'role', '$role', '$map_id');
+	$result = query_update(TABLE_MAP_PROJECT_USER, 'role', $role, $map_id);
 	echo json_encode(array('response'=>$result));
 } // roleUpdate
 	

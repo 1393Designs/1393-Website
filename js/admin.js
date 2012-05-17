@@ -141,9 +141,7 @@ function articleOp(action, id, title, text) {
 				}
 }; // articleOp
 
-function mapOp(action, role, proj_id) {
-				id = $('#user_id').attr('value');
-				dataString = 'action='+action+'&user_id='+id+'&proj_id='+proj_id+'&role='+role;
+function mapOp(action, msg) {
 
 				$.ajax({ 
 							 type: 'post',
@@ -151,7 +149,7 @@ function mapOp(action, role, proj_id) {
 							 url: 'data/user.php',
 							 data: dataString,
 							 success: function(data) {
-								 	finish(data, 'project role update');
+								 	finish(data, msg);
 							}, // end success
 							error: function(xhr, textStatus, errorThrown) {
 								error('Failed to save profile. ' +textStatus+ ': ' + errorThrown);
