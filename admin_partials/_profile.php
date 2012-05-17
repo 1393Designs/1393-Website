@@ -35,8 +35,12 @@ $(function() {
 		height: auto;
 	}
 	
+	#existing_roles {
+		padding-right: 15px;
+		border-right: 2px solid #57527E;
+	}
+	
 	#new_role {
-		border-left: 2px solid #57527E;
 		padding: 0 30px 0 15px;
 	}
 	
@@ -66,7 +70,7 @@ $(function() {
 				
 				
 				<div id="userproject" class="tabbed section">
-					<div class="roles_projects">
+					<div id="existing_roles" class="roles_projects">
 					<h5>Projects you've worked on</h5>
 				
 					<?
@@ -79,6 +83,7 @@ $(function() {
 							<?
 							$counter = 0;
 							foreach ($roles as $r) {
+								$map_id = 0;
 								$proj_name = $r['name'];
 								$proj_id = $r['id'];
 								$proj_role = $r['role'];
@@ -88,6 +93,9 @@ $(function() {
 										<td><?= $proj_name ?></td>
 										<td><input id="role_<?= $counter ?>" value="role_<?= $counter ?>" type="hidden"/>
 												<input id="" class="role" value="<?= $proj_role ?>" type="text"/>
+										</td>
+										<td>
+											<div id="delete_<?= $map_id ?>" class="delete">[x]</div>
 										</td>
 									</tr>
 								<?
