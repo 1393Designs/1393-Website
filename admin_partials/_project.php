@@ -1,3 +1,53 @@
+<script type="text/javascript">
+$(function() {
+
+	$('#projects').bind('change', function() {
+			id = $(this).attr('value');
+			if (id != -1) {
+			dataString = 'action=getProject&id='+id;
+					
+				$.ajax({
+							 type: 'post',
+							 dataType: 'json',
+							 url: 'data/project.php',
+							 data: dataString,
+							 success: function(proj) {
+								$('#edit_proj_name').attr('value', proj.name);
+								$('#edit_proj_purpose').attr('value', proj.purpose);
+								$('#edit_proj_blurb').attr('value', proj.blurb);
+								$('#edit_proj_details').attr('value', proj.details);
+								$('#edit_proj_slug').attr('value', proj.slug);
+							}, // end success
+							error: function(xhr, textStatus, errorThrown) {
+									error('Failed to get project. ' +textStatus+ ': ' + errorThrown);
+							}
+					}); // end ajax
+				}
+		}); // #projects onchange
+	
+	$('#save_proj_bubble').click(function() {
+			id = $('#projects').attr('value');
+			name = $('#edit_proj_name').attr('value').trim();
+			purpose = $('#edit_proj_purpose').attr('value').trim();
+			blurb = $('#edit_proj_blurb').attr('value').trim();
+			details = $('#edit_proj_details').attr('value').trim();
+			slug = $('#edit_proj_slug').attr('value').trim();
+			projectOp('saveProject', id, name, purpose, blurb, details, slug);	
+	});
+	
+	$('#create_proj_bubble').click(function() {
+			id = '0'; // projectOp requires this
+			name = $('#app_name').val().trim();
+			purpose = $('#app_purpose').val().trim();
+			blurb = $('#app_blurb').val().trim();
+			details = $('#app_details').val().trim();
+			slug = $('#app_slug').val().trim();
+			projectOp('createProject', id, name, purpose, blurb, details, slug);	
+	}); // create project
+
+});
+
+</script>
 
 				<div class="tabs">
 					<h3 id="createapp_tab" class="tab active_tab">Add a Project</h3>

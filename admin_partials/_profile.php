@@ -1,6 +1,16 @@
 <script>
 
 $(function() {
+	
+	$('#save_profile_bubble').click(function() {
+		text = $('#profile').val().trim();
+		user_blurb = $('#user_blurb').val().trim();
+		profileOp('saveProfile', text, user_blurb);
+	}); // edit profile
+	
+	$('#add_role_bubble').click(function() {
+	
+	}); // add role
 
 	$('#new_role_bubble').click(function() {
 		id = $('#roles_select').attr('value');
@@ -12,31 +22,44 @@ $(function() {
 		}
 	}); // #new_role_bubble
 	
-	$('#save_roles_bubble').click(function() {
-	
-	}); // #save_roles_bubble
-	
 	$('.role').bind('change', function() {
 		map_id = $(this).siblings('.map_id').attr('value');
 		role = $(this).attr('value').trim();
+		proj = $(this).siblings('.proj_name').attr('value');
 		dataString = 'action=updateRole'+'&map_id='+map_id+'&role='+role;
-		alert(dataString);
+		
 		$.ajax({
 						 type: 'post',
 						 dataType: 'json',
 						 url: 'data/user.php',
 						 data: dataString,
 						 success: function(data) {
-								 finish(data, 'project role update');
+								 finish(data, 'project role update ('+proj+')');
 						}, // end success
 						error: function(xhr, textStatus, errorThrown) {
 								error('Request failed. ' +textStatus+ ': ' + errorThrown);
 						}
 			}); // end ajax
 		
-		
-		
 	}); // $(.role).bind
+	
+	$('.delete').click(function() {
+		map_id_arr = $(this).attr('id').split('_');
+		map_id = map_id_arr[1];
+		dataString = 'action=deleteRole'+'&map_id='+map_id;
+		$.ajax({
+						 type: 'post',
+						 dataType: 'json',
+						 url: 'data/user.php',
+						 data: dataString,
+						 success: function(data) {
+								 finish(data, 'project role deletion');
+						}, // end success
+						error: function(xhr, textStatus, errorThrown) {
+								error('Request failed. ' +textStatus+ ': ' + errorThrown);
+						}
+			}); // end ajax
+	}); // $('.delete').click
 	
 });
 
@@ -62,7 +85,6 @@ $(function() {
 				
 				<div id="userproject" class="tabbed section">
 					<div id="existing_roles" class="roles_projects">
-					<div id="save_roles_bubble" class="op">Save</div>
 					
 					<h5>Projects you've worked on</h5>
 					<?
@@ -82,7 +104,9 @@ $(function() {
 								?>
 									<tr>
 										<td><?= $proj_name ?></td>
-										<td><input class="map_id" value="<?= $map_id ?>" type="hidden"/>
+										<td>
+												<input class="proj_name" value="<?= $proj_name ?>" type="hidden"/>
+												<input class="map_id" value="<?= $map_id ?>" type="hidden"/>
 												<input class="role" value="<?= $proj_role ?>" type="text"/>
 										</td>
 										<td>

@@ -20,16 +20,21 @@
 		case 'newRole':
 			newRole($_POST['user_id'], $_POST['proj_id'], $_POST['role']);
 			break;
-		case 'roleUpdate':
-			roleUpdate($_POST['map_id'], $_POST['role']);
+		case 'updateRole':
+			updateRole($_POST['map_id'], $_POST['role']);
+			break;
+		case 'deleteRole':
+			deleteRole($_POST['map_id']);
 			break;
 	}
 	
-function roleUpdate($map_id, $role) {
-	//$result = query_update(TABLE_MAP_PROJECT_USER, 'role', '$role', '$map_id');	
-	$query = "SET role='$role'";
-	$result = query_update_specific(TABLE_MAP_PROJECT_USER, $query, $map_id);
+function deleteRole($map_id) {
+	$result = query_delete(TABLE_MAP_PROJECT_USER, $map_id);
+	echo json_encode(array('response'=>$result));
+} // deleteRole
 	
+function updateRole($map_id, $role) {
+	$result = query_update(TABLE_MAP_PROJECT_USER, 'role', '$role', '$map_id');
 	echo json_encode(array('response'=>$result));
 } // roleUpdate
 	
