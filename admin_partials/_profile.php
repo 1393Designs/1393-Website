@@ -110,7 +110,7 @@ $(function() {
 												<input class="role" value="<?= $proj_role ?>" type="text"/>
 										</td>
 										<td>
-											<div id="delete_<?= $map_id ?>" class="delete">[x]</div>
+											<div id="delete_<?= $map_id ?>" class="delete">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 										</td>
 									</tr>
 								<?

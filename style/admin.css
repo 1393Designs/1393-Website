@@ -153,9 +153,9 @@ h5 {
 }
 
 .roles_projects {
-	min-height: 50px;
+	min-height: 20px;
 	float: left;
-	width: 46%;
+	width: 40%;
 }
 
 #existing_roles {
@@ -166,5 +166,25 @@ h5 {
 #new_role {
 	padding: 0 0px 0 15px;
 	margin: 0px auto;
-	width: 50%;
+	width: 56%;
+}
+
+#existing_roles table {
+	padding: 0 0 0 10px;
+}
+
+.delete {
+	margin: 0;
+	cursor: pointer;
+	background: transparent url('../images/icons_module.png') no-repeat 0 0;
+	display: inline;
+	height: 16px;
+	 width: 20px;
+	vertical-align: text-top;
+	overflow: hidden;
+	background-position: 3px -150px;
+}
+
+.delete:hover {
+	background-position: -22px -150px;
 }
