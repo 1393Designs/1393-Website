@@ -135,4 +135,23 @@ function articleOp(action, id, title, text) {
 				}
 }; // articleOp
 
+function mapOp(action, role, proj_id) {
+				id = $('#user_id').attr('value');
+				dataString = 'action='+action+'&user_id='+id+'&project_id='+text+'&role='+role;
+				alert(dataString);
+				$.ajax({ 
+							 type: 'post',
+							 dataType: 'json',
+							 url: 'data/user.php',
+							 data: dataString,
+							 success: function(data) {
+								 	finish(data, 'project role update');
+							}, // end success
+							error: function(xhr, textStatus, errorThrown) {
+								error('Failed to save profile. ' +textStatus+ ': ' + errorThrown);
+							}
+					});
+}; // mapOp
+
+
 </script>

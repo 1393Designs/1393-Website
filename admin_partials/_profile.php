@@ -6,13 +6,12 @@ $(function() {
 		id = $(this).attr('value');
 		if (id != -1) { // user has selected a project
 				role = $('#new_proj_role').attr('value').trim();
-	//				profileOp(id, role);
-			
+				map('newRole', role, id);
 		} else {
 			// user has not selected a project
 		}
 	});
-
+	
 });
 
 </script>
@@ -22,8 +21,13 @@ $(function() {
 		margin: 2px 0;
 	}
 	
+	.section.op {
+		float: right;
+	}
+	
 	#save_roles_bubble {
-		margin-top: -55px;
+		margin-top: 0;
+		float: right;
 	}
 	
 	.text {
@@ -31,6 +35,16 @@ $(function() {
 		height: auto;
 	}
 	
+	#new_role {
+		border-left: 2px solid #57527E;
+		padding: 0 30px 0 15px;
+	}
+	
+	.roles_projects {
+		width: 390px;
+		min-height: 70px;
+		float: left;
+	}
 </style>
 
 
@@ -52,7 +66,7 @@ $(function() {
 				
 				
 				<div id="userproject" class="tabbed section">
-					
+					<div class="roles_projects">
 					<h5>Projects you've worked on</h5>
 				
 					<?
@@ -85,35 +99,22 @@ $(function() {
 						}
 					
 					?>
-					<br><br>
-					<div id="new_role">
+					</div> <!-- end .curr_projects -->
+					
+					<div id="new_role" class="roles_projects">
 					
 						<h5>Add yourself to a project</h5>
 						<div class="text">
 					
 							<select name="projects" id="roles_select">
-								<option value="-1" disabled selected>Select project</option>
-								<?
-							
-								$projects = getProjects();
-								
-								foreach ($projects as $p) {
-									$name = $p['name'];
-									$id = $p['id'];
-								?>
-									<option value="<?= $id ?>"><?= $name ?></option>
-								<?							
-									
-								}
-							
-								?>
+							<? include('util/_project_select.php');	?>
 							</select>
 						
 							<input id="new_proj_role" type="text" placeholder="What was your role?"/>
 					</div><!-- end .text -->
-					
-					<div id="save_roles_bubble" class="op">Save</div>
 						
-					</div><!-- end #new_role -->
-					
-				</div><!-- end #userproject -->
+				</div><!-- end #new_role -->
+				
+			<div id="save_roles_bubble" class="op">Save</div>
+				
+		</div><!-- end #userproject -->

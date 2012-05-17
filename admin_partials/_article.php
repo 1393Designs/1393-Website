@@ -21,17 +21,7 @@
 				<div id="editpost" class="tabbed section" style="display:none">
 				
 					<select name="posts" id="posts">
-						<option value="-1" disabled selected>Select post</option>
-					<?
-						$articles = getArticles();
-						
-						foreach ($articles as $a) {
-							$name = $a['title'];
-							$id = $a['id'];
-							
-						?>
-							<option value="<?= $id ?>"><?= $name ?></option>
-						<?	}  ?>
+					<? include('util/_article_select.php'); ?>
 					</select>				
 					<table>
 							<tr>
@@ -49,17 +39,7 @@
 			<div id="deletepost" class="tabbed section" style="display:none">
 				
 					<select id="delete_posts_select" name="posts" class="float_select">
-						<option value="-1" disabled selected>Select post</option>
-					<?
-						$articles = getArticles();
-						
-						foreach ($articles as $a) {
-							$name = $a['title'];
-							$id = $a['id'];
-							
-						?> <option value="<?= $id ?>"><?= $name ?></option>
-						
-						<?	}  ?>
+					<? include('util/_article_select.php'); ?>
 					</select>
 					<div id="delete_post_bubble" class="op">Delete</div>
 				</div>

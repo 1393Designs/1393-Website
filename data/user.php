@@ -17,7 +17,14 @@
 		case 'getRoles':
 			getRoles($_POST['id']);
 			break;
+		case 'newRole':
+			newRole($_POST['user_id'], $_POST['project_id'], $_POST['role']);
+			break;
 	}
+	
+function newRole($user_id, $proj_id, $role) {
+
+} // newRole
 	
 function getRoles($id) {
 

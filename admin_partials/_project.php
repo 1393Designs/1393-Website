@@ -30,20 +30,7 @@
 				<div id="editapp" class="tabbed section" style="display:none">
 					
 					<select name="projects" id="projects">
-						<option value="-1" disabled selected>Select project</option>
-					<?
-						$projects = getProjects();
-						
-						foreach ($projects as $p) {
-							$name = $p['name'];
-							$id = $p['id'];
-						?>
-							<option value="<?= $id ?>"><?= $name ?></option>
-						<?							
-							
-						}
-					
-					?>
+					<? include('util/_project_select.php'); ?>
 					</select>	
 								
 						<table>
