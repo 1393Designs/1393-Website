@@ -22,11 +22,12 @@ $(function() {
 		email = $('#email').attr('value').trim();
 		pass = $('#pass').attr('value').trim();
 		dataString = 'action=login&email='+email+'&pass='+pass;
+		route = window.location + '../../data/user.php';
 		
 		$.ajax({ 
 						 type: 'post',
 						 dataType: 'json',
-						 url: 'data/user.php',
+						 url: route,
 						 data: dataString,
 						 success: function(data) { 
 						 	if (data.result_code) { // will be '1' if valid credentials

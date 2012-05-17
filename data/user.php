@@ -60,9 +60,14 @@ function getRoles($id) {
 function getProfile($id) {
 	$where = "id='$id'";
 	$result = query_select_one('*', TABLE_USER, $where);
+	
+	$user_roles = getRoles($id);
+	include('../util/_user_roles.php');
+	
 	echo json_encode(array(
 			'name'=>stripslashes($result['name']),
 			'bio'=>stripslashes($result['bio']),
+			'roles'=>$roles,
 			'blurb'=>stripslashes($result['blurb']),
 			'slug'=>stripslashes($result['slug']),
 			'img_path'=>stripslashes($result['img_path'])));

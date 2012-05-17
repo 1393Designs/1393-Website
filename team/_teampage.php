@@ -17,6 +17,7 @@ $(function() {
 						$('#user_bio').html(user.bio);
 						$('#user_name').text(user.name);
 						$('#user_blurb').html(user.blurb);
+						$('#user_roles').text(user.roles);
 						if (user.img_path != '') {
 							$('#user_img').attr('src', '../'+user.img_path).show();
 						}
@@ -49,6 +50,9 @@ h4 {
 	
 	<h4>Blurb</h4>
 	<div id="user_blurb" class="prof"></div>
+	
+	<h4>Projects</h4>
+	<div id="user_roles" class="prof"></div>
 	
 	<h4>Bio</h4>
 	<div id="user_bio" class="prof"></div>

@@ -14,7 +14,15 @@
 		case 'saveProject':
 			saveProject($_POST['id'], $_POST['name'], $_POST['purpose'], $_POST['blurb'], $_POST['details'], $_POST['slug']);
 			break;			
+		case 'deleteProject':
+			deleteProject($_POST['id']);
+			break;
 	}
+	
+	function deleteProject($id) {
+		$result = query_delete(TABLE_PROJECT, $id);
+		echo json_encode(array('response'=>$result));	
+	} // deleteProject
 	
 	function getProject($id) {
 		$result = query_select_one('*', TABLE_PROJECT, "id='$id'");

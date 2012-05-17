@@ -99,7 +99,10 @@ $(function() {
 								} // foreach
 							?>
 							</table>
-							<?	}  ?>
+							<?	} else {  
+								echo "(None)";
+								}
+							?>
 					</div> <!-- end #existing_roles -->
 					
 					

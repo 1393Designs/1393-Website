@@ -44,6 +44,14 @@ $(function() {
 			slug = $('#app_slug').val().trim();
 			projectOp('createProject', id, name, purpose, blurb, details, slug);	
 	}); // create project
+	
+	$('#delete_proj_bubble').click(function() {
+		id = $('#delete_proj_select').attr('value');
+		dataString = 'action=deleteProject&id='+id;
+		msg = 'project deletion';
+		entity = 'project';
+  	action(entity, dataString, msg);
+	}); // delete project
 
 });
 
@@ -52,6 +60,7 @@ $(function() {
 				<div class="tabs">
 					<h3 id="createapp_tab" class="tab active_tab">Add a Project</h3>
 					<h3 id="editapp_tab" class="tab">Edit a Project</h3>
+					<h3 id="deleteproj_tab" class="tab">Delete a Project</h3>
 				</div>
 				
 				<div id="createapp" class="tabbed section">
@@ -75,7 +84,7 @@ $(function() {
 					</table>
 					<textarea id="app_details" placeholder="More app details" rows="5" cols="60" required></textarea>
 					<div id="create_proj_bubble" class="op">Create</div>
-				</div><!-- end .section -->
+				</div><!-- end #createapp -->
 				
 				<div id="editapp" class="tabbed section" style="display:none">
 					
@@ -103,3 +112,12 @@ $(function() {
 						</table>
 						<textarea id="edit_proj_details" placeholder="More app details" rows="5" cols="60" required></textarea>
 						<div id="save_proj_bubble" class="op">Save</div>
+				</div><!-- end #editapp -->
+				
+				
+					<div id="deleteproj" class="tabbed section" style="display:none">
+						<select id="delete_proj_select" class="float_select">
+						<? include('util/_project_select.php'); ?>
+						</select>
+						<div id="delete_proj_bubble" class="op">Delete</div>
+					</div><!-- end #deleteproj -->

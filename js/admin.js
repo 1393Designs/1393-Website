@@ -89,9 +89,26 @@ function projectOp(action, id, name, purpose, blurb, details, slug) {
 						}
 				}); // end ajax
 		} else {
-			alert('Project missing fields.');
+			error('Project missing fields.');
 		}
 }; // projectOp
+
+function action(entity, dataString, msg) {
+	$file = 'data/'+entity+'.php';
+
+	$.ajax({ 
+						 type: 'post',
+						 dataType: 'json',
+						 url: $file,
+						 data: dataString,
+						 success: function(data) {
+						 	finish(data, msg);
+						}, // end success
+						error: function(xhr, textStatus, errorThrown) {
+								error('Failed '+msg+'. ' +textStatus+ ': ' + errorThrown);
+						}
+				}); // end ajax
+} // projectOp
 
 function profileOp(action, text, blurb) {
 	if (text != '') {
@@ -115,7 +132,7 @@ function profileOp(action, text, blurb) {
 			}
 }; // profileOp
 
-function articleOp(action, id, title, text) {
+function articleOp(dataString, id, title, text) {
 		if (action=='createArticle') op = 'post creation';
 		else if (action=='saveArticle') op = 'post update';
 		else if (action=='deleteArticle') op = 'post deletion';
