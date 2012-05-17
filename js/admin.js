@@ -87,10 +87,10 @@ function projectOp(action, id, name, purpose, blurb, details, slug) {
 		}
 }; // projectOp
 
-function profileOp(text, blurb) {
+function profileOp(action, text, blurb) {
 	if (text != '') {
 				id = $('#user_id').attr('value');
-				dataString = 'action=saveProfile&id='+id+'&bio='+text+'&blurb='+blurb;
+				dataString = 'action='+action+'&id='+id+'&bio='+text+'&blurb='+blurb;
 				
 				$.ajax({ 
 							 type: 'post',

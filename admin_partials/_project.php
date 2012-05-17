@@ -7,19 +7,19 @@
 				<div id="createapp" class="tabbed section">
 					<table>
 						<tr>
-							<td>Name</td>
+							<td><h5>Name</h5></td>
 							<td class="fill_parent"><input class="fill_parent" id="app_name" type="text" placeholder="Name foo" required/></td>
 						</tr>
 						<tr>
-							<td>Purpose</td>
+							<td><h5>Purpose</h5></td>
 							<td class="fill_parent"><input class="fill_parent" id="app_purpose" type="text" placeholder="To help people do... (1 - 2 sentences)"/></td>
 						</tr>
 						<tr>
-							<td>Blurb</td>
+							<td><h5>Blurb</h5></td>
 							<td class="fill_parent"><input class="fill_parent" id="app_blurb" type="text" placeholder="Useful for people who ... Does X, Y, Z and allows the user to ... (1-2 sentences)"/></td>
 						</tr>
 						<tr>
-							<td>Slug</td>
+							<td><h5>Slug</h5></td>
 							<td class="fill_parent"><input class="fill_parent" id="app_slug" type="text" placeholder="If page exists, like proj_name.php (no spaces)"/></td>
 						</tr>
 					</table>
@@ -48,19 +48,19 @@
 								
 						<table>
 							<tr>
-								<td>Name</td>
+								<td><h5>Name</h5></td>
 								<td class="fill_parent"><input class="fill_parent" id="edit_proj_name" type="text" placeholder="Name foo" required/></td>
 							</tr>
 							<tr>
-								<td>Purpose</td>
+								<td><h5>Purpose</h5></td>
 								<td class="fill_parent"><input class="fill_parent" id="edit_proj_purpose" type="text" placeholder="Purpose foo" required/></td>
 							</tr>
 							<tr>
-								<td>Blurb</td>
+								<td><h5>Blurb</h5></td>
 								<td class="fill_parent"><input class="fill_parent" id="edit_proj_blurb" type="text" placeholder="Blurb foo" required/></td>
 							</tr>
 							<tr>
-								<td>Slug</td>
+								<td><h5>Slug</h5></td>
 								<td class="fill_parent"><input class="fill_parent" id="edit_proj_slug" type="text" placeholder="If page exists, like proj_name.php (no spaces)"/></td>
 							</tr>
 						</table>

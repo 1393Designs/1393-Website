@@ -8,9 +8,9 @@
 				<div id="newpost" class="tabbed section">
 					<table>
 						<tr>
-							<td>Title</td>
+							<td><h5>Title&nbsp;</h5></td>
 							<td class="fill_parent">
-								<input class="fill_parent" id="blog_title" type="text"placeholder="Title foo" required/>
+								<input id="blog_title" class="fill_parent" type="text"placeholder="Title foo" autofocus />
 							</td>
 						</tr>
 					</table>
@@ -35,7 +35,7 @@
 					</select>				
 					<table>
 							<tr>
-								<td>Title</td>
+								<td><h5>Title&nbsp;</h5></td>
 								<td class="fill_parent">
 									<input class="fill_parent" id="edit_post_title" type="text"placeholder="Title foo"/>
 								</td>

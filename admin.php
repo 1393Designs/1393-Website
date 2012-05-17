@@ -36,7 +36,6 @@ $(function() {
 						}
 				}); // end ajax
 			}
-		
 	}); // #posts.bind(change...)
 	
 	$('#edit_post_bubble').click(function() {
@@ -82,8 +81,14 @@ $(function() {
 	$('#save_profile_bubble').click(function() {
 		text = $('#profile').val().trim();
 		user_blurb = $('#user_blurb').val().trim();
-		profileOp(text, user_blurb);
+		profileOp('saveProfile', text, user_blurb);
 	}); // edit profile
+	
+	$('#add_role_bubble').click(function() {
+	
+		
+	
+	}); // add role
 	
 	$('#save_proj_bubble').click(function() {
 			id = $('#projects').attr('value');
@@ -126,7 +131,7 @@ $(function() {
 		<div class="op"><a href="team.php">Team</a></div>
 		<div class="op"><a href="projects.php">Projects</a></div>
 		<div class="op"><a href="contact.php">Contact</a></div>
-		<h4 style="margin-top:20px;float:right;margin-left;-140px">
+		<h4 style="margin-top:1em;text-align: right; float:right">
 			Welcome, <?= $name ?>
 			<a href="index.php?do=logout">[Logout]</a>
 		</h4>

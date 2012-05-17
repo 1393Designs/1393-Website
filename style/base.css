@@ -44,14 +44,18 @@ h2, h4 {
 	text-shadow: 0 1px 0 #f3f3f3;
 }
 
-h4 {
-	font-size: 1.4em;
-}
-
 h3 {
 	text-align: left;
 	font-weight: normal;    
 	text-shadow: 0 1px 0 #f3f3f3;
+}
+
+h4 {
+	font-size: 1.4em;
+}
+
+h5 {
+	font-size: 1em;
 }
 
 a, a:link {
