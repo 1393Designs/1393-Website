@@ -11,12 +11,8 @@ body {
 	overflow: hidden;
 	min-height: 550px;
 	margin: 10px auto;
-	background: #fff url('../images/bg_v4.png') no-repeat top center;
+	background: #fff url('../images/bg_v2.png') no-repeat top center;
 	background-attachment: fixed;
-}
-
-#bg_img {
-	display: none;
 }
 
 #content {
@@ -25,14 +21,14 @@ body {
 	text-align: left;
 	width: 500px;
 	margin: 0px auto;
-	left: 220px;
+	left: 200px;
 }
 
 #footer {
 	clear: both;
 	padding: 20px 0 0 0;
 	width: 100%;
-	margin: 0px auto;
+	margin: 20px auto;
 	height: 70px;
 	text-align: center;
 	color: #CFCFE8;
@@ -167,7 +163,7 @@ input[type="textarea"], textarea, input[type="email"] {
 	z-index: 999;
 	top: -30px; 
 	padding: 30px;
-	right: 12%;
+	left: 8%;
 }
 
 #content ul {

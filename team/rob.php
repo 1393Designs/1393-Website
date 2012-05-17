@@ -46,7 +46,7 @@ h4 {
 
 </style>
 
-	<input id="user_id" type="hidden" value="<?= 3 ?>"/>
+	<input id="user_id" type="hidden" value="<?= 4 ?>"/>
 
 	<h3 id="user_name"></h3>			
 	

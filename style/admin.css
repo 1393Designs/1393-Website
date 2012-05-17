@@ -1,12 +1,13 @@
 
 #container {
+	margin: 10px auto;
 	min-height: 580px;
+	width: 1200px;
 	background: #fff;
 }
 
 #content {
-	left: 0px;
-	top: 10px;
+	left: 0;
 	width: 1000px;
 	margin: 0px auto;
 }

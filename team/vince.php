@@ -17,6 +17,7 @@ $(function() {
 					 data: dataString,
 					 success: function(user) {
 						$('#user_bio').html(user.bio);
+						$('#user_name').text(user.name);
 						$('#user_blurb').html(user.blurb);						
 						if (user.img_path != '') {
 							$('#user_img').attr('src', '../'+user.img_path).show();
@@ -48,15 +49,15 @@ h4 {
 			
 	<input id="user_id" type="hidden" value="<?= 1 ?>"/>
 
-	<h3>Vince</h3>			
+	<h3 id="user_name"></h3>		
 	
 	<img id='user_img' height="290" style="display: none" />
 	
 	<h4>Blurb</h4>
-	<div id="user_blurb"></div>
+	<div id="user_blurb" class="prof"></div>
 	
 	<h4>Bio</h4>
-	<div id="user_bio"></div>
+	<div id="user_bio" class="prof"></div>
 		
 			
 <? include('../include/footer.php'); ?>

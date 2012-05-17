@@ -35,6 +35,7 @@ function getProfile($id) {
 	$where = "id='$id'";
 	$result = query_select_one('*', TABLE_USER, $where);
 	echo json_encode(array(
+			'name'=>stripslashes($result['name']),
 			'bio'=>stripslashes($result['bio']),
 			'blurb'=>stripslashes($result['blurb']),
 			'slug'=>stripslashes($result['slug']),
