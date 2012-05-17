@@ -2,11 +2,11 @@
 
 $(function() {
 
-	$('#save_roles_bubble').bind('change', function() {
-		id = $(this).attr('value');
+	$('#save_roles_bubble').click(function() {
+		id = $('#roles_select').attr('value');
 		if (id != -1) { // user has selected a project
 				role = $('#new_proj_role').attr('value').trim();
-				map('newRole', role, id);
+				mapOp('newRole', role, id);
 		} else {
 			// user has not selected a project
 		}

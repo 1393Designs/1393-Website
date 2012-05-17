@@ -41,9 +41,7 @@
 	
 		//$vals = "'', '$clean_name', '$clean_purpose', '$clean_blurb', '$clean_details', '$slug', ''"; // note no img by default
 		$vals = "'', '$name', '$purpose', '$blurb', '$details', '$slug', ''"; // note no img by default
-
 		$result = query_insert(TABLE_PROJECT, $vals);
-	
 		echo json_encode(array('response'=>$result));	
 	} // createProject
 

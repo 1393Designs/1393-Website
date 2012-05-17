@@ -18,12 +18,14 @@
 			getRoles($_POST['id']);
 			break;
 		case 'newRole':
-			newRole($_POST['user_id'], $_POST['project_id'], $_POST['role']);
+			newRole($_POST['user_id'], $_POST['proj_id'], $_POST['role']);
 			break;
 	}
 	
 function newRole($user_id, $proj_id, $role) {
-
+	$vals = "'', '$proj_id', '$user_id', '$role'";
+	$result = query_insert(TABLE_MAP_PROJECT_USER, $vals);
+	echo json_encode(array('response'=>$result));
 } // newRole
 	
 function getRoles($id) {

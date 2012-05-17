@@ -137,8 +137,8 @@ function articleOp(action, id, title, text) {
 
 function mapOp(action, role, proj_id) {
 				id = $('#user_id').attr('value');
-				dataString = 'action='+action+'&user_id='+id+'&project_id='+text+'&role='+role;
-				alert(dataString);
+				dataString = 'action='+action+'&user_id='+id+'&proj_id='+proj_id+'&role='+role;
+
 				$.ajax({ 
 							 type: 'post',
 							 dataType: 'json',
