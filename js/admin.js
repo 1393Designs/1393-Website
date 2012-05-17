@@ -132,7 +132,7 @@ function profileOp(action, text, blurb) {
 			}
 }; // profileOp
 
-function articleOp(dataString, id, title, text) {
+function articleOp(id, title, text) {
 		if (action=='createArticle') op = 'post creation';
 		else if (action=='saveArticle') op = 'post update';
 		else if (action=='deleteArticle') op = 'post deletion';
@@ -150,7 +150,7 @@ function articleOp(dataString, id, title, text) {
 								 	finish(data, op);
 								}, // end success
 								error: function(xhr, textStatus, errorThrown) {
-									error('Failed '+op+ '. ' +textStatus+ ': ' + errorThrown);
+									error('Request failed. ' +textStatus+ ': ' + errorThrown);
 								}
 						}); // end ajax
 				} else {

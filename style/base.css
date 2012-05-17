@@ -66,7 +66,11 @@ a:hover {
 }
 
 a:visited {
-	color: #ccc;
+	color: #bbb;
+}
+
+#content a:link {
+	color: #aaa;
 }
 
 .clearfix {
@@ -81,6 +85,10 @@ a:visited {
 	line-height: 1.1em;
 	width: 570px;
 	padding: 15px 4px 10px 4px;
+}
+
+.bio {
+	text-align: left;
 }
 
 .article_preview {

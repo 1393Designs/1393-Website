@@ -7,10 +7,6 @@ $(function() {
 		user_blurb = $('#user_blurb').val().trim();
 		profileOp('saveProfile', text, user_blurb);
 	}); // edit profile
-	
-	$('#add_role_bubble').click(function() {
-	
-	}); // add role
 
 	$('#new_role_bubble').click(function() {
 		proj_id = $('#roles_select').attr('value');
@@ -31,7 +27,11 @@ $(function() {
 		proj = $(this).siblings('.proj_name').attr('value');
 		dataString = 'action=updateRole'+'&map_id='+map_id+'&role='+role;
 		successMsg = 'project role update ('+proj+')';
-		mapOp(dataString, successMsg);		
+		if (role != '') {
+			mapOp(dataString, successMsg);		
+		} else {
+			error('Role must not be empty');
+		}
 	}); // $(.role).bind
 	
 	$('.delete').click(function() {
@@ -67,7 +67,7 @@ $(function() {
 				<div id="userproject" class="tabbed section">
 					<div id="existing_roles" class="roles_projects">
 					
-					<h5>Projects you've worked on</h5>
+					<h5>Past/current projects</h5>
 					<?
 						$roles = getRoles($_SESSION['user_id']);
 						

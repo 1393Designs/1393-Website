@@ -24,18 +24,30 @@ $(function() {
 	
 	$('#edit_post_bubble').click(function() {
 		id = $('#posts').attr('value');		
-		if (id != -1) {
-			title = $('#edit_post_title').val().trim();
-			text = $('#edit_post_content').val().trim();
-			articleOp('saveArticle', id, title, text);
-		}					
-	}); // end #edit_post_button.click
+		title = $('#edit_post_title').val().trim();
+		text = $('#edit_post_content').val().trim();
+		if (id != -1 && title != '' && text != '') {
+			dataString = 'action=saveArticle&content='+text+'&title='+title+'&id='+id;
+			entity = 'article';
+			msg = 'article update';
+			action(entity, dataString, msg);
+		}	else {
+			error('Please fill in all fields');
+		}
+	}); // edit post
 	
 	$('#post').click(function() {
 		id = $('#user_id').attr('value'); // author
 		text = $('#blog').val().trim();
 		title = $('#blog_title').val().trim();
-		articleOp('createArticle', id, title, text);
+		if (title != '' && text != '') {
+			dataString = 'action=createArticle&content='+text+'&title='+title+'&id='+id;
+			entity = 'article';
+			msg = 'article creation';
+			action(entity, dataString, msg);
+		}	else {
+			error('Please fill in all fields');
+		}
 	}); // post article
 	
 	$('#delete_post_bubble').click(function() {

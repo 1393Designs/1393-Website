@@ -47,10 +47,17 @@ $(function() {
 	
 	$('#delete_proj_bubble').click(function() {
 		id = $('#delete_proj_select').attr('value');
-		dataString = 'action=deleteProject&id='+id;
-		msg = 'project deletion';
-		entity = 'project';
-  	action(entity, dataString, msg);
+		if (id != -1) {
+			var c = confirm('Are you sure?');
+			if (c) {	
+				dataString = 'action=deleteProject&id='+id;
+				msg = 'project deletion';
+				entity = 'project';
+				action(entity, dataString, msg);
+			}
+		} else {
+			error('Please select a project');
+		}
 	}); // delete project
 
 });
