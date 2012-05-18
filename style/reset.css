@@ -98,24 +98,29 @@ px      68    160    252    344    436    528    620    712    */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	
-	body {
-		width: 712px;
-		padding: 10px 28px 60px;
-		background: skyblue;
+		body {
+		width: 700px;
+		min-height: 700px;
+		height: 100%;
+		padding: 20px 34px 60px;
+		background: #fff;
 	}
 	
 	#container {
+		overflow: visible;
+		width: 991px;
 		height: 100%;
+		min-height: 500px;
 		margin: 0px auto;
 		background-attachment: static;
-		background: url('../images/small_bg_v2.png') no-repeat top center;
+		background: url('../images/smallmed_bg_v2.png') no-repeat top center;
 	}
 	
 	#content {
 		left: 0;
 		margin-top: 0;
-		top: 350px;
-		min-height: 900px;
+		top: 200px;
+		min-height: 700px;
 		width: 80%;
 		margin: 0px auto;
 	}
@@ -128,16 +133,20 @@ px      68    160    252    344    436    528    620    712    */
 		left: 0;
 		padding: 0;
 		margin: 0px auto;
-		margin-left: 0;
 	}
 	
 	#articles {
 		padding: 0;
-		width: 65%;
+		width: 95%;
 	}
 	
 	.article, .article_preview {
-		width: 90%;
+		width: 100%;
+	}
+		
+	#footer {
+		width: 767px;
+		margin: 0px auto;
 	}
 	
 	#footer {
@@ -163,8 +172,8 @@ px      68    160    252    */
 		width: 252px;
 		min-height: 700px;
 		height: 100%;
-		padding: 20px 34px 60px;        
-		background: #ddd;
+		padding: 20px 34px 60px;
+		background: #fff;
 	}
 	
 	#container {
@@ -180,7 +189,7 @@ px      68    160    252    */
 		margin-top: 0;
 		top: 200px;
 		min-height: 700px;
-		width: 600px;
+		width: 80%;
 		margin: 0px auto;
 	}
 	
@@ -197,6 +206,11 @@ px      68    160    252    */
 	
 	#articles {
 		padding: 0;
+		width: 95%;
+	}
+	
+	.article, .article_preview {
+		width: 100%;
 	}
 		
 	#footer {
@@ -220,26 +234,10 @@ px      68    160    252    344    436    */
 	
 	body {
 		width: 436px;
-		padding: 0px 22px 48px;
+		padding: 10px 22px 48px;
+		background: #fff;
 	}
-	/*
-	#nav {
-        position: static;
-	      margin: 0px auto;  
-        width: 200px;
-      	background: transparent; 
-	  }
-	  
-	  #nav_links {
-	      position: static;
-	  }
-	  
-	  #nav_links li {
-	      float: none;
-	      width: 120px;
-        background: #57527E; 
-	  }	*/
-	  
+	
 	#footer {
 		width: 767px;
 		margin: 50px auto;
