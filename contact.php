@@ -12,8 +12,8 @@ $(function() {
 	
 	$('#send_message').click(function(e) {
 		e.preventDefault();
-		name = $('#name').attr('value').trim();
-		email = $('#email').attr('value').trim();
+		name = $('#user_name').attr('value').trim();
+		email = $('#user_email').attr('value').trim();
 		subject = $('#subject').attr('value').trim();
 		msg = $('#message').attr('value').trim();
 		
@@ -80,11 +80,11 @@ textarea {
 				<table>
 					<tr>
 						<td>Your name</td>
-						<td><input id="name" class="long" type="text" maxlength="255" autofocus /></td>
+						<td><input id="user_name" class="long" type="text" maxlength="255" autofocus /></td>
 					</tr>
 					<tr>
 						<td>Your email</td>
-						<td><input id="email" class="long" type="email" maxlength="255"/></td>
+						<td><input id="user_email" class="long" type="email" maxlength="255"/></td>
 					</tr>
 					<tr>
 						<td>Subject</td>

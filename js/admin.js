@@ -39,6 +39,7 @@ function finish(data, op) {
 	}
 	
 	box = $('#notification');
+	box.stop();
 	t = ($(window).height() + $(window).scrollTop())/2 - 50;
 	box.css({	
 		'left': '10px',

@@ -5,7 +5,6 @@
 	
 	include_once('data/base_config.php');
 	include('data/config.php');
-	include('js/main.js');
 
 ?>
 
@@ -33,7 +32,10 @@
 <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="../../jquery.min.js"></script>
+<script type="text/javascript" src="<?= URL ?>/jquery.min.js"></script>
+
+<?	include('js/main.js'); ?>
+
 </head>
 <body>
 

@@ -19,8 +19,15 @@
 			case 'deleteArticle':
 				deleteArticle($_POST['id']);
 				break;
+			case 'loadMore':
+				loadMore($_POST['after']);
+				break;
 		}	
 } // switch
+
+/*
+*
+*/
 
 	function countMessages() {
 		$result = query_select_one('COUNT(id)', TABLE_CONTACT, "active='1'");
@@ -44,6 +51,9 @@
 		return $str;
 	} // getMessages
 
+/*
+*
+*/
 
 function deleteArticle($id) {
 	$result = query_delete(TABLE_ARTICLE, $id);
@@ -73,16 +83,35 @@ function createArticle($id, $title, $content) {
 		echo json_encode(array('response'=>$result));
 } // end createArticle
 
-	function getRecentArticles() {
-		$str = query_select('*', TABLE_ARTICLE, '1 ORDER BY POST_DATE DESC LIMIT 2');
-		return $str;
-	} // end getRecentArticles
-	
-	function getArticles() {
-		$str = query_select('*', TABLE_ARTICLE, '1 ORDER BY POST_DATE DESC');
-		return $str;
-	} // end getArticles
+function getRecentArticles() {
+	$str = query_select('*', TABLE_ARTICLE, '1 ORDER BY POST_DATE DESC LIMIT 2');
+	return $str;
+} // end getRecentArticles
 
+function getArticles() {
+	$str = query_select('*', TABLE_ARTICLE, '1 ORDER BY POST_DATE DESC');
+	return $str;
+} // end getArticles
+
+function getArticlesForBlog() {
+	$str = query_select('*', TABLE_ARTICLE, '1 ORDER BY POST_DATE DESC LIMIT 8');
+	return $str;
+}
+
+function loadMore($date) {
+	$results = query_select('*', TABLE_ARTICLE, "post_date > '$date' LIMIT 10");	
+	echo json_encode(array('response'=>$results));
+} // loadMore
+	
+	
 
 
 ?>
+
+
+
+
+
+
+
+

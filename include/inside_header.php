@@ -32,19 +32,13 @@
 <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="../../jquery.min.js"></script>
+<script type="text/javascript" src="<?= URL ?>/jquery.min.js"></script>
+
+<?	include('js/main.js'); ?>
+
 </head>
 <body>
 
 <div id="container">
-
-		<div class="big_col" id="col1">
-		<!--
-			<div id="search_box">
-				<input type="search" placeholder="Search"/>
-				<a href="search.php" id="search"></a>
-			</div>
-		-->	
-		</div><!-- end #col1 -->
 		
-		<? include('nav.php'); ?>
+<? include('nav.php'); ?>
