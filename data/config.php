@@ -1,11 +1,10 @@
 <?
-
-	//define("URL", "localhost:8888");
 	
 	include_once('sql.php');
 	include_once('article.php');
 	include_once('project.php');
 	include_once('user.php');
+//include_once('contact.php');
 
 	define("DB_HOST", "localhost");
 	define("DB_USER", "root");
@@ -16,6 +15,7 @@
 	define("TABLE_ARTICLE", "article");
 	define("TABLE_PROJECT", "project");
 	define("TABLE_MAP_PROJECT_USER", "map_project_user");
+	define("TABLE_CONTACT", "contact");
 
 	function db() { // connect with MySQL
 		mysql_connect(DB_HOST, DB_USER, DB_PASS) or die('Error connecting to mysql'.mysql_error());

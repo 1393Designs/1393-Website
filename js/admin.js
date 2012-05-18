@@ -108,7 +108,7 @@ function action(entity, dataString, msg) {
 								error('Failed '+msg+'. ' +textStatus+ ': ' + errorThrown);
 						}
 				}); // end ajax
-} // projectOp
+} // action
 
 function profileOp(action, text, blurb) {
 	if (text != '') {

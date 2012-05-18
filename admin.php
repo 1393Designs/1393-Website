@@ -6,8 +6,6 @@
 	$id = $_SESSION['user_id'];
 	
 	$profile = getBio($email);
-	$bio = $profile['bio'];
-	$user_blurb = $profile['blurb'];
 	
 ?>
 
@@ -42,18 +40,16 @@ $(function() {
 						* Load the content from partials for better visibility/clarity.
 						*/
 				
-				include('admin_partials/_article.php'); ?>
-				
-		</div>
-		<div>	
-		
-			<? include('admin_partials/_profile.php'); ?>
-		
+				include('admin_partials/_article.php'); ?>	
 		</div>
 		<div>
-		
+			<? include('admin_partials/_message.php'); ?>
+		</div>
+		<div>	
+			<? include('admin_partials/_profile.php'); ?>
+		</div>
+		<div>
 			<? include('admin_partials/_project.php'); ?>
-		
 		</div>
 			
 <? include('include/footer.php'); ?>

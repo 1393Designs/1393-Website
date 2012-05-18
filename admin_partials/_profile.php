@@ -46,6 +46,10 @@ $(function() {
 
 </script>
 
+<?
+	$bio = $profile['bio'];
+	$user_blurb = $profile['blurb'];
+?>
 
 				<div class="tabs">
 					<h3 id="editprofile_tab" class="tab active_tab">Edit Profile</h3>
@@ -55,7 +59,7 @@ $(function() {
 				<div id="editprofile" class="tabbed section">
 					<table>
 						<tr>
-							<td>Blurb&nbsp;</td>
+							<td><h5>Blurb&nbsp;</h5></td>
 							<td class="fill_parent"><input id="user_blurb" value="<?= $user_blurb ?>" class="fill_parent" type="text" placeholder="Education/current position, interesting personal fact :)" /></td>
 						</tr>
 					</table>

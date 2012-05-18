@@ -5,6 +5,7 @@
 	
 	include_once('data/base_config.php');
 	include('data/config.php');
+	include('js/main.js');
 
 ?>
 

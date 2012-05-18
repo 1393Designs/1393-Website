@@ -68,7 +68,7 @@ $(function() {
 
 </script>
 
-<div class="tabs">
+				<div class="tabs">
 					<h3 id="newpost_tab" class="tab active_tab">New Blog Post</h3>
 					<h3 id="editpost_tab" class="tab">Edit a Post</h3>
 					<h3 id="deletepost_tab" class="tab">Delete a Post</h3>

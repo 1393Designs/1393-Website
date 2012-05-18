@@ -21,6 +21,18 @@
 				break;
 		}	
 } // switch
+	
+	function getActiveMessages() {
+		$str = '';
+		$str = query_select('*', TABLE_CONTACT, 'active="1" ORDER BY DATE DESC');
+		return $str;
+	} // getMessages
+	
+	function getOldMessages() {
+		$str = '';
+		$str = query_select('*', TABLE_CONTACT, 'active="0" ORDER BY DATE DESC');
+		return $str;
+	} // getMessages
 
 
 function deleteArticle($id) {
