@@ -38,10 +38,10 @@
 <link rel="apple-touch-startup-image" href="images/bg_v2.png" />
 <link rel=icon sizes="57x57" type="image/png" href="images/icon.png">
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
-<link type="text/css" rel="stylesheet" href="style/reset.css"/>
 <link type="text/css" rel="stylesheet" href="style/base.css"/>
 <link type="text/css" rel="stylesheet" href="style/home.css"/>
 <link type="text/css" rel="stylesheet" href="style/nav.css"/>
+<link type="text/css" rel="stylesheet" href="style/reset.css"/>
 <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>

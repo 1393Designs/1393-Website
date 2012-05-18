@@ -36,31 +36,6 @@ $(function() {
 
 <style>
 
-.msg_content {
-	display: none;
-}
-
-.messages .msg_content td {
-	border: 2px solid #57527E;
-	padding: 5px;
-}
-
-.messages {
-	padding: 14px 4px;
-	margin: 0px auto;
-}
-
-.messages td {
-	padding: 2px 5px 2px 0;
-	width: 150px;
-	word-wrap: break-word;
-}
-
-#currmessages a:link, #pastmessages a:link, .messages a:link {
-	text-decoration: underline;
-	color: #57527E;
-}
-
 th {
 	text-align: left;
 	width: 150px;
