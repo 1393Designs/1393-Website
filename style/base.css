@@ -51,8 +51,8 @@ h4 {
 	font-size: 1.4em;
 }
 
-h5 {
-	font-size: 1em;
+h5, th {
+	font-size: 11pt;
 }
 
 a, a:link {
@@ -171,7 +171,7 @@ input[type="textarea"], textarea, input[type="email"] {
 	position: fixed;
 	z-index: 999;
 	top: -30px; 
-	padding: 30px;
+	padding: 28px;
 	left: 8%;
 }
 

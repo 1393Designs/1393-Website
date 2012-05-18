@@ -25,6 +25,7 @@ $(function() {
 
 .msg_content td {
 	border: 2px solid #57527E;
+	padding: !important 5px;
 }
 
 .msg {
@@ -41,7 +42,9 @@ $(function() {
 }
 
 .messages td {
-	padding: 2px 4px;
+	padding: 2px 5px 2px 0;
+	width: 150px;
+	word-wrap: break-word;
 }
 
 #currmessages a:link, #pastmessages a:link, .messages a:link {
@@ -49,11 +52,16 @@ $(function() {
 	color: #57527E;
 }
 
+th {
+	text-align: left;
+	width: 150px;
+}
+
 </style>
 
 	<div class="tabs">
-		<h3 id="currmessages_tab" class="tab active_tab">Messages</h3>
-		<h3 id="pastmessages_tab" class="tab">Past Messages</h3>
+		<h3 id="currmessages_tab" class="tab active_tab">Messages (<?= countMessages(); ?>)</h3>
+		<h3 id="pastmessages_tab" class="tab">Past Messages (<?= countOldMessages(); ?>)</h3>
 	</div>
 	
 		<div id="currmessages" class="tabbed section">
@@ -62,9 +70,17 @@ $(function() {
 			<?
 				$messages = getActiveMessages();
 				
-				if (!empty($messages)) {
-						echo "<table id='messages_table' class='messages'>";
-						foreach ($messages as $m) {
+				if (!empty($messages)) { ?>
+				<table id='messages_table' class='messages'>
+					<thead>
+						<th>Date received</th>
+						<th>From</th>
+						<th>Subject</th>
+						<th>Status</th>
+						<th>Message id</th>
+						<th>View message contents</th>
+					</thead>
+				<?		foreach ($messages as $m) {
 							$id = $m['id'];
 							$from = $m['from_name'];
 							$email = $m['from_email'];
@@ -76,16 +92,14 @@ $(function() {
 							
 								<tr>
 									<td><?= $date ?></td>
-									<td><a href="mailto:<?= $email ?>"><?= $from ?> (<?= $email ?>)</a></td>
+									<td><?= $from ?> (<a href="mailto:<?= $email ?>"><?= $email ?>)</a></td>
 									<td><?= ($subject? $subject : '(No subject)') ?></td>
+									<td><input id="cb_<?= $id ?>" class="msg_cb" type="checkbox"/>&nbsp;We've replied</td>
+									<td><?= $id ?></td>
 									<td id="msg_<?= $id ?>" class="msg">[View]</td>
-									<td>
-										<input id="cb_<?= $id ?>" class="msg_cb" type="checkbox"/>
-										&nbsp;Mark responded
-									</td>
 								</tr>
 								<tr id="content_msg_<?= $id ?>" class="msg_content">
-									<td colspan="3"><?= $msg ?></td>
+									<td colspan="6"><?= $msg ?></td>
 								</tr>							
 							<?
 						}
@@ -105,9 +119,17 @@ $(function() {
 			<?
 				$messages = getOldMessages();
 				
-				if (!empty($messages)) {
-						echo "<table id='messages_table' class='messages'>";
-						foreach ($messages as $m) {
+				if (!empty($messages)) { ?>
+				<table id='messages_table' class='messages'>
+					<thead>
+						<th>Date received</th>
+						<th>From</th>
+						<th>Subject</th>
+						<th>Status</th>
+						<th>Message id</th>
+						<th>View message contents</th>
+					</thead>
+				<?		foreach ($messages as $m) {
 							$id = $m['id'];
 							$from = $m['from_name'];
 							$email = $m['from_email'];
@@ -124,14 +146,15 @@ $(function() {
 									<td><?= $from ?> (<?= $email ?>)</td>
 									<td><?= ($subject? $subject : 'No subject') ?></td>
 									<td><? if ($responder) {
-												echo ' -- ' . $responder . ' responded';
+												echo $responder . ' responded';
 											}
 											?>
 									</td>
-									<td id="msg_<?= $id ?>" class="msg">&raquo;</td>
+									<td><?= $id ?></td>
+									<td id="msg_<?= $id ?>" class="msg">[View]</td>
 								</tr>
 								<tr id="content_msg_<?= $id ?>" class="msg_content">
-									<td colspan="4"><?= $msg ?></td>
+									<td colspan="6"><?= $msg ?></td>
 								</tr>
 							
 							<?

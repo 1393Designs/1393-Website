@@ -72,7 +72,7 @@ textarea {
 	
 	<div id="form">
 		
-			<h3>Drop us a line</h3>
+			<h3>Send us a note</h3>
 			<h5>Just fill out this form and we'll get back to you!</h5>
 			<br>
 			

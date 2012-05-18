@@ -21,6 +21,16 @@
 				break;
 		}	
 } // switch
+
+	function countMessages() {
+		$result = query_select_one('COUNT(id)', TABLE_CONTACT, "active='1'");
+		return $result['COUNT(id)'];	
+	} // countMessages
+
+	function countOldMessages() {
+		$result = query_select_one('COUNT(id)', TABLE_CONTACT, "active='0'");
+		return $result['COUNT(id)'];	
+	} // countOldMessages
 	
 	function getActiveMessages() {
 		$str = '';
