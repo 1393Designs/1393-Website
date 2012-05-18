@@ -14,6 +14,20 @@ $(function() {
 		action('contact', dataString, ' message update');
 	});
 
+	$('.delete_msg_cb').bind('change', function() {
+			id_arr = $(this).attr('id').split('_');
+			id = id_arr[1];
+			dataString = 'action=deleteMsg&id='+id;
+			action('contact', dataString, ' message deletion');
+		});
+	
+	$('.reactivate_msg_cb').bind('change', function() {
+			id_arr = $(this).attr('id').split('_');
+			id = id_arr[1];
+			dataString = 'action=activateMsg&id='+id;
+			action('contact', dataString, ' message update');
+		});
+
 });
 </script>
 
@@ -25,15 +39,6 @@ $(function() {
 
 .msg_content td {
 	border: 2px solid #57527E;
-}
-
-.msg {
-	cursor: pointer;
-}
-
-.msg:hover {
-	font-weight: bold;
-	color: #57527E;
 }
 
 .messages {
@@ -64,11 +69,13 @@ td.center, th.center {
 
 	<div class="tabs">
 		<h3 id="currmessages_tab" class="tab active_tab">Messages (<?= countMessages(); ?>)</h3>
-		<h3 id="pastmessages_tab" class="tab">Past Messages (<?= countOldMessages(); ?>)</h3>
+		<h3 id="pastmessages_tab" class="tab">Past Messages</h3>
 	</div>
 	
 		<div id="currmessages" class="tabbed section">
 			<h5>Messages awaiting responses</h5>
+			Pro Tip:&nbsp;&nbsp;Mark messages to which we've replied or want to ignore as inactive
+			 so they move into 'past messages'
 			
 			<?
 				$messages = getActiveMessages();
@@ -79,9 +86,9 @@ td.center, th.center {
 						<th>Date received</th>
 						<th>From</th>
 						<th>Subject</th>
-						<th>Status</th>
+						<th class="center">Status</th>
 						<th class="center">Message id</th>
-						<th class="center">View message contents</th>
+						<th class="center">View contents</th>
 					</thead>
 				<?		foreach ($messages as $m) {
 							$id = $m['id'];
@@ -97,7 +104,9 @@ td.center, th.center {
 									<td><?= $date ?></td>
 									<td><?= $from ?> (<a href="mailto:<?= $email ?>"><?= $email ?>)</a></td>
 									<td><?= ($subject? $subject : '(No subject)') ?></td>
-									<td><input id="cb_<?= $id ?>" class="msg_cb" type="checkbox"/>&nbsp;We've replied</td>
+									<td class="center">
+										<input id="cb_<?= $id ?>" class="msg_cb" type="checkbox"/>&nbsp;Mark inactive
+									</td>
 									<td class="center"><?= $id ?></td>
 									<td id="msg_<?= $id ?>" class="msg center"><div class="eye">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td>
 								</tr>
@@ -117,7 +126,7 @@ td.center, th.center {
 		
 		
 		<div id="pastmessages" class="tabbed section" style="display:none">
-			<h5>Messages that have been responded to</h5>
+			<h5>Inactive (replied to/ignored) messages (<?= countOldMessages(); ?>)</h5>
 			
 			<?
 				$messages = getOldMessages();
@@ -128,11 +137,13 @@ td.center, th.center {
 						<th>Date received</th>
 						<th>From</th>
 						<th>Subject</th>
-						<th>Status</th>
+						<th class="center">Reactivate</th>
+						<th class="center">Delete</th>
 						<th class="center">Message id</th>
-						<th class="center">View message contents</th>
+						<th class="center">View contents</th>
 					</thead>
-				<?		foreach ($messages as $m) {
+					<?		
+						foreach ($messages as $m) {
 							$id = $m['id'];
 							$from = $m['from_name'];
 							$email = $m['from_email'];
@@ -148,12 +159,17 @@ td.center, th.center {
 									<td><?= $date ?></td>
 									<td><?= $from ?> (<?= $email ?>)</td>
 									<td><?= ($subject? $subject : 'No subject') ?></td>
-									<td><? if ($responder) { echo $responder . ' responded'; } ?></td>
+									<td class="center">
+										<input id="cb_<?= $id ?>" class="reactivate_msg_cb" type="checkbox"/>&nbsp;Mark active
+									</td>
+									<td class="center">
+										<input id="cb_<?= $id ?>" class="delete_msg_cb" type="checkbox"/>&nbsp;Delete
+									</td>
 									<td class="center"><?= $id ?></td>
 									<td id="msg_<?= $id ?>" class="msg center"><div class="eye">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td>
 								</tr>
 								<tr id="content_msg_<?= $id ?>" class="msg_content">
-									<td colspan="6"><?= $msg ?></td>
+									<td colspan="7"><?= $msg ?></td>
 								</tr>
 							
 							<?

@@ -13,9 +13,24 @@
 			case 'msgCompleted':
 				msgCompleted($_POST['id']);
 				break;
+			case 'deleteMsg':
+				deleteMsg($_POST['id']);
+				break;
+			case 'activateMsg':
+				activateMsg($_POST['id']);
 		}
 		
 	} // switch
+	
+	function activateMsg($id) {
+		$result = query_update(TABLE_CONTACT, 'active', '1', $id);
+		echo json_encode(array('response'=>$result));
+	} // activateMsg
+	
+	function deleteMsg($id) {
+		$result = query_delete(TABLE_CONTACT, $id);
+		echo json_encode(array('response'=>$result));	
+	} // deleteMsg
 	
 	function msgCompleted($id) {
 		$result = query_update(TABLE_CONTACT, 'active', '0', $id);
