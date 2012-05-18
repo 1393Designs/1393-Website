@@ -20,7 +20,7 @@
 				deleteArticle($_POST['id']);
 				break;
 			case 'loadMore':
-				loadMore($_POST['after']);
+				loadMore($_POST['before']);
 				break;
 		}	
 } // switch
@@ -94,16 +94,36 @@ function getArticles() {
 } // end getArticles
 
 function getArticlesForBlog() {
-	$str = query_select('*', TABLE_ARTICLE, '1 ORDER BY POST_DATE DESC LIMIT 8');
-	return $str;
+	$results = query_select('*', TABLE_ARTICLE, '1 ORDER BY POST_DATE DESC LIMIT 8');
+	return parseTimestamps($results);
 } // getArticlesForBlog
 
-function loadMore($date) {
-	$results = query_select('*', TABLE_ARTICLE, "post_date > '$date' ORDER BY POST_DATE DESC LIMIT 10");	
-	echo json_encode(array('response'=>$results));
+function loadMore($before) {
+	//$before = '2012-12-17';
+	$query = " post_date < '$before' ORDER BY POST_DATE DESC LIMIT 10";
+	$res = query_select('*', TABLE_ARTICLE, $query);
+	$results = parseTimestamps($res);
+	echo json_encode(array('response'=>$results, 'query'=>$query));
 } // loadMore
 	
-	
+function parseTimestamps($articles) {
+	$output = array();
+	foreach ($articles as $a) {
+			$article = array();
+			$article = array_merge($article, $a);
+			
+			$date = $a['post_date'];			
+			$article['weekday'] = date('D', strtotime($date));
+			$article['month'] = date('M', strtotime($date));
+			$article['day'] = date('d', strtotime($date));
+			$article['timestamp'] = date('h:i a', strtotime($date));
+			$article['before'] = date('Y-m-d', strtotime($date));
+			$output[] = $article;
+	}//each
+
+	return $output;
+
+}
 
 
 ?>
