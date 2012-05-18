@@ -25,7 +25,7 @@
 #articles {
 	padding: 60px 0 0 0;
 	width: 460px;				
-	height: 400px;
+	min-height: 400px;
 }
 
 #footer {
