@@ -63,6 +63,14 @@ $(function() {
 });
 
 </script>
+<style>
+
+
+.edits {
+	padding: 14px 4px 0 0;
+}
+
+</style>
 
 				<div class="tabs">
 					<h3 id="createapp_tab" class="tab active_tab">Add a Project</h3>
@@ -71,7 +79,9 @@ $(function() {
 				</div>
 				
 				<div id="createapp" class="tabbed section">
-					<table>
+				Note: To create a page for a project, you'll need to manually copy over template code (~3 lines). 
+				Check out an existing projects page or talk to Kim for details
+					<table class="edits">
 						<tr>
 							<td><h5>Name</h5></td>
 							<td class="fill_parent"><input class="fill_parent" id="app_name" type="text" placeholder="Name foo" required/></td>
@@ -99,7 +109,7 @@ $(function() {
 					<? include('util/_project_select.php'); ?>
 					</select>	
 								
-						<table>
+						<table class="edits">
 							<tr>
 								<td><h5>Name</h5></td>
 								<td class="fill_parent"><input class="fill_parent" id="edit_proj_name" type="text" placeholder="Name foo" required/></td>

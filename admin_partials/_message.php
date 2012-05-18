@@ -15,10 +15,13 @@ $(function() {
 	});
 
 	$('.delete_msg_cb').bind('change', function() {
-			id_arr = $(this).attr('id').split('_');
-			id = id_arr[1];
-			dataString = 'action=deleteMsg&id='+id;
-			action('contact', dataString, ' message deletion');
+			var c = confirm('Are you sure?');
+			if (c) {
+				id_arr = $(this).attr('id').split('_');
+				id = id_arr[1];
+				dataString = 'action=deleteMsg&id='+id;
+				action('contact', dataString, ' message deletion');
+			}
 		});
 	
 	$('.reactivate_msg_cb').bind('change', function() {
@@ -37,12 +40,14 @@ $(function() {
 	display: none;
 }
 
-.msg_content td {
+.messages .msg_content td {
 	border: 2px solid #57527E;
+	padding: 5px;
 }
 
 .messages {
-	padding: 14px 0 0 10px;
+	padding: 14px 4px;
+	margin: 0px auto;
 }
 
 .messages td {
@@ -103,7 +108,7 @@ td.center, th.center {
 								<tr>
 									<td><?= $date ?></td>
 									<td><?= $from ?> (<a href="mailto:<?= $email ?>"><?= $email ?>)</a></td>
-									<td><?= ($subject? $subject : '(No subject)') ?></td>
+									<td><?= ($subject? $subject : 'No subject') ?></td>
 									<td class="center">
 										<input id="cb_<?= $id ?>" class="msg_cb" type="checkbox"/>&nbsp;Mark inactive
 									</td>

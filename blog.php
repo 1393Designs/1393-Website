@@ -11,13 +11,10 @@ $(function() {
 
 	$('#blog_tab').activate();
 	
-	$('#load_more').click(function() {
+	$('#load_more').bind('click', function() {
 		after = $('#last').attr('value');
 		dataString = 'action=loadMore&after="'+after+'"';
-		articles = action('article', dataString);
-		
-		//$('#blog_articles').append(articles);
-	
+		action('article', dataString);	
 	});// load_more	
 
 });
@@ -30,6 +27,8 @@ function renderPosts(obj) {
 		$(val).each(function(k, v) {
 			title = v.title;
 			text = v.content;
+			author = v.author;
+			date = v.post_date;			
 			
 			el = $('<div class="article"/>')
 			.html('<div class="heavy_purple">'+title+'</div>'+text);
@@ -39,7 +38,7 @@ function renderPosts(obj) {
 		});
 	});
 
-};
+}; // renderPosts
 
 </script>
 

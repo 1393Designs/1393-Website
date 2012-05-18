@@ -96,10 +96,10 @@ function getArticles() {
 function getArticlesForBlog() {
 	$str = query_select('*', TABLE_ARTICLE, '1 ORDER BY POST_DATE DESC LIMIT 8');
 	return $str;
-}
+} // getArticlesForBlog
 
 function loadMore($date) {
-	$results = query_select('*', TABLE_ARTICLE, "post_date > '$date' LIMIT 10");	
+	$results = query_select('*', TABLE_ARTICLE, "post_date > '$date' ORDER BY POST_DATE DESC LIMIT 10");	
 	echo json_encode(array('response'=>$results));
 } // loadMore
 	
