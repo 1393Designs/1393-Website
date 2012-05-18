@@ -18,6 +18,8 @@ $(function() {
 		msg = $('#message').attr('value').trim();
 		
 		if (name != '' && email != '' && msg != '') {
+			if (isValidEmail(email)) {
+		
 				dataString = 'action=message&from_name='+name+'&from_email='+email+'&subject='+subject+'&content='+msg;
 				action('contact', dataString);
 				
@@ -25,7 +27,9 @@ $(function() {
 					$(this).html('<h3>Thanks for reaching out!</h3>We\'ll get back to you shortly.');
 					$(this).fadeTo('slow', 1);
 				});
-				
+			} else {
+				alert('Please enter a valid email.');
+			}				
 		} else {
 			alert('Please fill out all fields.');
 		}

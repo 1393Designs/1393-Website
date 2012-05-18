@@ -34,10 +34,14 @@ function capitalize(string) {
 
 </script>
 	
-		<? if (session_is_registered('admin')) { ?>
+		<? if (session_is_registered('admin')) { 
+			$count = countMessages();
+		?>
 			<div id="admin_bubble" class="op">
 				<a href="<?= URL ?>/admin.php">Admin
-				(<span id="msg_counter"><?= countMessages() ?></span>)
+				<? if ($count > 0) { ?>
+				(<span id="msg_counter"><?= $count ?></span>)
+				<? } ?>
 				</a>
 			</div>
 		<? } ?>
