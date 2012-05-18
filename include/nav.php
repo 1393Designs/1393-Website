@@ -37,7 +37,7 @@ function capitalize(string) {
 		<? if (session_is_registered('admin')) { ?>
 			<div id="admin_bubble" class="op">
 				<a href="<?= URL ?>/admin.php">Admin
-				(<?= countMessages() ?>)
+				(<span id="msg_counter"><?= countMessages() ?></span>)
 				</a>
 			</div>
 		<? } ?>

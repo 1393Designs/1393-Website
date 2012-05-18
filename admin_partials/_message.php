@@ -25,7 +25,6 @@ $(function() {
 
 .msg_content td {
 	border: 2px solid #57527E;
-	padding: !important 5px;
 }
 
 .msg {
@@ -38,7 +37,7 @@ $(function() {
 }
 
 .messages {
-	padding: 4px 0 0 10px;
+	padding: 14px 0 0 10px;
 }
 
 .messages td {
@@ -55,6 +54,10 @@ $(function() {
 th {
 	text-align: left;
 	width: 150px;
+}
+
+td.center, th.center {
+	text-align: center;
 }
 
 </style>
@@ -77,8 +80,8 @@ th {
 						<th>From</th>
 						<th>Subject</th>
 						<th>Status</th>
-						<th>Message id</th>
-						<th>View message contents</th>
+						<th class="center">Message id</th>
+						<th class="center">View message contents</th>
 					</thead>
 				<?		foreach ($messages as $m) {
 							$id = $m['id'];
@@ -95,8 +98,8 @@ th {
 									<td><?= $from ?> (<a href="mailto:<?= $email ?>"><?= $email ?>)</a></td>
 									<td><?= ($subject? $subject : '(No subject)') ?></td>
 									<td><input id="cb_<?= $id ?>" class="msg_cb" type="checkbox"/>&nbsp;We've replied</td>
-									<td><?= $id ?></td>
-									<td id="msg_<?= $id ?>" class="msg">[View]</td>
+									<td class="center"><?= $id ?></td>
+									<td id="msg_<?= $id ?>" class="msg center"><div class="eye">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td>
 								</tr>
 								<tr id="content_msg_<?= $id ?>" class="msg_content">
 									<td colspan="6"><?= $msg ?></td>
@@ -126,8 +129,8 @@ th {
 						<th>From</th>
 						<th>Subject</th>
 						<th>Status</th>
-						<th>Message id</th>
-						<th>View message contents</th>
+						<th class="center">Message id</th>
+						<th class="center">View message contents</th>
 					</thead>
 				<?		foreach ($messages as $m) {
 							$id = $m['id'];
@@ -145,13 +148,9 @@ th {
 									<td><?= $date ?></td>
 									<td><?= $from ?> (<?= $email ?>)</td>
 									<td><?= ($subject? $subject : 'No subject') ?></td>
-									<td><? if ($responder) {
-												echo $responder . ' responded';
-											}
-											?>
-									</td>
-									<td><?= $id ?></td>
-									<td id="msg_<?= $id ?>" class="msg">[View]</td>
+									<td><? if ($responder) { echo $responder . ' responded'; } ?></td>
+									<td class="center"><?= $id ?></td>
+									<td id="msg_<?= $id ?>" class="msg center"><div class="eye">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td>
 								</tr>
 								<tr id="content_msg_<?= $id ?>" class="msg_content">
 									<td colspan="6"><?= $msg ?></td>
