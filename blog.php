@@ -62,7 +62,7 @@ function renderPosts(obj) {
 			msg = '<div style="float:right"><h5>No more posts to display</h5></div>';
 			container.append(msg);
 		}
-	}, 1500);
+	}, 800);
 	
 }; // renderPosts
 

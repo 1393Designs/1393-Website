@@ -44,7 +44,7 @@ function finish(data, op) {
 	box.css({	
 		'left': '10px',
 		'top': t,
-		'-zindex': '50'});
+		'z-index': '50'});
 	box.text(msg)
 	.removeClass('error').removeClass('success')
 	.addClass(type)

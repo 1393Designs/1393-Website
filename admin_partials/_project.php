@@ -79,8 +79,7 @@ $(function() {
 				</div>
 				
 				<div id="createapp" class="tabbed section">
-				Note: To create a page for a project, you'll need to manually copy over template code (~3 lines). 
-				Check out an existing projects page or talk to Kim for details
+				Note: Creating a slug does not auto-generate the page
 					<table class="edits">
 						<tr>
 							<td><h5>Name</h5></td>

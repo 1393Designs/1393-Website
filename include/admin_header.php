@@ -30,6 +30,7 @@
 <link rel="stylesheet" media="all" href=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 <link type="text/css" rel="stylesheet" href="style/reset.css"/>
 <link type="text/css" rel="stylesheet" href="style/base.css"/>
