@@ -6,6 +6,13 @@ $(function() {
 		id = $(this).attr('id');
 		$('#content_'+id).toggle();
 	});
+	
+	$('.msg_cb').bind('change', function() {
+		id_arr = $(this).attr('id').split('_');
+		id = id_arr[1];
+		dataString = 'action=msgCompleted&id='+id;
+		action('contact', dataString, ' message update');
+	});
 
 });
 </script>
@@ -71,7 +78,11 @@ $(function() {
 									<td><?= $date ?></td>
 									<td><a href="mailto:<?= $email ?>"><?= $from ?> (<?= $email ?>)</a></td>
 									<td><?= ($subject? $subject : '(No subject)') ?></td>
-									<td id="msg_<?= $id ?>" class="msg">&raquo;</td>
+									<td id="msg_<?= $id ?>" class="msg">[View]</td>
+									<td>
+										<input id="cb_<?= $id ?>" class="msg_cb" type="checkbox"/>
+										&nbsp;Mark responded
+									</td>
 								</tr>
 								<tr id="content_msg_<?= $id ?>" class="msg_content">
 									<td colspan="3"><?= $msg ?></td>
@@ -79,6 +90,8 @@ $(function() {
 							<?
 						}
 					echo "</table>";
+				} else {
+					echo "None";
 				}
 			
 			?>
@@ -95,6 +108,7 @@ $(function() {
 				if (!empty($messages)) {
 						echo "<table id='messages_table' class='messages'>";
 						foreach ($messages as $m) {
+							$id = $m['id'];
 							$from = $m['from_name'];
 							$email = $m['from_email'];
 							$subject = $m['subject'];
@@ -108,16 +122,23 @@ $(function() {
 								<tr>
 									<td><?= $date ?></td>
 									<td><?= $from ?> (<?= $email ?>)</td>
-									<td><?= ($subject? $subject : '(No subject)') ?></td>
-									<td><?= $responder . ' responded' ?></td>
-									<!-- $msg -->
+									<td><?= ($subject? $subject : 'No subject') ?></td>
+									<td><? if ($responder) {
+												echo ' -- ' . $responder . ' responded';
+											}
+											?>
+									</td>
+									<td id="msg_<?= $id ?>" class="msg">&raquo;</td>
+								</tr>
+								<tr id="content_msg_<?= $id ?>" class="msg_content">
+									<td colspan="4"><?= $msg ?></td>
 								</tr>
 							
 							<?
 						}
 					echo "</table>";
 				} else {
-					echo "(None yet)";
+					echo "None";
 				}
 			
 			?>
