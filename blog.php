@@ -38,7 +38,7 @@ function renderPosts(obj) {
 			+'<div class="date"><span class="date_month">'+month+'</span>'
 			+'<span class="date_day">'+day+'</span></div>'
 			+'<div class="heavy_purple">'+title+'</div>'+text
-			+'<p class="details">Post by '+author+ ' on '+weekday+' @ '+timestamp+' </p></div>';
+			+'<p class="details">Posted by '+author+ ' on '+weekday+' @ '+timestamp+' </p></div>';
 			markup += el;	
 	
 			$('#last').attr('value', post.before); // reset so we can load more
