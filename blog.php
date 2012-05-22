@@ -115,7 +115,7 @@ function renderPosts(obj) {
 						<? echo $text ?>
 						<p class="details">Posted by <?= $author ?> on <?= $weekday ?> @ <?= $timestamp ?></p>
 					<?
-						if ($counter == 8) { // if it's the last entry
+						if ($counter == count($articles)) { // if it's the last entry
 							echo "<input id='last' type='hidden' value='$before'/>";
 						}
 					?>

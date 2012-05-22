@@ -25,7 +25,7 @@ function action(entity, dataString) {
 						 url: $file,
 						 data: dataString,
 						 success: function(data) {
-						 		renderPosts(data.response);
+						 		renderPosts(data.response); // for blog
 						}, // end success
 						error: function(xhr, textStatus, errorThrown) {
 								console.log('Request failed. ' +textStatus+ ': ' + errorThrown);
