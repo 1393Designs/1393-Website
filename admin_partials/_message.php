@@ -7,11 +7,12 @@ $(function() {
 		$('#content_'+id).toggle();
 	});
 	
-	$('.msg_cb').bind('change', function() {
+	$('.msg_btn').bind('click', function() {
 		id_arr = $(this).attr('id').split('_');
 		id = id_arr[1];
 		dataString = 'action=msgCompleted&id='+id;
 		action('contact', dataString, ' message update');
+		$(this).parent().parent('tr').fadeOut();
 	});
 
 	$('.delete_msg').bind('click', function() {
@@ -21,15 +22,16 @@ $(function() {
 				id = id_arr[1];
 				dataString = 'action=deleteMsg&id='+id;
 				action('contact', dataString, ' message deletion');
-				$(this).parent().fadeOut();
+				$(this).parent().parent('tr').fadeOut();
 			}
 		});
 	
-	$('.reactivate_msg_cb').bind('change', function() {
+	$('.reactivate_msg_btn').bind('click', function() {
 			id_arr = $(this).attr('id').split('_');
 			id = id_arr[1];
 			dataString = 'action=activateMsg&id='+id;
 			action('contact', dataString, ' message update');
+			$(this).parent().parent('tr').fadeOut();
 		});
 
 });
@@ -86,7 +88,7 @@ td.center, th.center {
 									<td><?= $from ?> (<a href="mailto:<?= $email ?>"><?= $email ?>)</a></td>
 									<td><?= ($subject? $subject : 'No subject') ?></td>
 									<td class="center">
-										<input id="cb_<?= $id ?>" class="msg_cb" type="checkbox"/>&nbsp;Mark inactive
+										<input id="markinactive_<?= $id ?>" class="msg_btn" type="button" value="Mark inactive"/>
 									</td>
 									<td class="center"><?= $id ?></td>
 									<td id="msg_<?= $id ?>" class="msg center"><div class="eye">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td>
@@ -141,7 +143,7 @@ td.center, th.center {
 									<td><?= $from ?> (<?= $email ?>)</td>
 									<td><?= ($subject? $subject : 'No subject') ?></td>
 									<td class="center">
-										<input id="cb_<?= $id ?>" class="reactivate_msg_cb" type="checkbox"/>&nbsp;Mark active
+										<input id="reactivatemsg_<?= $id ?>" class="reactivate_msg_btn" type="button" value="Mark active"/>
 									</td>
 									<td class="center">
 											<div id="deletemsg_<?= $id ?>" class="delete delete_msg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
