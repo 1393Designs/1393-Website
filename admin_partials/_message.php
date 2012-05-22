@@ -14,13 +14,14 @@ $(function() {
 		action('contact', dataString, ' message update');
 	});
 
-	$('.delete_msg_cb').bind('change', function() {
+	$('.delete_msg').bind('click', function() {
 			var c = confirm('Are you sure?');
 			if (c) {
 				id_arr = $(this).attr('id').split('_');
 				id = id_arr[1];
 				dataString = 'action=deleteMsg&id='+id;
 				action('contact', dataString, ' message deletion');
+				$(this).parent().fadeOut();
 			}
 		});
 	
@@ -143,7 +144,7 @@ td.center, th.center {
 										<input id="cb_<?= $id ?>" class="reactivate_msg_cb" type="checkbox"/>&nbsp;Mark active
 									</td>
 									<td class="center">
-										<input id="cb_<?= $id ?>" class="delete_msg_cb" type="checkbox"/>&nbsp;Delete
+											<div id="deletemsg_<?= $id ?>" class="delete delete_msg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 									</td>
 									<td class="center"><?= $id ?></td>
 									<td id="msg_<?= $id ?>" class="msg center"><div class="eye">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td>

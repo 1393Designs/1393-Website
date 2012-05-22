@@ -1,6 +1,6 @@
 <?
 
-	session_start();
+	//session_start();
 	include_once('sql.php');
 
 	switch($_POST['action']) {

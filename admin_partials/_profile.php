@@ -34,11 +34,12 @@ $(function() {
 		}
 	}); // $(.role).bind
 	
-	$('.delete').click(function() {
+	$('.delete_proj').click(function() {
 		map_id_arr = $(this).attr('id').split('_');
 		map_id = map_id_arr[1];
 		dataString = 'action=deleteRole'+'&map_id='+map_id;
 		successMsg = 'project role deletion';
+		$(this).parent().parent('tr').fadeOut();
 		mapOp(dataString, successMsg);
 	}); // $('.delete').click
 	
@@ -95,7 +96,7 @@ $(function() {
 												<input class="role" value="<?= $proj_role ?>" type="text"/>
 										</td>
 										<td>
-											<div id="delete_<?= $map_id ?>" class="delete">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+											<div id="delete_<?= $map_id ?>" class="delete delete_proj">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 										</td>
 									</tr>
 								<?

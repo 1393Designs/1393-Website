@@ -1,6 +1,6 @@
 <?
-	session_start();
-	$_SESSION['sessid'] = $_COOKIE['PHPSESSID'];
+	//session_start();
+	//$_SESSION['sessid'] = $_COOKIE['PHPSESSID'];
 	
 	include_once('../data/base_config.php');
 	include('../data/config.php');
@@ -34,7 +34,7 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="<?= URL ?>/jquery.min.js"></script>
 
-<?	include('js/main.js'); ?>
+<?	include('../js/main.js'); ?>
 
 </head>
 <body>
