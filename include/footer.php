@@ -16,14 +16,14 @@ $(function() {
 		$('#modal').fadeOut();
 	});
 	
-	$('#go').click(function(e) {
-	
-		e.preventDefault();
-		email = $('#email').attr('value').trim();
-		pass = $('#pass').attr('value').trim();
+	$('#go').click(function() {
+		email = $('#email').val();//.trim();
+		pass = $('#pass').val();//.trim();
+		console.log('email is ' + email + ' &pass is '+pass);
+		alert('click');
 		dataString = 'action=login&email='+email+'&pass='+pass;
-		route = window.location + '../../data/user.php';
-		
+		route = '../../data/user.php';
+		alert(dataString + ', and route is ' +route);
 		$.ajax({ 
 						 type: 'post',
 						 dataType: 'json',
@@ -137,7 +137,7 @@ $(function() {
 				<td><input id="email" value="<?= $email ?>" type="email" name="email" required autofocus/></td>
 			</tr>
 			<tr><td>Password:</td><td><input id="pass" value="<?= $pass ?>" type="password" name="pass" required/></td></tr>
-			<tr><td class="center" colspan="2"><input id="go" type="submit" name="login" value="Go"/></td></tr>
+			<tr><td class="center" colspan="2"><input id="go" type="button" name="login" value="Go"/></td></tr>
 		</table>
 	</form>					
 </div><!-- end #login_box -->
