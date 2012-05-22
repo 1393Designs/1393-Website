@@ -19,11 +19,8 @@ $(function() {
 	$('#go').click(function() {
 		email = $('#email').val();//.trim();
 		pass = $('#pass').val();//.trim();
-		console.log('email is ' + email + ' &pass is '+pass);
-		alert('click');
 		dataString = 'action=login&email='+email+'&pass='+pass;
 		route = '../../data/user.php';
-		alert(dataString + ', and route is ' +route);
 		$.ajax({ 
 						 type: 'post',
 						 dataType: 'json',
