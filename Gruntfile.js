@@ -1,4 +1,5 @@
 'use strict';
+
 var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
 var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
@@ -7,6 +8,7 @@ var mountFolder = function (connect, dir) {
 module.exports = function (grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  grunt.loadNpmTasks('grunt-jade');
 
   // configurable paths
   var yeomanConfig = {
@@ -21,6 +23,10 @@ module.exports = function (grunt) {
   grunt.initConfig({
     yeoman: yeomanConfig,
     watch: {
+      jade: {
+       files: 'app/views/{,*/}*.jade',
+       tasks: 'jade reload'
+      },
       coffee: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
         tasks: ['coffee:dist']
@@ -74,6 +80,15 @@ module.exports = function (grunt) {
     open: {
       server: {
         url: 'http://localhost:<%= connect.options.port %>'
+      }
+    },
+    jade: {
+      html: {
+        src: ['app/views/{,*/}*.jade'],
+        dest: 'app/views',
+        options: {
+          client: false
+        }
       }
     },
     clean: {
@@ -264,6 +279,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('server', [
     'clean:server',
+    'jade',
     'coffee:dist',
     'compass:server',
     'livereload-start',
@@ -284,6 +300,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'jshint',
     'test',
+    'jade',
     'coffee',
     'compass:dist',
     'useminPrepare',
@@ -300,4 +317,5 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', ['build']);
+
 };
